@@ -1,0 +1,687 @@
+/* ============================================
+   OUTCOMES SECTION - FIXED MOBILE CAROUSEL
+   Proper Animation | Mobile Responsive | No Crazy Speed
+   ============================================ */
+
+.outcomes-section {
+    position: relative;
+    padding: 80px 0;
+    background: linear-gradient(
+        135deg,
+        #000000 0%,
+        #0a0a0a 50%,
+        #000000 100%
+    );
+    overflow: hidden;
+    isolation: isolate;
+    border-top: 2px solid rgba(201, 162, 39, 0.15);
+    border-bottom: 2px solid rgba(201, 162, 39, 0.15);
+}
+
+.outcomes-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 100%;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(201, 162, 39, 0.03) 0%,
+        transparent 70%
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ============ SECTION HEADER ============ */
+.outcomes-header {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    margin-bottom: 60px;
+    padding: 0 20px;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.outcomes-header h2 {
+    font-size: 3.2rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 15px;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+    letter-spacing: -0.5px;
+}
+
+.outcomes-header h2 .highlight {
+    color: #D4AF37;
+    background: linear-gradient(135deg, #C9A227, #E8D4A2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.outcomes-header p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.75);
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.outcomes-header::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #C9A227, #D4AF37, transparent);
+    margin: 15px auto 0;
+    border-radius: 2px;
+    box-shadow: 0 0 20px rgba(201, 162, 39, 0.4);
+}
+
+/* ============ CAROUSEL WRAPPER ============ */
+.outcomes-wrapper {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    overflow: hidden;
+}
+
+.outcomes-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+    scroll-padding-top: 20px;
+}
+
+.outcomes-container::before,
+.outcomes-container::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    height: calc(100% - 40px);
+    width: 50px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.outcomes-container::before {
+    left: 0;
+    background: linear-gradient(90deg, #000000, transparent);
+}
+
+.outcomes-container::after {
+    right: 0;
+    background: linear-gradient(90deg, transparent, #000000);
+}
+
+/* ============ CAROUSEL TRACK - SINGLE SPEED FOR ALL ============ */
+.outcomes-track {
+    display: flex;
+    gap: 25px;
+    padding: 0;
+    margin: 0;
+    will-change: transform;
+    position: relative;
+    z-index: 2;
+    /* SINGLE SPEED: 120 seconds for all devices */
+    /* This ensures cards move at readable speed everywhere */
+    animation: carousel-scroll 120s linear infinite;
+}
+
+@keyframes carousel-scroll {
+    from {
+        transform: translateX(0px);
+    }
+    to {
+        /* Fixed: 6 cards × (280px + 25px) = 1830px */
+        /* This distance is kept the same for all devices */
+        /* Cards resize, but animation distance stays fixed */
+        transform: translateX(-1830px);
+    }
+}
+
+.outcomes-wrapper:hover .outcomes-track {
+    animation-play-state: paused;
+}
+
+/* ============ INDIVIDUAL CARD ============ */
+.outcome-card {
+    flex-shrink: 0;
+    width: 280px;
+    min-height: 340px;
+    background: rgba(25, 25, 25, 0.6);
+    border: 2px solid rgba(201, 162, 39, 0.6);
+    border-radius: 12px;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 
+        0 0 0 2px rgba(255, 255, 255, 0.4),
+        0 8px 32px rgba(0, 0, 0, 0.4);
+    outline: 1px solid rgba(255, 255, 255, 0.3);
+    outline-offset: 2px;
+}
+
+.outcome-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(201, 162, 39, 0.08), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 1;
+}
+
+.outcome-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+    transition: left 0.6s ease;
+    z-index: 1;
+}
+
+.outcome-card:hover::before {
+    opacity: 1;
+}
+
+.outcome-card:hover::after {
+    left: 100%;
+}
+
+.outcome-card:hover {
+    border-color: #C9A227;
+    box-shadow: 
+        0 12px 48px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(201, 162, 39, 0.25);
+    transform: translateY(-8px);
+    background: rgba(30, 30, 30, 0.7);
+}
+
+.card-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* ============ CARD ICON ============ */
+.card-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, rgba(201, 162, 39, 0.2), rgba(212, 175, 55, 0.1));
+    border: 1.5px solid rgba(201, 162, 39, 0.3);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.card-icon svg {
+    width: 32px;
+    height: 32px;
+    stroke: #C9A227;
+    stroke-width: 1.5;
+    fill: none;
+    transition: all 0.4s ease;
+}
+
+.outcome-card:hover .card-icon {
+    background: linear-gradient(135deg, rgba(201, 162, 39, 0.3), rgba(212, 175, 55, 0.2));
+    border-color: #C9A227;
+    transform: scale(1.08) rotateY(10deg);
+    box-shadow: 0 8px 20px rgba(201, 162, 39, 0.2);
+}
+
+.outcome-card:hover .card-icon svg {
+    stroke: #D4AF37;
+}
+
+/* ============ CARD TITLE ============ */
+.card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 12px;
+    line-height: 1.3;
+    position: relative;
+    z-index: 2;
+}
+
+/* ============ CARD DESCRIPTION ============ */
+.card-description {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.5;
+    margin-bottom: 20px;
+    flex-grow: 1;
+    position: relative;
+    z-index: 2;
+}
+
+/* ============ CARD METRICS ============ */
+.card-metrics {
+    display: flex;
+    gap: 12px;
+    margin-top: auto;
+    position: relative;
+    z-index: 2;
+}
+
+.metric {
+    flex: 1;
+    text-align: center;
+    padding: 12px;
+    background: rgba(201, 162, 39, 0.06);
+    border: 1px solid rgba(201, 162, 39, 0.15);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.outcome-card:hover .metric {
+    background: rgba(201, 162, 39, 0.12);
+    border-color: rgba(201, 162, 39, 0.4);
+}
+
+.metric-value {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #C9A227;
+    display: block;
+    margin-bottom: 3px;
+}
+
+.metric-label {
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.55);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-weight: 600;
+}
+
+/* ============ RESPONSIVE DESIGN ============ */
+
+/* Desktop Large (1440px+) */
+@media (min-width: 1441px) {
+    .outcomes-section {
+        padding: 100px 0;
+    }
+    
+    .outcomes-header {
+        margin-bottom: 70px;
+    }
+    
+    .outcomes-header h2 {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+    }
+    
+    .outcome-card {
+        width: 300px;
+        min-height: 360px;
+        padding: 32px;
+    }
+    
+    .card-title {
+        font-size: 1.3rem;
+    }
+    
+    .card-icon {
+        width: 65px;
+        height: 65px;
+        margin-bottom: 25px;
+    }
+    
+    .card-icon svg {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+/* Desktop (1025px - 1440px) */
+@media (max-width: 1440px) and (min-width: 1025px) {
+    .outcomes-section {
+        padding: 80px 0;
+    }
+    
+    .outcomes-header {
+        margin-bottom: 60px;
+    }
+    
+    .outcomes-header h2 {
+        font-size: 3rem;
+    }
+    
+    .outcome-card {
+        width: 280px;
+        min-height: 340px;
+        padding: 30px;
+    }
+}
+
+/* Tablet (769px - 1024px) */
+@media (max-width: 1024px) {
+    .outcomes-section {
+        padding: 70px 0;
+    }
+    
+    .outcomes-header {
+        margin-bottom: 50px;
+        padding: 0 20px;
+    }
+    
+    .outcomes-header h2 {
+        font-size: 2.5rem;
+        margin-bottom: 12px;
+    }
+    
+    .outcomes-header p {
+        font-size: 0.95rem;
+    }
+    
+    .outcome-card {
+        width: 260px;
+        min-height: 320px;
+        padding: 25px;
+    }
+    
+    .card-title {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+    
+    .card-description {
+        font-size: 0.85rem;
+        margin-bottom: 15px;
+    }
+    
+    .card-icon {
+        width: 55px;
+        height: 55px;
+        margin-bottom: 15px;
+    }
+    
+    .card-icon svg {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .metric-value {
+        font-size: 1.3rem;
+    }
+    
+    .metric-label {
+        font-size: 0.6rem;
+    }
+}
+
+/* Mobile (481px - 768px) - Manual Scroll Mode */
+@media (max-width: 768px) {
+    .outcomes-section {
+        padding: 60px 0;
+    }
+    
+    .outcomes-header {
+        margin-bottom: 40px;
+        padding: 0 15px;
+    }
+    
+    .outcomes-header h2 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+    
+    .outcomes-header p {
+        font-size: 0.9rem;
+    }
+    
+    /* Enable horizontal scrolling with snap behavior */
+    .outcomes-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        padding: 0 12px;
+    }
+    
+    /* Disable auto-animation on mobile */
+    .outcomes-track {
+        animation: none !important;
+        width: auto;
+    }
+    
+    /* Smaller cards for better mobile readability */
+    .outcome-card {
+        flex: 0 0 75%;
+        max-width: 75%;
+        width: auto;
+        min-height: 300px;
+        padding: 20px;
+        scroll-snap-align: center;
+    }
+    
+    .card-title {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+    
+    .card-description {
+        font-size: 0.8rem;
+        margin-bottom: 15px;
+        line-height: 1.4;
+    }
+    
+    .card-icon {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 12px;
+    }
+    
+    .card-icon svg {
+        width: 26px;
+        height: 26px;
+    }
+    
+    .metric {
+        padding: 10px;
+    }
+    
+    .metric-value {
+        font-size: 1.2rem;
+    }
+    
+    .metric-label {
+        font-size: 0.6rem;
+    }
+    
+    .outcomes-container::before,
+    .outcomes-container::after {
+        width: 80px;
+    }
+}
+
+/* Small Mobile (361px - 480px) */
+@media (max-width: 480px) {
+    .outcomes-section {
+        padding: 50px 0;
+    }
+    
+    .outcomes-header {
+        margin-bottom: 35px;
+        padding: 0 15px;
+    }
+    
+    .outcomes-header h2 {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
+    
+    .outcomes-header p {
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+    
+    /* Manual scroll mode: smaller cards */
+    .outcomes-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        padding: 0 10px;
+    }
+    
+    .outcomes-track {
+        animation: none !important;
+        width: auto;
+    }
+    
+    .outcome-card {
+        flex: 0 0 70%;
+        max-width: 70%;
+        width: auto;
+        min-height: 280px;
+        padding: 18px;
+        scroll-snap-align: center;
+    }
+    
+    .card-title {
+        font-size: 0.95rem;
+        margin-bottom: 8px;
+    }
+    
+    .card-description {
+        font-size: 0.75rem;
+        margin-bottom: 12px;
+        line-height: 1.4;
+    }
+    
+    .card-icon {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 12px;
+    }
+    
+    .card-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .metric {
+        padding: 8px;
+    }
+    
+    .metric-value {
+        font-size: 1.1rem;
+    }
+    
+    .metric-label {
+        font-size: 0.55rem;
+    }
+    
+    .outcomes-container::before,
+    .outcomes-container::after {
+        width: 60px;
+    }
+}
+
+/* Extra Small (<360px) */
+@media (max-width: 360px) {
+    .outcomes-section {
+        padding: 45px 0;
+    }
+    
+    .outcomes-header {
+        margin-bottom: 30px;
+        padding: 0 12px;
+    }
+    
+    .outcomes-header h2 {
+        font-size: 1.6rem;
+    }
+    
+    .outcomes-header p {
+        font-size: 0.8rem;
+    }
+    
+    /* CRITICAL: Same animation, even smaller cards */
+    .outcome-card {
+        width: 220px;
+        min-height: 270px;
+        padding: 18px;
+    }
+    
+    .card-title {
+        font-size: 0.9rem;
+    }
+    
+    .card-description {
+        font-size: 0.7rem;
+        line-height: 1.3;
+    }
+    
+    .card-icon {
+        width: 45px;
+        height: 45px;
+        margin-bottom: 10px;
+    }
+    
+    .card-icon svg {
+        width: 22px;
+        height: 22px;
+    }
+}
+
+/* ============ REDUCED MOTION ============ */
+@media (prefers-reduced-motion: reduce) {
+    .outcomes-track {
+        animation: none !important;
+    }
+    
+    .outcome-card,
+    .card-icon {
+        transition: none !important;
+    }
+    
+    .outcome-card:hover {
+        transform: none;
+    }
+}
+
+/* ============ DARK MODE ============ */
+@media (prefers-color-scheme: dark) {
+    .outcomes-section {
+        background: linear-gradient(
+            135deg,
+            #000000 0%,
+            #0a0a0a 50%,
+            #000000 100%
+        );
+    }
+}

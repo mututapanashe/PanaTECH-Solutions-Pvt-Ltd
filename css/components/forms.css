@@ -1,0 +1,601 @@
+/* forms.css - Light forms with golden accents */
+
+/* ===== MODAL FORMS ===== */
+/* forms.css - Light forms with golden accents */
+
+/* ===== MODAL FORMS ===== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    /* REMOVE THIS: display: none; */
+    display: flex; /* ADD THIS - change from none to flex */
+    align-items: center;
+    justify-content: center;
+    z-index: 1004;
+    padding: 20px;
+    opacity: 0; /* ADD THIS */
+    visibility: hidden; /* ADD THIS */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* UPDATE THIS */
+    animation: none; /* REMOVE fadeIn animation */
+}
+
+.modal-overlay.active {
+    opacity: 1; /* ADD THIS */
+    visibility: visible; /* ADD THIS */
+    /* REMOVE: display: flex; (already set above) */
+}
+
+/* ... rest of your forms.css remains the same ... */
+
+.modal-container {
+    background: #ffffff;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.4s ease;
+    border: 2px solid var(--gold);
+}
+
+.modal-header {
+    padding: 25px 30px;
+    border-bottom: 2px solid rgba(201, 162, 39, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, rgba(201, 162, 39, 0.05), rgba(201, 162, 39, 0.02));
+    border-radius: 18px 18px 0 0;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+.modal-header h3 {
+    color: var(--black-900);
+    font-size: 1.8rem;
+    font-weight: var(--font-weight-bold);
+    margin: 0;
+    background: linear-gradient(90deg, var(--black-900), var(--gold));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.modal-close {
+    background: #f8f8f8;
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+    background: var(--gold);
+    color: white;
+    transform: rotate(90deg);
+}
+
+.modal-close svg {
+    stroke-width: 3;
+}
+
+.modal-body {
+    padding: 30px;
+    background: #ffffff;
+}
+
+/* ===== WHATSAPP DEMO MODAL SPECIFIC ===== */
+.whatsapp-options {
+    display: grid;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.whatsapp-option {
+    background: #f8f8f8;
+    border: 2px solid rgba(201, 162, 39, 0.2);
+    border-radius: 15px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.whatsapp-option::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: var(--gold);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.whatsapp-option:hover {
+    border-color: var(--gold);
+    transform: translateX(10px);
+    box-shadow: 0 10px 30px rgba(201, 162, 39, 0.15);
+}
+
+.whatsapp-option:hover::before {
+    opacity: 1;
+}
+
+.option-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, rgba(201, 162, 39, 0.1), rgba(201, 162, 39, 0.05));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 2px solid rgba(201, 162, 39, 0.2);
+}
+
+.option-icon svg {
+    color: var(--gold);
+    fill: var(--gold);
+    width: 28px;
+    height: 28px;
+}
+
+.whatsapp-option:nth-child(1) .option-icon {
+    background: linear-gradient(135deg, rgba(37, 211, 102, 0.1), rgba(37, 211, 102, 0.05));
+    border-color: rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-option:nth-child(1) .option-icon svg {
+    color: #25D366;
+    fill: #25D366;
+}
+
+.option-content h4 {
+    color: var(--black-900);
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    font-weight: var(--font-weight-semibold);
+}
+
+.option-content p {
+    color: var(--gray-600);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.whatsapp-form h4 {
+    color: var(--black-900);
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid rgba(201, 162, 39, 0.2);
+    font-weight: var(--font-weight-bold);
+}
+
+/* ===== ENQUIRY MODAL SPECIFIC ===== */
+.enquiry-modal .modal-container {
+    max-width: 700px;
+}
+
+.enquiry-modal .modal-header {
+    background: linear-gradient(to right, rgba(201, 162, 39, 0.08), rgba(201, 162, 39, 0.03));
+}
+
+.contact-method {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.contact-method label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 10px 20px;
+    background: #f8f8f8;
+    border: 2px solid rgba(201, 162, 39, 0.2);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.contact-method label:hover {
+    border-color: var(--gold);
+}
+
+.contact-method input[type="radio"] {
+    accent-color: var(--gold);
+    width: 18px;
+    height: 18px;
+}
+
+.contact-method span {
+    color: var(--black-900);
+    font-weight: 500;
+}
+
+.contact-method input[type="radio"]:checked + span {
+    color: var(--gold);
+    font-weight: 600;
+}
+
+.contact-method input[type="radio"]:checked ~ span {
+    color: var(--gold);
+}
+
+.file-upload {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 20px;
+    background: #f8f8f8;
+    border: 2px dashed rgba(201, 162, 39, 0.4);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.file-upload:hover {
+    border-color: var(--gold);
+    background: rgba(201, 162, 39, 0.05);
+}
+
+.file-upload input[type="file"] {
+    display: none;
+}
+
+.file-upload span {
+    color: var(--black-900);
+    font-weight: 500;
+    flex: 1;
+}
+
+.file-upload svg {
+    color: var(--gold);
+    stroke-width: 2.5;
+}
+
+/* ===== CONTACT FORM SECTION ===== */
+.contact-form-container {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 40px;
+    border: 2px solid var(--gold);
+    box-shadow: 0 20px 50px rgba(201, 162, 39, 0.1);
+}
+
+.contact-form.glass-effect {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.95));
+    backdrop-filter: none;
+    border: none;
+    padding: 0;
+}
+
+/* ===== FORM ELEMENTS (SHARED) ===== */
+.form-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    color: var(--black-900);
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.form-group label span {
+    color: #ff4d4d;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 16px 20px;
+    background: #f8f8f8;
+    border: 2px solid rgba(201, 162, 39, 0.2);
+    border-radius: 10px;
+    color: var(--black-900);
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(201, 162, 39, 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--gray-500);
+}
+
+.form-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23C9A227' stroke-width='4'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 20px;
+    padding-right: 48px;
+    cursor: pointer;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.input-border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gold);
+    transition: width 0.3s ease;
+}
+
+.form-group input:focus ~ .input-border,
+.form-group select:focus ~ .input-border,
+.form-group textarea:focus ~ .input-border {
+    width: 100%;
+}
+
+/* ===== SUBMIT BUTTONS ===== */
+.submit-btn,
+.modal-body .btn-primary {
+    background: linear-gradient(135deg, var(--gold), #d4af37);
+    color: var(--black-900);
+    border: none;
+    padding: 18px 40px;
+    border-radius: 10px;
+    font-weight: var(--font-weight-semibold);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.submit-btn::before,
+.modal-body .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.6s ease;
+}
+
+.submit-btn:hover::before,
+.modal-body .btn-primary:hover::before {
+    left: 100%;
+}
+
+.submit-btn:hover,
+.modal-body .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(201, 162, 39, 0.3);
+}
+
+.submit-btn svg,
+.modal-body .btn-primary svg {
+    stroke-width: 3;
+    transition: transform 0.3s ease;
+}
+
+.submit-btn:hover svg,
+.modal-body .btn-primary:hover svg {
+    transform: translateX(5px);
+}
+
+/* WhatsApp demo button specific */
+#demoForm .btn-primary {
+    background: linear-gradient(135deg, #25D366, #1DA851);
+}
+
+#demoForm .btn-primary:hover {
+    box-shadow: 0 15px 30px rgba(37, 211, 102, 0.3);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+    .modal-container {
+        max-width: 95%;
+        max-height: 85vh;
+    }
+    
+    .modal-header {
+        padding: 20px;
+    }
+    
+    .modal-header h3 {
+        font-size: 1.5rem;
+    }
+    
+    .modal-body {
+        padding: 20px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .whatsapp-option {
+        padding: 20px;
+        gap: 15px;
+    }
+    
+    .option-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .option-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .option-content h4 {
+        font-size: 1.1rem;
+    }
+    
+    .contact-form-container {
+        padding: 25px;
+    }
+    
+    .contact-method {
+        gap: 10px;
+    }
+    
+    .contact-method label {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+    
+    .submit-btn,
+    .modal-body .btn-primary {
+        padding: 16px 30px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-container {
+        border-radius: 15px;
+    }
+    
+    .modal-header h3 {
+        font-size: 1.3rem;
+    }
+    
+    .modal-close {
+        width: 38px;
+        height: 38px;
+    }
+    
+    .whatsapp-option {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .option-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .contact-form-container {
+        padding: 20px;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 14px 16px;
+        font-size: 16px; /* Prevents iOS zoom */
+    }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ===== FORM VALIDATION STYLES ===== */
+.form-group input:invalid,
+.form-group select:invalid,
+.form-group textarea:invalid {
+    border-color: #ff4d4d;
+}
+
+.form-group input:valid:focus,
+.form-group select:valid:focus,
+.form-group textarea:valid:focus {
+    border-color: var(--gold);
+}
+
+/* Required field indicator */
+.form-group label::after {
+    content: ' *';
+    color: #ff4d4d;
+}
+
+.form-group label:has(+ input:not([required]))::after,
+.form-group label:has(+ select:not([required]))::after,
+.form-group label:has(+ textarea:not([required]))::after {
+    content: '';
+}
+
+/* ===== SCROLLBAR STYLING ===== */
+.modal-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.modal-container::-webkit-scrollbar-thumb {
+    background: var(--gold);
+    border-radius: 4px;
+}
+
+.modal-container::-webkit-scrollbar-thumb:hover {
+    background: #d4af37;
+}

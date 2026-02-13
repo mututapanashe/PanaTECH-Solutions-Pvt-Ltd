@@ -1,0 +1,123 @@
+/* typing.css — refined and subdued styling */
+.typing-bar {
+    /* Restored clean dark gradient background (subtle, professional) */
+    background: linear-gradient(90deg, var(--black), var(--black-900), var(--black));
+    border-top: 2px solid rgba(201,162,39,0.08);
+    border-bottom: 2px solid rgba(201,162,39,0.08);
+    padding: 12px 0;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 6px 22px rgba(3,3,5,0.45);
+    border-radius: 8px;
+    transform: translateZ(0);
+}
+
+/* Subtle shine traversing the bar (very low contrast) */
+.typing-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(201,162,39,0.06), transparent);
+    animation: typing-shine 3.2s linear infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Thin gold accent lines (top + bottom) */
+.typing-bar::after {
+    content: '';
+    position: absolute;
+    inset: 0; /* cover full height so both top and bottom accents render */
+    background-image: linear-gradient(90deg, rgba(201,162,39,0), rgba(201,162,39,0.95), rgba(201,162,39,0)), linear-gradient(90deg, rgba(201,162,39,0), rgba(201,162,39,0.95), rgba(201,162,39,0));
+    background-position: top left, bottom left;
+    background-repeat: no-repeat;
+    background-size: 100% 2px, 100% 2px;
+    opacity: 0.22; /* increase visibility slightly */
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes typing-shine {
+    0% { transform: translateX(-50%); opacity: 0; }
+    20% { opacity: 0.5; }
+    100% { transform: translateX(50%); opacity: 0; }
+}
+
+.typing-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    min-height: 34px;
+    position: relative;
+    z-index: 2; /* place content above the decorative accents */
+}
+
+.typing-text {
+    font-family: var(--font-family-head, 'Poppins', sans-serif);
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: #f8f9fb; /* clean white for readability */
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    min-width: 220px;
+    max-width: 60ch;
+    justify-content: center;
+}
+
+.typing-text-inner {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.typing-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.2em;
+    background: rgba(201,162,39,0.95); /* subtle gold */
+    border-radius: 1px;
+    box-shadow: 0 0 6px rgba(201,162,39,0.18);
+    margin-left: 6px;
+    animation: caret 1s steps(2, end) infinite;
+}
+
+@keyframes caret {
+    50% { opacity: 0; }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .typing-bar { padding: 10px 0; border-radius: 8px; }
+    .typing-content { gap: 10px; flex-direction: column; }
+    .typing-text { font-size: 1rem; min-width: 180px; }
+}
+
+/* Desktop sizing */
+@media (min-width: 769px) {
+    .typing-text { font-size: 1.12rem; }
+}
+
+/* Large desktop */
+@media (min-width: 1200px) {
+    .typing-text { font-size: 1.25rem; }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .typing-bar::before, .typing-cursor { animation: none !important; }
+    .typing-cursor { opacity: 1; }
+}
+
+/* Accessibility: prevent layout shifts */
+.typing-content { contain: layout paint; }
+/* Hover focus micro interaction */
+.typing-bar:hover { transform: translateY(-3px); }
+.typing-bar:focus-within { outline: 2px solid rgba(201,162,39,0.12); }

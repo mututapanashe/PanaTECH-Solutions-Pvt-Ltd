@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="panaTECH - A creative software studio delivering authentic digital solutions through innovation, originality and dynamic technology">
+    <meta name="keywords" content="software company Zimbabwe, web development Zimbabwe, AI automation Zimbabwe, cloud solutions Harare">
+    <title>panaTECH | Creative Software Studio</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Preload hero background images to prevent white flash on landing -->
+    <link rel="preload" as="image" href="images/herofullwidth.webp">
+    <!-- Second slide image is not visible on initial load; use prefetch to fetch it with low priority -->
+    <link rel="prefetch" href="images/worktime.webp" as="image">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/mylogo.webp">
+    <style>
+    /* Prevent fixed navbar from overlapping content */
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    /* Add padding to account for fixed navbar */
+    body {
+        padding-top: 0; /* Fixed elements don't need padding */
+    }
+</style>
+</head>
+<body>
+    <!-- Add this after body tag -->
+<div class="page-wrapper">
+    <!-- Utility Bar (Desktop Only) -->
+    <div class="utility-bar" id="utilityBar">
+        <div class="container">
+            <div class="utility-content">
+                <div class="utility-left">
+                    <button class="utility-btn" id="demoBtn">
+                        <i class="fas fa-calendar-alt"></i> Book a Demo
+                    </button>
+                </div>
+                <div class="utility-right">
+                    <a href="mailto:info@panatech.co.zw" class="utility-link">
+                        <i class="fas fa-envelope"></i> info@panatech.co.zw
+                    </a>
+                    <a href="https://wa.me/263788596097" target="_blank" class="utility-link whatsapp-link">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <!-- Logo -->
+                <a href="index.html" class="nav-logo">
+                    <img src="images/mylogo.webp" alt="panaTECH Logo" class="logo-img">
+                </a>
+
+                <!-- Desktop Navigation -->
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    
+                    <!-- Services Dropdown -->
+                    <li class="nav-dropdown">
+                        <a href="#services" class="nav-link dropdown-toggle">
+                            Services <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="services/web-development/index.html" class="dropdown-item">Web Development & Design</a>
+                            <a href="services/web-maintenance/index.html" class="dropdown-item">Web Maintenance</a>
+                            <a href="services/custom-software/index.html" class="dropdown-item">Custom Software Development</a>
+                            <a href="services/mobile-app-development/index.html" class="dropdown-item">Mobile App Development</a>
+                            <a href="services/ai-automation/index.html" class="dropdown-item">AI & Automation</a>
+                            <a href="services/cloud-solutions/index.html" class="dropdown-item">Cloud Solutions</a>
+                            <a href="services/cybersecurity/index.html" class="dropdown-item">Cybersecurity</a>
+                        </div>
+                    </li>
+                    
+                    <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                    <li><a href="#blog" class="nav-link">Blog</a></li>
+                    <li><a href="#why-us" class="nav-link">Why Us</a></li>
+                    <li><a href="#faq" class="nav-link">FAQ</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><button class="nav-btn enquiry-btn" id="mobileEnquiryBtn">Enquiries</button></li>
+                    <li><a href="#contact" class="nav-link nav-cta">Get Started</a></li>
+                </ul>
+
+                <!-- Mobile Menu Toggle - FIXED -->
+                <button class="mobile-toggle" id="mobileToggle">
+                    <span class="toggle-line"></span>
+                    <span class="toggle-line"></span>
+                    <span class="toggle-line"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu - DROPDOWN STYLE (Inside navbar) -->
+        <div class="mobile-nav" id="mobileNav">
+            <!-- In the mobile navigation menu -->
+    <div class="mobile-nav-content">
+        <ul class="mobile-nav-menu">
+            <li><a href="#home" class="mobile-nav-link active">Home</a></li>
+            <li><a href="#about" class="mobile-nav-link">About</a></li>
+            
+            <!-- SERVICES - SIMPLE LINK (No dropdown) -->
+            <li>
+                <a href="#services" class="mobile-nav-link">Services</a>
+            </li>
+            
+            <li><a href="#portfolio" class="mobile-nav-link">Portfolio</a></li>
+            <li><a href="#blog" class="mobile-nav-link">Blog</a></li>
+            <li><a href="#why-us" class="mobile-nav-link">Why Us</a></li>
+            <li><a href="#faq" class="mobile-nav-link">FAQ</a></li>
+            <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+            <li><button class="mobile-nav-btn enquiry-btn">Enquiries</button></li>
+            <li><a href="#contact" class="mobile-nav-link mobile-cta">Get Started</a></li>
+        </ul>
+        
+        <div class="mobile-contact-info">
+            <a href="mailto:info@panatech.co.zw" class="mobile-contact-link">
+                <i class="fas fa-envelope"></i>
+                <span>info@panatech.co.zw</span>
+            </a>
+            <a href="https://wa.me/263788596097" class="mobile-contact-link">
+                <i class="fab fa-whatsapp"></i>
+                <span>WhatsApp Us</span>
+            </a>
+        </div>
+    </div>
+        </div>
+    </nav>
+
+<!-- Typing Animation Bar -->
+<div class="typing-bar" role="region" aria-label="Highlights">
+    <div class="container">
+        <div class="typing-content" role="status" aria-live="polite">
+            <span class="typing-text" aria-live="polite" aria-atomic="true">
+                <span class="typing-text-inner" aria-hidden="false"></span>
+                <span class="typing-cursor" aria-hidden="true"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- ============================================
+     HERO SECTION - PRODUCTION READY
+     Professional Design | Responsive | Business Ready
+     ============================================ -->
+
+<section id="home" class="hero-section">
+    <div class="hero-container">
+        <!-- SLIDE 1: Creative Solutions - REWRITTEN TITLE -->
+        <div class="hero-slide active" style="background-image: url('images/herofullwidth.webp');">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        TRANSFORM YOUR VISION INTO<br>
+                        <span class="highlight">DIGITAL REALITY</span>
+                    </h1>
+                    
+                    <div class="hero-subcard">
+                        <p class="hero-description">
+                            We craft and build innovative, authentic digital solutions that redefine your brand and drive exponential growth. From startups and SMEs to enterprises and government agencies, panaTECH is your partner in digital excellence.
+                        </p>
+                    </div>
+                    
+                    <div class="hero-buttons">
+                        <a href="#services" class="btn btn-primary">View Services</a>
+                        <button class="btn btn-outline" id="heroBookDemo">Book a Demo</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SLIDE 2: Digital Excellence - REWRITTEN TITLE -->
+        <div class="hero-slide" style="background-image: url('images/worktime.webp');">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        Building Software That Drives <br>
+                        <span class="highlight">Real Results</span>
+                    </h1>
+                    
+                    <div class="hero-subcard">
+                        <p class="hero-description">
+                            We don't just build software. We engineer growth. Every solution is designed to deliver measurable ROI, streamline operations, and give you a competitive edge. From discovery to launch, we transform business challenges into scalable solutions that drive real impact.
+                        </p>
+                    </div>
+                    
+                    <div class="hero-buttons">
+                        <a href="https://wa.me/263788596097" target="_blank" class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> WhatsApp Us
+                        </a>
+                        <a href="#contact" class="btn btn-outline">Get Free Quote</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Carousel Navigation -->
+        <div class="hero-nav">
+            <button class="nav-prev" aria-label="Previous slide">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="nav-dots">
+                <span class="nav-dot active" data-slide="0" aria-label="Slide 1"></span>
+                <span class="nav-dot" data-slide="1" aria-label="Slide 2"></span>
+            </div>
+            <button class="nav-next" aria-label="Next slide">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- ============================================
+     EMPHASIS SECTION - PROFESSIONAL CLEAN
+     No Tech Badges | Professional Alignment
+     ============================================ -->
+
+<section class="emphasis-section">
+    <!-- Geometric Background Elements -->
+    <div class="emphasis-bg-patterns">
+        <div class="geometric-line line-1"></div>
+        <div class="geometric-line line-2"></div>
+        <div class="geometric-line line-3"></div>
+        <div class="geometric-shape shape-1"></div>
+        <div class="geometric-shape shape-2"></div>
+        <div class="geometric-shape shape-3"></div>
+    </div>
+    
+    <!-- Elegant Section Edges -->
+    <div class="section-edge top-edge">
+        <svg viewBox="0 0 1200 100" preserveAspectRatio="none">
+            <path d="M0,0 C200,50 400,10 600,30 C800,50 1000,10 1200,30 L1200,100 L0,100 Z"></path>
+        </svg>
+    </div>
+    
+    <div class="container">
+        <div class="emphasis-content">
+            <div class="emphasis-text">
+                <h2 class="emphasis-title">
+                    Transform Your Business with <span class="text-highlight">Smart Solutions</span>
+                </h2>
+                
+                <p class="emphasis-subtitle">
+                    More than code—we’re your partner in innovation. We craft technology that enhances processes, accelerates performance, 
+    and delivers measurable outcomes for startups, SMEs, and enterprises alike.
+                </p>
+                
+                <div class="emphasis-actions">
+                    <a href="#contact" class="btn btn-elegant">
+                        <span>Kickstart Your Project</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                    <a href="#about" class="btn btn-elegant-outline">
+                        <span>Learn More</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="emphasis-visual">
+                <div class="visual-container">
+                    <div class="image-frame">
+                        <img src="images/ourprocess.webp" 
+                             alt="Business Technology Solutions" 
+                             loading="lazy"
+                             width="800"
+                             height="600">
+                        <div class="frame-border"></div>
+                        <div class="frame-corner corner-tl"></div>
+                        <div class="frame-corner corner-tr"></div>
+                        <div class="frame-corner corner-bl"></div>
+                        <div class="frame-corner corner-br"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section-edge bottom-edge">
+        <svg viewBox="0 0 1200 100" preserveAspectRatio="none">
+            <path d="M0,70 C200,40 400,80 600,60 C800,40 1000,80 1200,60 L1200,0 L0,0 Z"></path>
+        </svg>
+    </div>
+</section>    
+
+
+
+<!-- ============================================
+     OUTCOMES SECTION - FIXED CAROUSEL
+     120s Speed | Mobile Responsive | No Crazy Motion
+     ============================================ -->
+
+<section id="outcomes" class="outcomes-section">
+    <div class="container">
+        <!-- Section Header -->
+        <div class="outcomes-header">
+            <h2>Outcomes We <span class="highlight">Focus On</span></h2>
+            <p>Delivering measurable results that transform your business</p>
+        </div>
+    </div>
+    
+    <!-- Carousel Wrapper -->
+    <div class="outcomes-wrapper">
+        <div class="outcomes-container">
+            <div class="outcomes-track">
+                <!-- FIRST SET OF 6 CARDS -->
+                
+                <!-- Card 1: Performance -->
+                <div class="outcome-card">
+                    <div class="card-content">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Enhanced Performance</h3>
+                        <p class="card-description">Accelerate your systems with optimized solutions that boost speed and efficiency.</p>
+                        <div class="card-metrics">
+                            <div class="metric">
+                                <span class="metric-value">3x</span>
+                                <span class="metric-label">Faster</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">40%</span>
+                                <span class="metric-label">Cost</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 2: Scalability -->
+                <div class="outcome-card">
+                    <div class="card-content">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 17"></polyline>
+                                <polyline points="17 6 23 6 23 12"></polyline>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Unlimited Scalability</h3>
+                        <p class="card-description">Build solutions that grow seamlessly from startup to enterprise operations.</p>
+                        <div class="card-metrics">
+                            <div class="metric">
+                                <span class="metric-value">∞</span>
+                                <span class="metric-label">Scale</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">99.9%</span>
+                                <span class="metric-label">Uptime</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 3: Security -->
+                <div class="outcome-card">
+                    <div class="card-content">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                <polyline points="9 12 11 14 15 10"></polyline>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Enterprise Security</h3>
+                        <p class="card-description">Protect your data with military-grade encryption and compliance frameworks.</p>
+                        <div class="card-metrics">
+                            <div class="metric">
+                                <span class="metric-value">256</span>
+                                <span class="metric-label">Bit Enc</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">ISO</span>
+                                <span class="metric-label">Cert</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 4: ROI -->
+                <div class="outcome-card">
+                    <div class="card-content">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="1" x2="12" y2="23"></line>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Measurable ROI</h3>
+                        <p class="card-description">Track metrics that matter and see tangible improvements in revenue and growth.</p>
+                        <div class="card-metrics">
+                            <div class="metric">
+                                <span class="metric-value">250%</span>
+                                <span class="metric-label">Avg ROI</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">6mo</span>
+                                <span class="metric-label">Break-even</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 5: Support -->
+                <div class="outcome-card">
+                    <div class="card-content">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                <circle cx="9" cy="10" r="1"></circle>
+                                <circle cx="12" cy="10" r="1"></circle>
+                                <circle cx="15" cy="10" r="1"></circle>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">24/7 Support</h3>
+                        <p class="card-description">Expert team provides round-the-clock support and proactive monitoring for success.</p>
+                        <div class="card-metrics">
+                            <div class="metric">
+                                <span class="metric-value">24/7</span>
+                                <span class="metric-label">Available</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">1hr</span>
+                                <span class="metric-label">Response</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 6: Innovation -->
+                <div class="outcome-card">
+                    <div class="card-content">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 13V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v7M4 13l2.293-2.293a1 1 0 0 1 1.414 0l2.586 2.586a1 1 0 0 0 1.414 0l2.586-2.586a1 1 0 0 1 1.414 0L20 13M4 13v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6m-2-5h.01M7 9h.01"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Continuous Innovation</h3>
+                        <p class="card-description">Stay ahead with cutting-edge tech updates and AI-powered future-proof solutions.</p>
+                        <div class="card-metrics">
+                            <div class="metric">
+                                <span class="metric-value">Latest</span>
+                                <span class="metric-label">Tech</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">AI</span>
+                                <span class="metric-label">Powered</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- SECOND SET OF 6 CARDS (DUPLICATES FOR SEAMLESS LOOP) -->
+                
+                <div class="outcome-card">
+                    <div class="card-content">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Enhanced Performance</h3>
+                        <p class="card-description">Accelerate your systems with optimized solutions that boost speed and efficiency.</p>
+                        <div class="card-metrics">
+                            <div class="metric">
+                                <span class="metric-value">3x</span>
+                                <span class="metric-label">Faster</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">40%</span>
+                                <span class="metric-label">Cost</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="outcome-card">
+                    <div class="card-content">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 17"></polyline>
+                                <polyline points="17 6 23 6 23 12"></polyline>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Unlimited Scalability</h3>
+                        <p class="card-description">Build solutions that grow seamlessly from startup to enterprise operations.</p>
+                        <div class="card-metrics">
+                            <div class="metric">
+                                <span class="metric-value">∞</span>
+                                <span class="metric-label">Scale</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">99.9%</span>
+                                <span class="metric-label">Uptime</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="outcome-card">
+                    <div class="card-content">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                <polyline points="9 12 11 14 15 10"></polyline>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Enterprise Security</h3>
+                        <p class="card-description">Protect your data with military-grade encryption and compliance frameworks.</p>
+                        <div class="card-metrics">
+                            <div class="metric">
+                                <span class="metric-value">256</span>
+                                <span class="metric-label">Bit Enc</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">ISO</span>
+                                <span class="metric-label">Cert</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="outcome-card">
+                    <div class="card-content">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="1" x2="12" y2="23"></line>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Measurable ROI</h3>
+                        <p class="card-description">Track metrics that matter and see tangible improvements in revenue and growth.</p>
+                        <div class="card-metrics">
+                            <div class="metric">
+                                <span class="metric-value">250%</span>
+                                <span class="metric-label">Avg ROI</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">6mo</span>
+                                <span class="metric-label">Break-even</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="outcome-card">
+                    <div class="card-content">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                <circle cx="9" cy="10" r="1"></circle>
+                                <circle cx="12" cy="10" r="1"></circle>
+                                <circle cx="15" cy="10" r="1"></circle>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">24/7 Support</h3>
+                        <p class="card-description">Expert team provides round-the-clock support and proactive monitoring for success.</p>
+                        <div class="card-metrics">
+                            <div class="metric">
+                                <span class="metric-value">24/7</span>
+                                <span class="metric-label">Available</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">1hr</span>
+                                <span class="metric-label">Response</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="outcome-card">
+                    <div class="card-content">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 13V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v7M4 13l2.293-2.293a1 1 0 0 1 1.414 0l2.586 2.586a1 1 0 0 0 1.414 0l2.586-2.586a1 1 0 0 1 1.414 0L20 13M4 13v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6m-2-5h.01M7 9h.01"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Continuous Innovation</h3>
+                        <p class="card-description">Stay ahead with cutting-edge tech updates and AI-powered future-proof solutions.</p>
+                        <div class="card-metrics">
+                            <div class="metric">
+                                <span class="metric-value">Latest</span>
+                                <span class="metric-label">Tech</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">AI</span>
+                                <span class="metric-label">Powered</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+     <!-- About Section -->
+        <section id="about" class="about-section dark-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">About Us</span>
+                    <h2 class="section-title">Crafting <span class="text-gold">Digital Excellence</span></h2>
+                    <p class="section-subtitle">Who we are and what drives us to deliver exceptional results</p>
+                </div>
+                
+                <div class="about-content">
+                    <div class="about-visual">
+    <div class="about-image-wrapper glass-effect">
+        <img src="images\seriouswork.webp" alt="panaTECH Team" loading="lazy" decoding="async" width="600" height="400">
+        <div class="image-glow"></div>
+    </div>
+    <div class="about-stats">
+        <div class="about-stat">
+            <div class="stat-value">50+</div>
+            <div class="stat-label">Projects Completed</div>
+        </div>
+        <div class="about-stat">
+            <div class="stat-value">100%</div>
+            <div class="stat-label">Client Satisfaction</div>
+        </div>
+        <div class="about-stat">
+            <div class="stat-value">10+</div>
+            <div class="stat-label">Tech Experts</div>
+        </div>
+    </div>
+</div>
+                    
+                    <div class="about-info">
+                        <div class="about-tabs">
+                            <button class="about-tab active" data-tab="mission">Our Mission</button>
+                            <button class="about-tab" data-tab="vision">Our Vision</button>
+                            <button class="about-tab" data-tab="values">Our Values</button>
+                        </div>
+                        
+                        <div class="about-tab-content">
+                            <div class="tab-pane active" id="mission">
+                                <h3>Driving Digital Transformation</h3>
+                                <p>To empower businesses with innovative, authentic digital solutions that drive growth, enhance efficiency, and create lasting value. We believe in technology that works for people, not the other way around.</p>
+                                <p>Our mission extends beyond code - we're dedicated to building partnerships that foster innovation and help our clients navigate the digital landscape with confidence.</p>
+                                <ul class="mission-list">
+                                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Deliver exceptional value through innovation</li>
+                                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Build solutions that scale with your business</li>
+                                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Foster long-term client relationships</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="tab-pane" id="vision">
+                                <h3>Shaping the Future of Technology</h3>
+                                <p>To be Africa's leading creative software studio, recognized for our innovative approach to solving complex business challenges through technology. We envision a future where every business, regardless of size, has access to world-class digital solutions.</p>
+                                <p>Our vision is to bridge the technology gap and drive digital transformation across industries, making advanced technology accessible, affordable, and effective for businesses in Zimbabwe and beyond.</p>
+                                <div class="vision-highlights">
+                                    <div class="highlight-item">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                        <span>Global Excellence</span>
+                                    </div>
+                                    <div class="highlight-item">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                                        <span>Innovation Hub</span>
+                                    </div>
+                                    <div class="highlight-item">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                                        <span>Creative Solutions</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="tab-pane" id="values">
+                                <h3>Our Guiding Principles</h3>
+                                <div class="values-grid">
+                                    <div class="value-item">
+                                        <div class="value-icon">
+                                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                                        </div>
+                                        <h4>Passion</h4>
+                                        <p>We love what we do, and it shows in every project we deliver.</p>
+                                    </div>
+                                    <div class="value-item">
+                                        <div class="value-icon">
+                                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                                        </div>
+                                        <h4>Integrity</h4>
+                                        <p>Honest communication and transparent processes.</p>
+                                    </div>
+                                    <div class="value-item">
+                                        <div class="value-icon">
+                                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                                        </div>
+                                        <h4>Excellence</h4>
+                                        <p>Striving for perfection in every line of code.</p>
+                                    </div>
+                                    <div class="value-item">
+                                        <div class="value-icon">
+                                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                        </div>
+                                        <h4>Collaboration</h4>
+                                        <p>Working together to achieve extraordinary results.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="about-cta">
+                            <a href="about-us/index.html" class="btn btn-outline about-story">
+                                <span>Read Our Story</span>
+                            </a>
+                            <a href="#contact" class="btn btn-primary">
+                                <span>Work With Us</span>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our <span class="text-gold">Services</span></h2>
+               
+                <p class="section-subtitle">Comprehensive tech solutions tailored to your business needs</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Web Development & Design</h3>
+                    <p>Custom websites and web applications with modern design and optimal performance.</p>
+                    <a href="services/web-development/index.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Web Maintenance</h3>
+                    <p>Ongoing support, updates, and optimization to keep your website running smoothly.</p>
+                    <a href="services/web-maintenance/index.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Custom Software</h3>
+                    <p>Tailored software solutions designed to address your unique business challenges.</p>
+                    <a href="services/custom-software/index.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile App Development</h3>
+                    <p>Native and cross-platform mobile applications for iOS and Android devices.</p>
+                    <a href="services/mobile-app-development/index.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI & Automation</h3>
+                    <p>Intelligent solutions to automate processes and leverage artificial intelligence.</p>
+                    <a href="services/ai-automation/index.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Cloud Solutions</h3>
+                    <p>Scalable cloud infrastructure, migration, and management services.</p>
+                    <a href="services/cloud-solutions/index.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <!-- Service 7 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Cybersecurity</h3>
+                    <p>Protect your digital assets with comprehensive security solutions and audits.</p>
+                    <a href="services/cybersecurity/index.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Process Section -->
+<section id="process" class="process-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">Our Process</span>
+            <h2>How We <span class="gradient-text">Deliver Excellence</span></h2>
+            <p>A proven methodology that ensures your project's success</p>
+        </div>
+        
+        <div class="process-timeline">
+            <div class="process-step">
+                <div class="process-number">01</div>
+                <div class="process-content">
+                    <h3>
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                        Discovery & Research
+                    </h3>
+                    <p>We dive deep into understanding your business, challenges, and goals. Through workshops and analysis, we map out the perfect solution architecture.</p>
+                </div>
+            </div>
+            
+            <div class="process-step">
+                <div class="process-number">02</div>
+                <div class="process-content">
+                    <h3>
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                            <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                            <path d="M2 2l7.586 7.586"></path>
+                            <circle cx="11" cy="11" r="2"></circle>
+                        </svg>
+                        Design & Prototyping
+                    </h3>
+                    <p>Our designers create intuitive, user-centered interfaces. You'll see interactive prototypes before a single line of code is written.</p>
+                </div>
+            </div>
+            
+            <div class="process-step">
+                <div class="process-number">03</div>
+                <div class="process-content">
+                    <h3>
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                        </svg>
+                        Development & Testing
+                    </h3>
+                    <p>Our engineers build with precision using agile methodologies. Continuous testing ensures quality at every stage of development.</p>
+                </div>
+            </div>
+            
+            <div class="process-step">
+                <div class="process-number">04</div>
+                <div class="process-content">
+                    <h3>
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+                            <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+                            <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                            <line x1="12" y1="20" x2="12.01" y2="20"></line>
+                        </svg>
+                        Deployment & Launch
+                    </h3>
+                    <p>Smooth deployment to production with zero downtime. We monitor everything to ensure a flawless launch experience.</p>
+                </div>
+            </div>
+            
+            <div class="process-step">
+                <div class="process-number">05</div>
+                <div class="process-content">
+                    <h3>
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="23 4 23 10 17 10"></polyline>
+                            <polyline points="1 20 1 14 7 14"></polyline>
+                            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                        </svg>
+                        Support & Optimization
+                    </h3>
+                    <p>24/7 support and continuous optimization. We monitor performance, gather feedback, and implement improvements.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-us" class="why-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why <span class="text-gold">Choose panaTECH</span></h2>
+                <p class="section-subtitle">What sets us apart in delivering exceptional digital solutions</p>
+            </div>
+            
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Innovation</h3>
+                    <p>We stay ahead of technology trends to deliver cutting-edge solutions.</p>
+                </div>
+                
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Originality</h3>
+                    <p>Every project is uniquely crafted to reflect your brand identity.</p>
+                </div>
+                
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Dynamic Approach</h3>
+                    <p>We adapt to your evolving needs with agile methodologies.</p>
+                </div>
+                
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Authentic Partnerships</h3>
+                    <p>We build long-term relationships based on trust and transparency.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our <span class="text-gold">Portfolio</span></h2>
+                <p class="section-subtitle">Real solutions delivering real results for businesses</p>
+            </div>
+            
+            <div class="portfolio-grid">
+                <!-- Project 1 -->
+                <div class="portfolio-card" data-complexity="8" data-impact="9">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="E-commerce Platform" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <a href="pages/portfolio.html#project1" class="portfolio-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>E-commerce Platform</h3>
+                        <p>Full-featured online store with payment integration</p>
+                        <span class="portfolio-tag">Web Development</span>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="portfolio-card" data-complexity="9" data-impact="8">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Mobile App" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <a href="pages/portfolio.html#project2" class="portfolio-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Fitness Tracking App</h3>
+                        <p>Native iOS and Android fitness application</p>
+                        <span class="portfolio-tag">Mobile App</span>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="portfolio-card" data-complexity="7" data-impact="9">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Business Dashboard" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <a href="pages/portfolio.html#project3" class="portfolio-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Business Analytics Dashboard</h3>
+                        <p>Real-time analytics and reporting platform</p>
+                        <span class="portfolio-tag">Custom Software</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-cta">
+                <a href="pages/portfolio.html" class="btn btn-outline">View All Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Latest <span class="text-gold">Insights</span></h2>
+                <p class="section-subtitle">Stay updated with the latest trends and industry knowledge</p>
+            </div>
+            
+            <div class="blog-grid">
+                <!-- Post 1 -->
+                <article class="blog-card" data-views="350" data-trending="8">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Web Development Trends" loading="lazy">
+                        <span class="blog-category">Web Development</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">March 15, 2025</span>
+                            <span class="blog-read-time">5 min read</span>
+                        </div>
+                        <h3>Top Web Development Trends in 2025</h3>
+                        <p>Explore the latest technologies shaping the future of web development.</p>
+                        <a href="pages/blog.html#post1" class="blog-link">Read Article <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                
+                <!-- Post 2 -->
+                <article class="blog-card" data-views="420" data-trending="9">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="AI in Business" loading="lazy">
+                        <span class="blog-category">AI & Automation</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">March 10, 2025</span>
+                            <span class="blog-read-time">7 min read</span>
+                        </div>
+                        <h3>How AI is Transforming Business Operations</h3>
+                        <p>Discover practical applications of AI for optimizing business processes.</p>
+                        <a href="pages/blog.html#post2" class="blog-link">Read Article <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                
+                <!-- Post 3 -->
+                <article class="blog-card" data-views="280" data-trending="7">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cybersecurity" loading="lazy">
+                        <span class="blog-category">Cybersecurity</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">March 5, 2025</span>
+                            <span class="blog-read-time">6 min read</span>
+                        </div>
+                        <h3>Essential Cybersecurity Practices for Businesses</h3>
+                        <p>Protect your business from digital threats with these security measures.</p>
+                        <a href="pages/blog.html#post3" class="blog-link">Read Article <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Frequently Asked <span class="text-gold">Questions</span></h2>
+                <p class="section-subtitle">Everything you need to know about working with us</p>
+            </div>
+            
+            <div class="faq-grid">
+                <!-- FAQ 1 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How long does a typical project take?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Project timelines vary based on complexity. A simple website takes 2-4 weeks, while complex applications can take 2-4 months. We provide detailed timelines during the discovery phase.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 2 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What are your pricing models?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We offer flexible pricing: fixed-price for well-defined projects, time & materials for evolving scopes, and retainer agreements for ongoing support. Contact us for a custom quote.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 3 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Do you provide post-launch support?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely! We offer comprehensive support packages including 24/7 emergency support, monthly maintenance plans, and on-demand assistance.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 4 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Can you work with our existing systems?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! We specialize in integrations and legacy system modernization. We'll conduct a thorough assessment of your current infrastructure and create seamless connections.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- Final CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Transform Your Business?</h2>
+                <p class="cta-subtitle">Let's build something extraordinary together. Contact us today to start your digital transformation journey.</p>
+                <div class="cta-actions">
+                    <a href="#contact" class="btn btn-primary">
+                        Start Your Project
+                    </a>
+                    <button class="btn btn-outline" id="ctaBookDemo">
+                        Book a Demo
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get <span class="text-gold">In Touch</span></h2>
+                <p class="section-subtitle">Ready to transform your digital presence? Let's discuss your project</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <h4>Email</h4>
+                        <p>info@panatech.co.zw</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <h4>WhatsApp</h4>
+                        <p>+263 78 859 6097</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h4>Address</h4>
+                        <p>Harare, Zimbabwe</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <h4>Working Hours</h4>
+                        <p>Mon-Fri: 8:00 AM - 6:00 PM</p>
+                    </div>
+                </div>
+                
+                <!-- Updated Contact Form -->
+                <div class="contact-form-container">
+                    <form id="contactForm" class="contact-form glass-effect">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required>
+                                <span class="input-border"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                                <span class="input-border"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Select a Service *</label>
+                            <select id="service" name="service" required>
+                                <option value="">Choose a service</option>
+                                <option value="web-development">Web Development & Design</option>
+                                <option value="web-maintenance">Web Maintenance</option>
+                                <option value="custom-software">Custom Software Development</option>
+                                <option value="mobile-apps">Mobile App Development</option>
+                                <option value="ai-automation">AI & Automation</option>
+                                <option value="cloud-solutions">Cloud Solutions</option>
+                                <option value="cybersecurity">Cybersecurity</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <span class="input-border"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <input type="text" id="subject" name="subject" required>
+                            <span class="input-border"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Project Details *</label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                            <span class="input-border"></span>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary submit-btn">
+                            <span>Send Message</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Column 1 -->
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="images/mylogo.webp" alt="panaTECH Logo">
+                        
+                    </div>
+                    <p>panaTECH is a creative software studio delivering authentic digital solutions through innovation, originality and dynamic technology.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Column 2 -->
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services/web-development/index.html">Web Development & Design</a></li>
+                        <li><a href="services/web-maintenance/index.html">Web Maintenance</a></li>
+                        <li><a href="services/custom-software/index.html">Custom Software</a></li>
+                        <li><a href="services/mobile-apps/index.html">Mobile Apps</a></li>
+                        <li><a href="services/ai-automation/index.html">AI & Automation</a></li>
+                        <li><a href="services/cloud-solutions/index.html">Cloud Solutions</a></li>
+                        <li><a href="services/cybersecurity/index.html">Cybersecurity</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#why-us">Why Us</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><button class="footer-link-btn enquiry-btn">Enquiries</button></li>
+                        
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-envelope"></i> info@panatech.co.zw</p>
+                        <p><i class="fab fa-whatsapp"></i> WhatsApp Us</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Harare, Zimbabwe</p>
+                        <p><i class="fas fa-clock"></i> Mon-Sat: 8AM-6PM</p>
+                    </div>
+                    
+                    <button class="back-to-top" id="backToTop">
+                        <i class="fas fa-chevron-up"></i> Back to Top
+                    </button>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span class="current-year">2025</span> panaTECH. All Rights Reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Cookies Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Book a Demo Call Modal -->
+<div class="modal-overlay" id="demoModal">
+    <div class="modal-container demo-modal">
+        <div class="modal-header">
+            <h3>Book a Demo Call</h3>
+            <button class="modal-close" id="closeDemoModal" aria-label="Close modal">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+
+        <div class="modal-body">
+            <div class="demo-form-intro">
+                <p>
+                    Book a quick 15–30 minute call with our team to discuss your idea,
+                    see how we work, and explore the best solution for your needs.
+                </p>
+            </div>
+
+            <form id="demoForm" class="demo-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="demoName">Full Name *</label>
+                        <input type="text" id="demoName" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="demoEmail">Email Address *</label>
+                        <input type="email" id="demoEmail" name="email" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="demoPhone">Phone / WhatsApp *</label>
+                        <input type="tel" id="demoPhone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="demoService">Service of Interest *</label>
+                        <select id="demoService" name="service" required>
+                            <option value="">Select a service</option>
+                            <option value="web-development">Web Development & Design</option>
+                            <option value="custom-software">Custom Software Development</option>
+                            <option value="mobile-apps">Mobile App Development</option>
+                            <option value="ai-automation">AI & Automation</option>
+                            <option value="cloud-solutions">Cloud Solutions</option>
+                            <option value="cybersecurity">Cybersecurity</option>
+                            <option value="not-sure">Not Sure – Need Guidance</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="demoDate">Preferred Date *</label>
+                        <input type="date" id="demoDate" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="demoTime">Preferred Time *</label>
+                        <input type="time" id="demoTime" name="time" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="demoCallType">Preferred Call Type *</label>
+                    <select id="demoCallType" name="callType" required>
+                        <option value="">Select call type</option>
+                        <option value="google-meet">Google Meet</option>
+                        <option value="zoom">Zoom</option>
+                        <option value="phone">Phone Call</option>
+                        <option value="whatsapp">WhatsApp Call</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="demoNote">Anything specific you'd like us to cover? (Optional)</label>
+                    <textarea
+                        id="demoNote"
+                        name="note"
+                        rows="3"
+                        placeholder="Briefly tell us what you’d like to discuss..."
+                    ></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-submit">
+                    Book Demo Call
+                </button>
+
+                <p class="form-footnote">
+                    No obligation • 15–30 minutes
+                </p>
+
+                
+            </form>
+        </div>
+    </div>
+</div>
+
+   <!-- Enquiry Modal -->
+<div class="modal-overlay" id="enquiryModal">
+    <div class="modal-container enquiry-modal">
+        <div class="modal-header">
+            <h3>Make an Enquiry</h3>
+            <button class="modal-close" id="closeEnquiryModal" aria-label="Close modal">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+
+        <div class="modal-body">
+            <div class="enquiry-form-intro">
+                <p>
+                    Have a question, idea, or need more information?
+                    Send us a message and we’ll get back to you shortly.
+                </p>
+            </div>
+
+            <form id="enquiryForm" class="enquiry-form">
+                <div class="form-group">
+                    <label for="enquiryType">Type of Enquiry *</label>
+                    <select id="enquiryType" name="enquiryType" required>
+                        <option value="">Select enquiry type</option>
+                        <option value="general">General Information</option>
+                        <option value="quote">Request a Quote</option>
+                        <option value="support">Technical Support</option>
+                        <option value="partnership">Partnership</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="enquiryService">Service (Optional)</label>
+                    <select id="enquiryService" name="service">
+                        <option value="">Choose a service</option>
+                        <option value="web-development">Web Development & Design</option>
+                        <option value="custom-software">Custom Software Development</option>
+                        <option value="mobile-apps">Mobile App Development</option>
+                        <option value="ai-automation">AI & Automation</option>
+                        <option value="cloud-solutions">Cloud Solutions</option>
+                        <option value="cybersecurity">Cybersecurity</option>
+                        <option value="not-sure">Not Sure</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="enquiryName">Full Name *</label>
+                        <input type="text" id="enquiryName" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="enquiryCompany">Company / Organization (Optional)</label>
+                        <input type="text" id="enquiryCompany" name="company">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="enquiryEmail">Email Address *</label>
+                        <input type="email" id="enquiryEmail" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="enquiryPhone">Phone / WhatsApp (Optional)</label>
+                        <input type="tel" id="enquiryPhone" name="phone">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="enquiryBudget">Estimated Budget (Optional)</label>
+                    <select id="enquiryBudget" name="budget">
+                        <option value="">Select budget range</option>
+                        <option value="under-100">Under US$100</option>
+                        <option value="100-1000">US$100 – $1000</option>
+                        <option value="1000-5000">US$1000 – $5000</option>
+                        <option value="5000-20000">US$5000– $20000</option>
+                        <option value="20000-plus">US$20000+</option>
+                        <option value="not-sure">Not Sure</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="enquiryMessage">Message *</label>
+                    <textarea
+                        id="enquiryMessage"
+                        name="message"
+                        rows="5"
+                        placeholder="Tell us more about what you’re looking for..."
+                        required
+                    ></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="file-upload">
+                        <input type="file" id="enquiryFile" name="file" accept=".pdf,.doc,.docx,.jpg,.png">
+                        <span>Attach File (Optional)</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    Submit Enquiry
+                </button>
+
+                
+        </div>
+    </div>
+</div>
+
+</div> <!-- Close .page-wrapper -->
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- JavaScript -->
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

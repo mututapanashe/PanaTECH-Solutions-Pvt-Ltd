@@ -1,0 +1,588 @@
+/* ============================================
+   EMPHASIS SECTION - PROFESSIONAL DESIGN
+   Matches Hero Alignment | Clean | Modern
+   ============================================ */
+
+.emphasis-section {
+    position: relative;
+    padding: 80px 0;
+    background: linear-gradient(
+        135deg,
+        #0a0a0a 0%,
+        #1a1a2e 30%,
+        #16213e 70%,
+        #0f3460 100%
+    );
+    overflow: hidden;
+    isolation: isolate;
+    margin-top: 0;
+    box-shadow: inset 0 0 60px rgba(201, 162, 39, 0.08);
+}
+
+/* ============ GEOMETRIC BACKGROUND - SUBTLE ============ */
+.emphasis-bg-patterns {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.15;
+}
+
+.geometric-line {
+    position: absolute;
+    background: linear-gradient(90deg, transparent, #C9A227, transparent);
+    opacity: 0.15;
+}
+
+.line-1 {
+    top: 20%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    animation: lineMove 20s linear infinite;
+}
+
+.line-2 {
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    animation: lineMove 25s linear infinite reverse;
+}
+
+.line-3 {
+    top: 80%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    animation: lineMove 30s linear infinite;
+}
+
+@keyframes lineMove {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.geometric-shape {
+    position: absolute;
+    border: 1px solid rgba(201, 162, 39, 0.15);
+    box-shadow: 0 0 20px rgba(201, 162, 39, 0.06);
+}
+
+.shape-1 {
+    top: 15%;
+    left: 10%;
+    width: 80px;
+    height: 80px;
+    transform: rotate(45deg);
+    animation: shapeRotate 40s linear infinite;
+}
+
+.shape-2 {
+    bottom: 20%;
+    right: 15%;
+    width: 60px;
+    height: 60px;
+    transform: rotate(30deg);
+    animation: shapeRotate 35s linear infinite reverse;
+}
+
+.shape-3 {
+    top: 60%;
+    left: 85%;
+    width: 40px;
+    height: 40px;
+    transform: rotate(60deg);
+    animation: shapeRotate 45s linear infinite;
+}
+
+@keyframes shapeRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ============ SECTION EDGES ============ */
+.section-edge {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.top-edge {
+    top: -1px;
+}
+
+.bottom-edge {
+    bottom: -1px;
+    transform: rotate(180deg);
+}
+
+.section-edge svg {
+    width: 100%;
+    height: 100%;
+}
+
+.section-edge path {
+    fill: #000000;
+    stroke: #C9A227;
+    stroke-width: 0.3;
+    stroke-opacity: 0.15;
+}
+
+/* ============ CONTENT LAYOUT - MATCHES HERO ALIGNMENT ============ */
+.emphasis-content {
+    position: relative;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+/* ============ TEXT SECTION ============ */
+.emphasis-text {
+    position: relative;
+    text-align: left;
+    animation: fadeInLeft 0.8s ease-out;
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ============ EMPHASIS TITLE ============ */
+.emphasis-title {
+    font-size: 3.2rem;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 25px;
+    color: #ffffff;
+    position: relative;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    letter-spacing: -0.5px;
+}
+
+.emphasis-title .text-highlight {
+    color: #C9A227;
+    font-weight: 800;
+    background: linear-gradient(135deg, #C9A227, #D4AF37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+/* ============ EMPHASIS SUBTITLE ============ */
+.emphasis-subtitle {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 40px;
+    max-width: 600px;
+    padding-left: 0;
+    border-left: none;
+    background: none;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+}
+
+/* ============ EMPHASIS BUTTONS ============ */
+.emphasis-actions {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-elegant {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 14px 32px;
+    background: linear-gradient(135deg, #C9A227, #D4AF37);
+    color: #000000;
+    border: none;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 8px 25px rgba(201, 162, 39, 0.4);
+}
+
+.btn-elegant-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 14px 32px;
+    background: transparent;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.btn-elegant::before,
+.btn-elegant-outline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.btn-elegant:hover::before,
+.btn-elegant-outline:hover::before {
+    left: 100%;
+}
+
+.btn-elegant:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(201, 162, 39, 0.5);
+}
+
+.btn-elegant-outline:hover {
+    border-color: #C9A227;
+    background: rgba(201, 162, 39, 0.1);
+    color: #C9A227;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(201, 162, 39, 0.2);
+}
+
+.btn-elegant svg,
+.btn-elegant-outline svg {
+    transition: transform 0.3s ease;
+}
+
+.btn-elegant:hover svg,
+.btn-elegant-outline:hover svg {
+    transform: translateX(5px);
+}
+
+/* ============ VISUAL SECTION ============ */
+.emphasis-visual {
+    position: relative;
+    animation: fadeInRight 0.8s ease-out;
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.visual-container {
+    position: relative;
+}
+
+/* ============ IMAGE FRAME ============ */
+.image-frame {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), 0 0 0 2px rgba(201, 162, 39, 0.3);
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.image-frame:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 35px 80px rgba(0, 0, 0, 0.4), 0 0 0 2px rgba(201, 162, 39, 0.5);
+}
+
+.image-frame img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border-radius: 12px;
+}
+
+.image-frame:hover img {
+    transform: scale(1.03);
+}
+
+.frame-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    pointer-events: none;
+    transition: border-color 0.3s ease;
+}
+
+.image-frame:hover .frame-border {
+    border-color: #C9A227;
+}
+
+.frame-corner {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-color: #C9A227;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-frame:hover .frame-corner {
+    opacity: 1;
+}
+
+.corner-tl {
+    top: 10px;
+    left: 10px;
+    border-top: 2px solid #C9A227;
+    border-left: 2px solid #C9A227;
+}
+
+.corner-tr {
+    top: 10px;
+    right: 10px;
+    border-top: 2px solid #C9A227;
+    border-right: 2px solid #C9A227;
+}
+
+.corner-bl {
+    bottom: 10px;
+    left: 10px;
+    border-bottom: 2px solid #C9A227;
+    border-left: 2px solid #C9A227;
+}
+
+.corner-br {
+    bottom: 10px;
+    right: 10px;
+    border-bottom: 2px solid #C9A227;
+    border-right: 2px solid #C9A227;
+}
+
+/* ============ FLOATING BADGES - HIDDEN ============ */
+.floating-badges {
+    display: none;
+}
+
+.badge-item {
+    display: none;
+}
+
+/* ============ RESPONSIVE - TABLET (1025px - 1440px) ============ */
+@media (max-width: 1440px) and (min-width: 1025px) {
+    .emphasis-title {
+        font-size: 3rem;
+    }
+    
+    .emphasis-subtitle {
+        font-size: 1.05rem;
+    }
+    
+    .emphasis-content {
+        gap: 60px;
+    }
+}
+
+/* ============ RESPONSIVE - TABLET (769px - 1024px) ============ */
+@media (max-width: 1024px) {
+    .emphasis-section {
+        padding: 70px 0;
+    }
+    
+    .emphasis-content {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    
+    .emphasis-visual {
+        order: -1;
+    }
+    
+    .emphasis-text {
+        text-align: left;
+    }
+    
+    .emphasis-title {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+    
+    .emphasis-subtitle {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+    
+    .section-edge {
+        height: 70px;
+    }
+}
+
+/* ============ RESPONSIVE - MOBILE (481px - 768px) ============ */
+@media (max-width: 768px) {
+    .emphasis-section {
+        padding: 60px 0;
+    }
+    
+    .emphasis-content {
+        gap: 40px;
+    }
+    
+    .emphasis-title {
+        font-size: 2rem;
+        line-height: 1.2;
+        margin-bottom: 15px;
+    }
+    
+    .emphasis-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 25px;
+    }
+    
+    .emphasis-actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .btn-elegant,
+    .btn-elegant-outline {
+        width: 100%;
+        padding: 13px 25px;
+        font-size: 0.95rem;
+    }
+    
+    .section-edge {
+        height: 60px;
+    }
+    
+    .geometric-shape {
+        display: none;
+    }
+}
+
+/* ============ RESPONSIVE - SMALL MOBILE (< 480px) ============ */
+@media (max-width: 480px) {
+    .emphasis-section {
+        padding: 50px 0;
+    }
+    
+    .emphasis-content {
+        gap: 30px;
+    }
+    
+    .emphasis-title {
+        font-size: 1.6rem;
+        margin-bottom: 12px;
+    }
+    
+    .emphasis-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+    }
+    
+    .emphasis-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .btn-elegant,
+    .btn-elegant-outline {
+        width: 100%;
+        max-width: 100%;
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .section-edge {
+        height: 50px;
+    }
+}
+
+/* ============ RESPONSIVE - EXTRA SMALL (< 360px) ============ */
+@media (max-width: 360px) {
+    .emphasis-section {
+        padding: 40px 0;
+    }
+    
+    .emphasis-title {
+        font-size: 1.4rem;
+    }
+    
+    .emphasis-subtitle {
+        font-size: 0.85rem;
+    }
+    
+    .btn-elegant,
+    .btn-elegant-outline {
+        padding: 11px 18px;
+        font-size: 0.85rem;
+    }
+    
+    .section-edge {
+        height: 40px;
+    }
+}
+
+/* ============ REDUCED MOTION ============ */
+@media (prefers-reduced-motion: reduce) {
+    .geometric-line,
+    .geometric-shape,
+    .emphasis-text,
+    .emphasis-visual {
+        animation: none !important;
+    }
+    
+    .image-frame:hover {
+        transform: none;
+    }
+    
+    .image-frame:hover img {
+        transform: none;
+    }
+    
+    .btn-elegant:hover,
+    .btn-elegant-outline:hover {
+        transform: none;
+    }
+}
+
+/* ============ DARK MODE ============ */
+@media (prefers-color-scheme: dark) {
+    .emphasis-section {
+        background: linear-gradient(
+            135deg,
+            #000000 0%,
+            #0a0a0a 50%,
+            #000000 100%
+        );
+    }
+}

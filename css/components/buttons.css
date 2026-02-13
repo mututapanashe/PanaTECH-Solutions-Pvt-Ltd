@@ -1,0 +1,87 @@
+/* buttons.css - Enhanced visibility */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-xl);
+    font-family: var(--font-primary);
+    font-weight: var(--font-weight-semibold);
+    font-size: 1rem;
+    border: none;
+    border-radius: 20px; /* Rounded rectangle */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* Add text shadow */
+}
+
+/* Pill-shaped buttons for CTAs */
+#heroBookDemo,
+#ctaBookDemo {
+    border-radius: 50px;
+}
+
+#heroBookDemo {
+    color: #ffffff !important;
+    border: 2px solid rgba(201, 162, 39, 0.6) !important;
+    box-shadow: 
+        0 0 0 2px rgba(255, 255, 255, 0.4),
+        0 4px 15px rgba(201, 162, 39, 0.4) !important;
+    outline: 1px solid rgba(255, 255, 255, 0.3);
+    outline-offset: 2px;
+}
+
+.btn-primary {
+    background: var(--gradient-gold);
+    color: var(--black);
+    box-shadow: 0 4px 15px rgba(201, 162, 39, 0.4); /* Add shadow */
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(201, 162, 39, 0.6);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--gold) !important; /* Ensure gold color */
+    border: 2px solid var(--gold);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-outline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(201, 162, 39, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.btn-outline:hover::before {
+    left: 100%;
+}
+
+.btn-outline:hover {
+    background: var(--gold);
+    color: var(--black) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(201, 162, 39, 0.4);
+}
+
+/* Fix specific sections */
+.emphasis-section .btn-outline,
+.services-section .btn-outline,
+.blog-section .btn-outline {
+    color: var(--gold) !important;
+}
+
+.emphasis-section .btn-outline:hover,
+.services-section .btn-outline:hover,
+.blog-section .btn-outline:hover {
+    color: var(--black) !important;
+}
