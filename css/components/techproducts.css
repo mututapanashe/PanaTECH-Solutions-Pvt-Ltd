@@ -1,0 +1,220 @@
+/* techproducts.css – page-specific adjustments */
+
+/* Hero section (simple centered) */
+.page-hero {
+    padding: 120px 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 100%), url('../../images/techproduct.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--white);
+    text-align: center;
+    position: relative;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 50%, rgba(201, 162, 39, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(201, 162, 39, 0.05) 0%, transparent 50%);
+    z-index: 0;
+}
+
+/* Animation keyframes for hero content */
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.page-hero .hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.page-hero .hero-title {
+    font-size: 3rem;
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 1.5rem;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    animation: slideInFromLeft 0.8s ease-out 0.2s both;
+}
+
+.page-hero .hero-description {
+    font-size: 1.25rem;
+    color: var(--gray-300);
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    animation: slideInFromLeft 0.8s ease-out 0.6s both;
+}
+
+.page-hero .btn {
+    animation: slideInFromLeft 0.8s ease-out 1s both;
+}
+
+/* Categories section */
+.categories-section {
+    background: var(--black);
+    padding: 80px 0;
+}
+
+.tech-section-title {
+    
+    color: var(--white);
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+
+/* Category cards – reuse .service-card but add image placeholder */
+.card-image-placeholder {
+    width: 100%;
+    height: 300px;
+    background: var(--gray-800);
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-size: 4rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Ensure icon is visible above background */
+.card-image-placeholder i {
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.service-card {
+    text-align: center;
+}
+
+/* Waitlist form */
+.waitlist-form .form-group {
+    display: flex;
+    gap: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.waitlist-form input[type="email"] {
+    flex: 1 1 250px;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--gray-700);
+    background: var(--black-800);
+    color: var(--white);
+    border-radius: 4px;
+    font-family: var(--font-primary);
+}
+
+.waitlist-form input[type="email"]:focus {
+    outline: none;
+    border-color: var(--gold);
+}
+
+.waitlist-form .btn {
+    padding: 0.75rem 2rem;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .page-hero {
+        padding: 80px 0;
+        min-height: 400px;
+        background-attachment: scroll;
+    }
+    
+    .page-hero .hero-title {
+        font-size: 2.2rem;
+    }
+    
+    .page-hero .hero-description {
+        font-size: 1rem;
+    }
+    
+    .page-hero .hero-title {
+        animation: slideInFromLeft 1.2s ease-out 0.2s both;
+    }
+    
+    .page-hero .hero-description {
+        animation: slideInFromLeft 1.2s ease-out 0.7s both;
+    }
+    
+    .page-hero .btn {
+        animation: slideInFromLeft 1.2s ease-out 1.2s both;
+    }
+    
+    .tech-section-title {
+        margin-bottom: 0.1rem;
+    }
+    
+    .categories-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .card-image-placeholder {
+        height: 200px;
+    }
+    
+    .waitlist-form .form-group {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+    
+    .waitlist-form input[type="email"] {
+        width: 100%;
+        flex: unset;
+        min-width: unset;
+        padding: 12px 1rem;
+        font-size: 16px;
+    }
+    
+    .waitlist-form .btn {
+        padding: 12px 2rem;
+        width: 100%;
+    }
+}
+
+/* Extra small phones */
+@media (max-width: 480px) {
+    .page-hero .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .waitlist-form input[type="email"] {
+        padding: 12px 1rem;
+        font-size: 16px;
+    }
+    
+    .waitlist-form .btn {
+        padding: 12px 1.5rem;
+    }
+}
+

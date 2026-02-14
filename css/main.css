@@ -39,6 +39,9 @@
 @import 'components/process.css';
 @import 'components/outcomes.css';
 
+/*Pages*/
+@import 'components/techproducts.css';
+
 /* ============================================
    GLOBAL UTILITY CLASSES
    ============================================ */

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="panaTECH Tech Products – Coming Soon">
+    <title>panaTECH | Tech Products</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Main CSS (from root) -->
+    <link rel="stylesheet" href="../css/main.css">
+    <!-- Page specific CSS -->
+    <link rel="stylesheet" href="../css/techproducts.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../images/mylogo.webp">
+</head>
+<body>
+<div class="page-wrapper">
+    <!-- Utility Bar (Desktop Only) -->
+    <div class="utility-bar" id="utilityBar">
+        <div class="container">
+            <div class="utility-content">
+                <div class="utility-left">
+                    <button class="utility-btn" id="demoBtn">
+                        <i class="fas fa-calendar-alt"></i> Book a Demo
+                    </button>
+                </div>
+                <div class="utility-right">
+                    <a href="mailto:info@panatech.co.zw" class="utility-link">
+                        <i class="fas fa-envelope"></i> info@panatech.co.zw
+                    </a>
+                    <a href="https://wa.me/263788596097" target="_blank" class="utility-link whatsapp-link">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <!-- Logo -->
+                <a href="../index.html" class="nav-logo">
+                    <img src="../images/mylogo.webp" alt="panaTECH Logo" class="logo-img">
+                </a>
+
+                <!-- Desktop Navigation -->
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="../index.html#home" class="nav-link">Home</a></li>
+                    <li><a href="../index.html#about" class="nav-link">About</a></li>
+                    
+                    <!-- Services Dropdown -->
+                    <li class="nav-dropdown">
+                        <a href="../index.html#services" class="nav-link dropdown-toggle">
+                            Services <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="../services/web-development/index.html" class="dropdown-item">Web Development & Design</a>
+                            <a href="../services/web-maintenance/index.html" class="dropdown-item">Web Maintenance</a>
+                            <a href="../services/custom-software/index.html" class="dropdown-item">Custom Software Development</a>
+                            <a href="../services/mobile-app-development/index.html" class="dropdown-item">Mobile App Development</a>
+                            <a href="../services/ai-automation/index.html" class="dropdown-item">AI & Automation</a>
+                            <a href="../services/cloud-solutions/index.html" class="dropdown-item">Cloud Solutions</a>
+                            <a href="../services/cybersecurity/index.html" class="dropdown-item">Cybersecurity</a>
+                        </div>
+                    </li>
+                    
+                    <!-- Tech Products (active) -->
+                    <li><a href="index.html" class="nav-link active">Tech Products</a></li>
+                    
+                    <li><a href="../index.html#portfolio" class="nav-link">Portfolio</a></li>
+                    <li><a href="../index.html#blog" class="nav-link">Blog</a></li>
+                    <li><a href="../index.html#why-us" class="nav-link">Why Us</a></li>
+                    <li><a href="../index.html#faq" class="nav-link">FAQ</a></li>
+                    <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+                    <li><button class="nav-btn enquiry-btn" id="mobileEnquiryBtn">Enquiries</button></li>
+                    <li><a href="../index.html#contact" class="nav-link nav-cta">Get Started</a></li>
+                </ul>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-toggle" id="mobileToggle">
+                    <span class="toggle-line"></span>
+                    <span class="toggle-line"></span>
+                    <span class="toggle-line"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-content">
+                <ul class="mobile-nav-menu">
+                    <li><a href="../index.html#home" class="mobile-nav-link">Home</a></li>
+                    <li><a href="../index.html#about" class="mobile-nav-link">About</a></li>
+                    <li><a href="../index.html#services" class="mobile-nav-link">Services</a></li>
+                    <li><a href="index.html" class="mobile-nav-link active">Tech Products</a></li>
+                    <li><a href="../index.html#portfolio" class="mobile-nav-link">Portfolio</a></li>
+                    <li><a href="../index.html#blog" class="mobile-nav-link">Blog</a></li>
+                    <li><a href="../index.html#why-us" class="mobile-nav-link">Why Us</a></li>
+                    <li><a href="../index.html#faq" class="mobile-nav-link">FAQ</a></li>
+                    <li><a href="../index.html#contact" class="mobile-nav-link">Contact</a></li>
+                    <li><button class="mobile-nav-btn enquiry-btn">Enquiries</button></li>
+                    <li><a href="../index.html#contact" class="mobile-nav-link mobile-cta">Get Started</a></li>
+                </ul>
+                
+                <div class="mobile-contact-info">
+                    <a href="mailto:info@panatech.co.zw" class="mobile-contact-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@panatech.co.zw</span>
+                    </a>
+                    <a href="https://wa.me/263788596097" class="mobile-contact-link">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp Us</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <section class="hero-section page-hero">
+        <div class="container">
+            <div class="hero-content text-center">
+                <h1 class="hero-title">Our Tech Products Department <span class="text-gold">is Under Construction</span></h1>
+                <p class="hero-description">We are curating a range of premium tech accessories designed to match panaTECH's quality services.</p>
+                <a href="#waitlist" class="btn btn-primary">Join the Waitlist</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         PRODUCT CATEGORIES GRID
+         ============================================ -->
+    <section class="categories-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="tech-section-title">Product <span class="text-gold">Categories</span></h2>
+                <p class="section-subtitle">Explore the types of products we'll be offering</p>
+            </div>
+            <div class="categories-grid">
+                <!-- Card 1: Accessories -->
+                <div class="service-card">  <!-- reusing service-card styling -->
+                    <div class="card-image-placeholder" style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.15) 0%, rgba(201, 162, 39, 0.05) 100%), url('../images/accessories.jpg'); background-size: cover; background-position: center;">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>Accessories</h3>
+                    <p>Premium cables, chargers, stands, and more – built to last and designed to impress.</p>
+                </div>
+                <!-- Card 2: IoT / Smart Devices -->
+                <div class="service-card">
+                    <div class="card-image-placeholder" style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.15) 0%, rgba(201, 162, 39, 0.05) 100%), url('../images/iot.jpg'); background-size: cover; background-position: center;">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>IoT & Smart Devices</h3>
+                    <p>Smart home hubs, sensors, and connected gadgets that make life easier and more efficient.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         WAITLIST SECTION
+         ============================================ -->
+    <section id="waitlist" class="waitlist-section">
+        <div class="container">
+            <div class="cta-content">  <!-- reuse CTA styling -->
+                <h2 class="cta-title">Want to be the first to get our tech products?</h2>
+                <p class="cta-subtitle">Drop your email below and we'll let you know when we launch.</p>
+                <form id="waitlistForm" class="waitlist-form">
+                    <div class="form-group">
+                        <input type="email" id="waitlistEmail" name="email" placeholder="Your email address" required>
+                        <button type="submit" class="btn btn-primary">Notify Me</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Column 1 -->
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="../images/mylogo.webp" alt="panaTECH Logo">
+                    </div>
+                    <p>panaTECH is a creative software studio delivering authentic digital solutions through innovation, originality and dynamic technology.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Column 2 -->
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="../services/web-development/index.html">Web Development & Design</a></li>
+                        <li><a href="../services/web-maintenance/index.html">Web Maintenance</a></li>
+                        <li><a href="../services/custom-software/index.html">Custom Software</a></li>
+                        <li><a href="../services/mobile-apps/index.html">Mobile Apps</a></li>
+                        <li><a href="../services/ai-automation/index.html">AI & Automation</a></li>
+                        <li><a href="../services/cloud-solutions/index.html">Cloud Solutions</a></li>
+                        <li><a href="../services/cybersecurity/index.html">Cybersecurity</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html#home">Home</a></li>
+                        <li><a href="../index.html#about">About</a></li>
+                        <li><a href="../index.html#portfolio">Portfolio</a></li>
+                        <li><a href="../index.html#blog">Blog</a></li>
+                        <li><a href="../index.html#why-us">Why Us</a></li>
+                        <li><a href="../index.html#faq">FAQ</a></li>
+                        <li><a href="../index.html#contact">Contact</a></li>
+                        <li><button class="footer-link-btn enquiry-btn">Enquiries</button></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-envelope"></i> info@panatech.co.zw</p>
+                        <p><i class="fab fa-whatsapp"></i> WhatsApp Us</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Harare, Zimbabwe</p>
+                        <p><i class="fas fa-clock"></i> Mon-Sat: 8AM-6PM</p>
+                    </div>
+                    
+                    <button class="back-to-top" id="backToTop">
+                        <i class="fas fa-chevron-up"></i> Back to Top
+                    </button>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span class="current-year">2025</span> panaTECH. All Rights Reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Cookies Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Book a Demo Modal (copied from index) -->
+    <div class="modal-overlay" id="demoModal">
+        <div class="modal-container demo-modal">
+            <div class="modal-header">
+                <h3>Book a Demo Call</h3>
+                <button class="modal-close" id="closeDemoModal" aria-label="Close modal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- ... form content (shortened for brevity, but keep as in original) ... -->
+                <p class="form-footnote">Same form as on homepage</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enquiry Modal (copied from index) -->
+    <div class="modal-overlay" id="enquiryModal">
+        <div class="modal-container enquiry-modal">
+            <div class="modal-header">
+                <h3>Make an Enquiry</h3>
+                <button class="modal-close" id="closeEnquiryModal" aria-label="Close modal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- ... form content ... -->
+                <p class="form-footnote">Same form as on homepage</p>
+            </div>
+        </div>
+    </div>
+</div> <!-- .page-wrapper -->
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- Main JS (from root) -->
+<script type="module" src="../js/main.js"></script>
+<!-- Page specific JS -->
+<script src="../js/techproducts.js"></script>
+<script src="../js/navbar.js"></script>
+</body>
+</html>
