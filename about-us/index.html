@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="panaTECH - About Us. Crafting scalable digital systems, software, and integrated platforms with a founder-driven team in Zimbabwe.">
+    <meta name="keywords" content="panaTECH, software Zimbabwe, tech solutions Harare, custom software, digital systems">
+    <title>About Us | panaTECH Solutions</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Main CSS (from root) -->
+    <link rel="stylesheet" href="../css/main.css">
+
+    <!-- Page specific styles -->
+    <style>
+        /* ===== About Us Page Styles ===== */
+        
+        /* Hero with background image and overlay */
+        .about-hero {
+            position: relative;
+            background: url('../images/heroaboutus.jpg') no-repeat center center/cover;
+            padding: 120px 0;
+            color: var(--white);
+            text-align: left;
+            isolation: isolate;
+        }
+        .about-hero .overlay {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: -1;
+        }
+        .breadcrumb {
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            color: var(--gray-400);
+        }
+        .breadcrumb a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .breadcrumb .separator {
+            margin: 0 0.5rem;
+            color: var(--gray-500);
+        }
+        .breadcrumb .current {
+            color: var(--white);
+        }
+        .about-hero h1 {
+            font-size: 3rem;
+            font-weight: var(--font-weight-bold);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            max-width: 700px;
+        }
+        .about-hero p {
+            font-size: 1.1rem;
+            color: var(--gray-300);
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+        .btn-primary {
+            background: var(--gradient-gold);
+            color: var(--black);
+            border: none;
+            padding: 12px 30px;
+            font-weight: var(--font-weight-semibold);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(201, 162, 39, 0.6);
+        }
+
+        /* Founder Story Section */
+        .founder-story {
+            padding: 40px 0;
+            background: var(--white);
+        }
+        .story-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .story-content {
+            flex: 1;
+        }
+        .story-image {
+            flex: 1;
+            text-align: center;
+        }
+        .story-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .story-image img:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(201, 162, 39, 0.25);
+        }
+        .founder-story h2 {
+            font-size: 2.5rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: 1.5rem;
+            color: var(--black-900);
+            position: relative;
+            display: inline-block;
+        }
+        .founder-story h2::before {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-gold);
+            border-radius: 2px;
+        }
+        .founder-story p {
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 800px;
+        }
+
+        /* Values Section */
+        .about-values {
+            padding: 40px 0;
+            background: var(--gray-50);
+        }
+        .about-values h2 {
+            font-size: 2.5rem;
+            font-weight: var(--font-weight-bold);
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--black-900);
+        }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .value-item {
+            background: var(--white);
+            padding: 2rem 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid var(--gray-200);
+        }
+        .value-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(201, 162, 39, 0.15);
+            border-color: var(--gold);
+        }
+        .value-item h3 {
+            font-size: 1.5rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+        .value-item p {
+            color: var(--gray-600);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Animation keyframes */
+        @keyframes slideUpFromBottom {
+            from {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Apply animations to hero content */
+        .about-hero .breadcrumb {
+            animation: slideUpFromBottom 0.8s ease-out 0.1s backwards;
+        }
+
+        .about-hero h1 {
+            animation: slideUpFromBottom 0.8s ease-out 0.3s backwards;
+        }
+
+        .about-hero p {
+            animation: slideUpFromBottom 0.8s ease-out 0.5s backwards;
+        }
+
+        .about-hero .btn-primary {
+            animation: slideUpFromBottom 0.8s ease-out 0.7s backwards;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .about-hero h1 {
+                font-size: 2.2rem;
+            }
+            .founder-story h2,
+            .about-values h2 {
+                font-size: 2rem;
+            }
+            .values-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .breadcrumb {
+                font-size: 0.8rem;
+            }
+            .story-wrapper {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .story-image {
+                margin-top: 1rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .about-hero h1 {
+                font-size: 1.8rem;
+            }
+            .founder-story h2 {
+                font-size: 1.5rem;
+            }
+            .founder-story p {
+                font-size: 1rem;
+            }
+            .story-image img {
+                border-radius: 6px;
+            }
+        }
+    </style>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../images/mylogo.webp">
+</head>
+<body>
+<div class="page-wrapper">
+    <!-- Utility Bar (Desktop Only) -->
+    <div class="utility-bar" id="utilityBar">
+        <div class="container">
+            <div class="utility-content">
+                <div class="utility-left">
+                    <button class="utility-btn" id="demoBtn">
+                        <i class="fas fa-calendar-alt"></i> Book a Demo
+                    </button>
+                </div>
+                <div class="utility-right">
+                    <a href="mailto:info@panatech.co.zw" class="utility-link">
+                        <i class="fas fa-envelope"></i> info@panatech.co.zw
+                    </a>
+                    <a href="https://wa.me/263788596097" target="_blank" class="utility-link whatsapp-link">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <!-- Logo -->
+                <a href="../index.html" class="nav-logo">
+                    <img src="../images/mylogo.webp" alt="panaTECH Logo" class="logo-img">
+                </a>
+
+                <!-- Desktop Navigation -->
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link active">About</a></li>
+                    
+                    <!-- Services Dropdown -->
+                    <li class="nav-dropdown">
+                        <a href="../index.html#services" class="nav-link dropdown-toggle">
+                            Services <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="../services/web-development/index.html" class="dropdown-item">Web Development & Design</a>
+                            <a href="../services/web-maintenance/index.html" class="dropdown-item">Web Maintenance</a>
+                            <a href="../services/custom-software/index.html" class="dropdown-item">Custom Software Development</a>
+                            <a href="../services/mobile-app-development/index.html" class="dropdown-item">Mobile App Development</a>
+                            <a href="../services/ai-automation/index.html" class="dropdown-item">AI & Automation</a>
+                            <a href="../services/cloud-solutions/index.html" class="dropdown-item">Cloud Solutions</a>
+                            <a href="../services/cybersecurity/index.html" class="dropdown-item">Cybersecurity</a>
+                        </div>
+                    </li>
+                    
+                    <!-- Tech Products -->
+                    <li><a href="../tech-products/index.html" class="nav-link">Tech Products</a></li>
+                    
+                    <li><a href="../index.html#portfolio" class="nav-link">Portfolio</a></li>
+                    <li><a href="../index.html#blog" class="nav-link">Blog</a></li>
+                    <li><a href="../index.html#why-us" class="nav-link">Why Us</a></li>
+                    <li><a href="../index.html#faq" class="nav-link">FAQ</a></li>
+                    <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+                    <li><button class="nav-btn enquiry-btn" id="mobileEnquiryBtn">Enquiries</button></li>
+                    <li><a href="../index.html#contact" class="nav-link nav-cta">Get Started</a></li>
+                </ul>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-toggle" id="mobileToggle">
+                    <span class="toggle-line"></span>
+                    <span class="toggle-line"></span>
+                    <span class="toggle-line"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-content">
+                <ul class="mobile-nav-menu">
+                    <li><a href="../index.html" class="mobile-nav-link">Home</a></li>
+                    <li><a href="#about" class="mobile-nav-link active">About</a></li>
+                    <li><a href="../index.html#services" class="mobile-nav-link">Services</a></li>
+                    <li><a href="../tech-products/index.html" class="mobile-nav-link">Tech Products</a></li>
+                    <li><a href="../index.html#portfolio" class="mobile-nav-link">Portfolio</a></li>
+                    <li><a href="../index.html#blog" class="mobile-nav-link">Blog</a></li>
+                    <li><a href="../index.html#why-us" class="mobile-nav-link">Why Us</a></li>
+                    <li><a href="../index.html#faq" class="mobile-nav-link">FAQ</a></li>
+                    <li><a href="../index.html#contact" class="mobile-nav-link">Contact</a></li>
+                    <li><button class="mobile-nav-btn enquiry-btn">Enquiries</button></li>
+                    <li><a href="../index.html#contact" class="mobile-nav-link mobile-cta">Get Started</a></li>
+                </ul>
+                
+                <div class="mobile-contact-info">
+                    <a href="mailto:info@panatech.co.zw" class="mobile-contact-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@panatech.co.zw</span>
+                    </a>
+                    <a href="https://wa.me/263788596097" class="mobile-contact-link">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp Us</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ====================== HERO SECTION ====================== -->
+    <section class="about-hero">
+        <div class="overlay"></div>
+        <div class="container">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="../index.html">Home</a>
+                <span class="separator">/</span>
+                <span class="current">About Us</span>
+            </nav>
+
+            <!-- Hero Heading & Subtext -->
+            <h1>More Than Code. Built With Purpose.</h1>
+            <p>We design and build scalable digital systems — from custom software to fully integrated platforms, with care and precision.</p>
+            <a href="../index.html#contact" class="btn-primary">Work With Us</a>
+        </div>
+    </section>
+
+    <!-- ====================== FOUNDER STORY SECTION ====================== -->
+    <section id="about" class="founder-story">
+        <div class="container">
+            <div class="story-wrapper">
+                <div class="story-content">
+                    <h2>Our Story</h2>
+                    <p>Founded in Harare, panaTECH Solutions was born from the observation that businesses in Africa need more than just software; they need systems that actually work in our unique environment.</p>
+                    <p>We are a local team of engineers, designers, and problem-solvers who understand the challenges of connectivity, payments, and adoption in Zimbabwe and beyond.</p>
+                    <p>Whether you're a startup launching an MVP or an enterprise automating workflows, we bring the same level of care, craft, and transparency to every line of code.</p>
+                </div>
+                <div class="story-image">
+                    <img src="../images/mockup.png" alt="panaTECH mockup">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================== PARTNERS / VALUES SECTION ====================== -->
+    <section class="about-values">
+        <div class="container">
+            <h2>Our Principles</h2>
+            <div class="values-grid">
+                <div class="value-item">
+                    <h3>Reliable</h3>
+                    <p>Systems that stay up when you need them.</p>
+                </div>
+                <div class="value-item">
+                    <h3>Local</h3>
+                    <p>Rooted in Zimbabwe, built for the world.</p>
+                </div>
+                <div class="value-item">
+                    <h3>Fast</h3>
+                    <p>MVPs in weeks, not months.</p>
+                </div>
+                <div class="value-item">
+                    <h3>Partners</h3>
+                    <p>We grow as you grow. Collaborating for your success.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Column 1 -->
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="../images/mylogo.webp" alt="panaTECH Logo">
+                    </div>
+                    <p>panaTECH is a creative software studio delivering authentic digital solutions through innovation, originality and dynamic technology.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Column 2 -->
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="../services/web-development/index.html">Web Development & Design</a></li>
+                        <li><a href="../services/web-maintenance/index.html">Web Maintenance</a></li>
+                        <li><a href="../services/custom-software/index.html">Custom Software</a></li>
+                        <li><a href="../services/mobile-apps/index.html">Mobile Apps</a></li>
+                        <li><a href="../services/ai-automation/index.html">AI & Automation</a></li>
+                        <li><a href="../services/cloud-solutions/index.html">Cloud Solutions</a></li>
+                        <li><a href="../services/cybersecurity/index.html">Cybersecurity</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="../index.html#portfolio">Portfolio</a></li>
+                        <li><a href="../index.html#blog">Blog</a></li>
+                        <li><a href="../index.html#why-us">Why Us</a></li>
+                        <li><a href="../index.html#faq">FAQ</a></li>
+                        <li><a href="../index.html#contact">Contact</a></li>
+                        <li><button class="footer-link-btn enquiry-btn">Enquiries</button></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-envelope"></i> info@panatech.co.zw</p>
+                        <p><i class="fab fa-whatsapp"></i> WhatsApp Us</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Harare, Zimbabwe</p>
+                        <p><i class="fas fa-clock"></i> Mon-Sat: 8AM-6PM</p>
+                    </div>
+                    
+                    <button class="back-to-top" id="backToTop">
+                        <i class="fas fa-chevron-up"></i> Back to Top
+                    </button>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span class="current-year">2025</span> panaTECH. All Rights Reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Cookies Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals (same as index.html) -->
+    <div class="modal-overlay" id="demoModal">
+        <div class="modal-container demo-modal">
+            <div class="modal-header">
+                <h3>Book a Demo Call</h3>
+                <button class="modal-close" id="closeDemoModal" aria-label="Close modal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Demo form content (copy from index.html) -->
+                <p>Demo form goes here (same as homepage).</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="enquiryModal">
+        <div class="modal-container enquiry-modal">
+            <div class="modal-header">
+                <h3>Make an Enquiry</h3>
+                <button class="modal-close" id="closeEnquiryModal" aria-label="Close modal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Enquiry form content (copy from index.html) -->
+                <p>Enquiry form goes here (same as homepage).</p>
+            </div>
+        </div>
+    </div>
+</div> <!-- .page-wrapper -->
+
+<!-- Main JS (from root) -->
+<script type="module" src="../js/main.js"></script>
+
+</body>
+</html>
