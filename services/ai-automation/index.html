@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="panaTECH AI & Automation – Automate repetitive tasks, implement smart chatbots, and integrate AI into your business systems.">
+    <title>AI & Automation | panaTECH</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../../css/main.css">
+    
+    <!-- Page-specific styles -->
+    <style>
+        /* Hero with background image and overlay */
+        .ai-hero {
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.85) 0%, rgba(26, 26, 26, 0.85) 100%), url('../../images/automation.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 100px 0;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .ai-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(201,162,39,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+        
+        .ai-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(245,124,0,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+        
+        .ai-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .breadcrumb {
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            color: var(--gray-400);
+        }
+        
+        .breadcrumb a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .breadcrumb span {
+            color: var(--white);
+        }
+        
+        .ai-hero h1 {
+            font-size: 3rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: 1.5rem;
+            max-width: 700px;
+            line-height: 1.2;
+        }
+        
+        .ai-hero p {
+            font-size: 1.2rem;
+            color: var(--gray-300);
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+        
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #25D366;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-weight: var(--font-weight-semibold);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(37,211,102,0.3);
+        }
+        
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37,211,102,0.5);
+        }
+        
+        .whatsapp-btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* What We Offer – cards with hover effect */
+        .offer-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: var(--font-weight-bold);
+            text-align: center;
+            margin-bottom: 3.5rem;
+            position: relative;
+            padding-bottom: 1.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-gold);
+            border-radius: 2px;
+        }
+        
+        .section-title span {
+            color: var(--gold);
+            position: relative;
+        }
+        
+        .offer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        
+        .offer-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .offer-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-gold);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .offer-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.1);
+            border-color: transparent;
+        }
+        
+        .offer-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .offer-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(201, 162, 39, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--gold);
+            font-size: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .offer-card:hover .offer-icon {
+            background: var(--gold);
+            color: var(--black);
+        }
+        
+        .offer-card h3 {
+            font-size: 1.3rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: 1rem;
+        }
+        
+        .offer-card p {
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        /* How It Works – dark background with light cards */
+        .process-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+        }
+        
+        .process-section .section-title {
+            color: var(--white);
+        }
+        
+        .process-section .section-title span {
+            color: var(--gold);
+        }
+        
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .step-item {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            border: 1px solid var(--gray-200);
+        }
+        
+        .step-item:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold);
+            box-shadow: 0 20px 40px rgba(201,162,39,0.2);
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: var(--font-weight-bold);
+            font-size: 1.5rem;
+            color: var(--black);
+            margin: 0 auto 1rem;
+        }
+        
+        .step-item h3 {
+            font-size: 1.2rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: 1rem;
+            color: var(--black-900);
+        }
+        
+        .step-item p {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+        }
+
+        /* Pricing – two cards */
+        .pricing-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 800px;
+            margin: 2rem auto 0;
+        }
+        
+        .pricing-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.1);
+            border-color: var(--gold);
+        }
+        
+        .pricing-card.featured {
+            border: 2px solid var(--gold);
+            box-shadow: 0 10px 30px rgba(201,162,39,0.2);
+        }
+        
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: 0.5rem;
+        }
+        
+        .price {
+            font-size: 2rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        
+        .pricing-card ul {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+        
+        .pricing-card li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            color: var(--gray-700);
+        }
+        
+        .pricing-card li i {
+            color: var(--gold);
+            width: 20px;
+        }
+        
+        .btn-pricing {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 30px;
+            font-weight: var(--font-weight-semibold);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid var(--gray-200);
+            background: transparent;
+            color: var(--black-900);
+            display: inline-block;
+            text-decoration: none;
+        }
+        
+        .btn-pricing:hover {
+            border-color: var(--gold);
+            background: var(--gold);
+            color: var(--black);
+        }
+        
+        .btn-pricing.featured {
+            background: var(--gradient-gold);
+            border: none;
+            color: var(--black);
+        }
+        
+        .btn-pricing.featured:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(201,162,39,0.4);
+        }
+
+        /* FAQ */
+        .faq-section {
+            padding: 80px 0;
+            background: var(--gray-50);
+        }
+        
+        .faq-grid {
+            max-width: 700px;
+            margin: 2rem auto 0;
+        }
+        
+        .faq-item {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            border-color: var(--gold);
+            box-shadow: 0 5px 15px rgba(201,162,39,0.1);
+        }
+        
+        .faq-item h4 {
+            font-weight: var(--font-weight-bold);
+            margin-bottom: 0.5rem;
+            color: var(--gold);
+        }
+        
+        .faq-item p {
+            color: var(--gray-600);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .offer-grid,
+            .steps-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .ai-hero {
+                padding: 60px 0;
+                min-height: 500px;
+                background-attachment: scroll;
+            }
+            
+            .ai-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .ai-hero p {
+                font-size: 1rem;
+            }
+            
+            .whatsapp-btn {
+                padding: 12px 24px;
+                font-size: 0.95rem;
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+            
+            .offer-grid,
+            .steps-grid,
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .ai-hero {
+                padding: 50px 0;
+                min-height: 450px;
+            }
+            
+            .ai-hero h1 {
+                font-size: 1.6rem;
+            }
+            
+            .ai-hero p {
+                font-size: 0.95rem;
+            }
+            
+            .whatsapp-btn {
+                padding: 11px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+                margin-bottom: 2.5rem;
+            }
+        }
+    </style>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../images/mylogo.webp">
+</head>
+<body>
+<div class="page-wrapper">
+    <!-- Utility Bar (Desktop Only) -->
+    <div class="utility-bar" id="utilityBar">
+        <div class="container">
+            <div class="utility-content">
+                <div class="utility-left">
+                    <button class="utility-btn" id="demoBtn">
+                        <i class="fas fa-calendar-alt"></i> Book a Demo
+                    </button>
+                </div>
+                <div class="utility-right">
+                    <a href="mailto:info@panatech.co.zw" class="utility-link">
+                        <i class="fas fa-envelope"></i> info@panatech.co.zw
+                    </a>
+                    <a href="https://wa.me/263788596097" target="_blank" class="utility-link whatsapp-link">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <!-- Logo -->
+                <a href="../../index.html" class="nav-logo">
+                    <img src="../../images/mylogo.webp" alt="panaTECH Logo" class="logo-img">
+                </a>
+
+                <!-- Desktop Navigation -->
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="../../index.html" class="nav-link">Home</a></li>
+                    <li><a href="../../about-us/index.html" class="nav-link">About</a></li>
+                    
+                    <!-- Services Dropdown -->
+                    <li class="nav-dropdown">
+                        <a href="../../index.html#services" class="nav-link dropdown-toggle">
+                            Services <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="../web-development/index.html" class="dropdown-item">Web Development & Design</a>
+                            <a href="../web-maintenance/index.html" class="dropdown-item">Web Maintenance</a>
+                            <a href="../custom-software/index.html" class="dropdown-item">Custom Software Development</a>
+                            <a href="../mobile-app-development/index.html" class="dropdown-item">Mobile App Development</a>
+                            <a href="index.html" class="dropdown-item active">AI & Automation</a>
+                            <a href="../cloud-solutions/index.html" class="dropdown-item">Cloud Solutions</a>
+                            <a href="../cybersecurity/index.html" class="dropdown-item">Cybersecurity</a>
+                        </div>
+                    </li>
+                    
+                    <!-- Tech Products -->
+                    <li><a href="../../tech-products/index.html" class="nav-link">Tech Products</a></li>
+                    
+                    <li><a href="../../index.html#portfolio" class="nav-link">Portfolio</a></li>
+                    <li><a href="../../index.html#blog" class="nav-link">Blog</a></li>
+                    <li><a href="../../index.html#why-us" class="nav-link">Why Us</a></li>
+                    <li><a href="../../index.html#faq" class="nav-link">FAQ</a></li>
+                    <li><a href="../../index.html#contact" class="nav-link">Contact</a></li>
+                    <li><button class="nav-btn enquiry-btn" id="mobileEnquiryBtn">Enquiries</button></li>
+                    <li><a href="../../index.html#contact" class="nav-link nav-cta">Get Started</a></li>
+                </ul>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-toggle" id="mobileToggle">
+                    <span class="toggle-line"></span>
+                    <span class="toggle-line"></span>
+                    <span class="toggle-line"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-content">
+                <ul class="mobile-nav-menu">
+                    <li><a href="../../index.html" class="mobile-nav-link">Home</a></li>
+                    <li><a href="../../about-us/index.html" class="mobile-nav-link">About</a></li>
+                    <li><a href="../../index.html#services" class="mobile-nav-link">Services</a></li>
+                    <li><a href="../../tech-products/index.html" class="mobile-nav-link">Tech Products</a></li>
+                    <li><a href="../../index.html#portfolio" class="mobile-nav-link">Portfolio</a></li>
+                    <li><a href="../../index.html#blog" class="mobile-nav-link">Blog</a></li>
+                    <li><a href="../../index.html#why-us" class="mobile-nav-link">Why Us</a></li>
+                    <li><a href="../../index.html#faq" class="mobile-nav-link">FAQ</a></li>
+                    <li><a href="../../index.html#contact" class="mobile-nav-link">Contact</a></li>
+                    <li><button class="mobile-nav-btn enquiry-btn">Enquiries</button></li>
+                    <li><a href="../../index.html#contact" class="mobile-nav-link mobile-cta">Get Started</a></li>
+                </ul>
+                
+                <div class="mobile-contact-info">
+                    <a href="mailto:info@panatech.co.zw" class="mobile-contact-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@panatech.co.zw</span>
+                    </a>
+                    <a href="https://wa.me/263788596097" class="mobile-contact-link">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp Us</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section class="ai-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../../index.html">Home</a> > 
+                <a href="../../index.html#services">Services</a> > 
+                <span>AI & Automation</span>
+            </div>
+
+            <div class="hero-content">
+                <h1>AI & Automation Solutions</h1>
+                <p>
+                    We help businesses automate repetitive tasks, improve efficiency,
+                    and implement smart AI-driven tools that reduce manual work and increase productivity.
+                </p>
+
+                <a href="https://wa.me/263788596097?text=Hi%20there,%20I'm%20interested%20in%20AI%20%26%20Automation%20services." target="_blank" class="whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i> Message Us on WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== WHAT WE OFFER ========== -->
+    <section class="offer-section">
+        <div class="container">
+            <h2 class="section-title">What <span>We Offer</span></h2>
+            <div class="offer-grid">
+                <div class="offer-card">
+                    <div class="offer-icon"><i class="fas fa-robot"></i></div>
+                    <h3>AI Chatbots</h3>
+                    <p>Custom website and WhatsApp chatbots that answer customer questions, handle inquiries, and automate responses 24/7.</p>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-icon"><i class="fas fa-cogs"></i></div>
+                    <h3>Business Process Automation</h3>
+                    <p>Automate emails, form submissions, bookings, and internal workflows to reduce manual work and improve speed.</p>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-icon"><i class="fas fa-link"></i></div>
+                    <h3>System & CRM Integration</h3>
+                    <p>Connect your website, CRM, payment systems, and third-party tools for seamless business operations.</p>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-icon"><i class="fas fa-brain"></i></div>
+                    <h3>Custom AI Integrations</h3>
+                    <p>Integrate AI tools into your existing systems to enhance customer service, analytics, and decision-making.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== HOW IT WORKS ========== -->
+    <section class="process-section">
+        <div class="container">
+            <h2 class="section-title">How <span>It Works</span></h2>
+            <div class="steps-grid">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <h3>Understand Your Process</h3>
+                    <p>We analyze your current workflow and identify repetitive tasks.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <h3>Design Automation Flow</h3>
+                    <p>We create a smart automation or AI workflow tailored to your business.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <h3>Integration & Testing</h3>
+                    <p>We integrate the solution into your system and test performance.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <h3>Launch & Optimize</h3>
+                    <p>We deploy the solution and continuously improve performance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PRICING ========== -->
+    <section class="pricing-section">
+        <div class="container">
+            <h2 class="section-title">Pricing <span>Packages</span></h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Starter</h3>
+                    <div class="price">$300</div>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Basic chatbot integration</li>
+                        <li><i class="fas fa-check"></i> Simple workflow automation</li>
+                        <li><i class="fas fa-check"></i> Email automation setup</li>
+                        <li><i class="fas fa-check"></i> 1 System integration</li>
+                    </ul>
+                    <a href="https://wa.me/263788596097?text=I'm%20interested%20in%20the%20Starter%20AI%20package" target="_blank" class="btn-pricing">Get Started</a>
+                </div>
+                <div class="pricing-card featured">
+                    <h3>Standard</h3>
+                    <div class="price">$700+</div>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Advanced chatbot setup</li>
+                        <li><i class="fas fa-check"></i> Multi-step workflow automation</li>
+                        <li><i class="fas fa-check"></i> CRM & payment integration</li>
+                        <li><i class="fas fa-check"></i> Custom AI features</li>
+                    </ul>
+                    <a href="https://wa.me/263788596097?text=I'm%20interested%20in%20the%20Standard%20AI%20package" target="_blank" class="btn-pricing featured">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FAQ ========== -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>Do I need advanced AI systems?</h4>
+                    <p>No. Most businesses benefit from simple automation and chatbot systems.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Can automation work with my existing website?</h4>
+                    <p>Yes. We integrate automation into your current system or platform.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Is AI expensive?</h4>
+                    <p>Not necessarily. We provide scalable solutions depending on your needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Column 1 -->
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="../../images/mylogo.webp" alt="panaTECH Logo">
+                    </div>
+                    <p>panaTECH is a creative software studio delivering authentic digital solutions through innovation, originality and dynamic technology.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Column 2 -->
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="../web-development/index.html">Web Development & Design</a></li>
+                        <li><a href="../web-maintenance/index.html">Web Maintenance</a></li>
+                        <li><a href="../custom-software/index.html">Custom Software</a></li>
+                        <li><a href="../mobile-app-development/index.html">Mobile Apps</a></li>
+                        <li><a href="index.html">AI & Automation</a></li>
+                        <li><a href="../cloud-solutions/index.html">Cloud Solutions</a></li>
+                        <li><a href="../cybersecurity/index.html">Cybersecurity</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="../../about-us/index.html">About</a></li>
+                        <li><a href="../../index.html#portfolio">Portfolio</a></li>
+                        <li><a href="../../index.html#blog">Blog</a></li>
+                        <li><a href="../../index.html#why-us">Why Us</a></li>
+                        <li><a href="../../index.html#faq">FAQ</a></li>
+                        <li><a href="../../index.html#contact">Contact</a></li>
+                        <li><button class="footer-link-btn enquiry-btn">Enquiries</button></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-envelope"></i> info@panatech.co.zw</p>
+                        <p><i class="fab fa-whatsapp"></i> WhatsApp Us</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Harare, Zimbabwe</p>
+                        <p><i class="fas fa-clock"></i> Mon-Sat: 8AM-6PM</p>
+                    </div>
+                    
+                    <button class="back-to-top" id="backToTop">
+                        <i class="fas fa-chevron-up"></i> Back to Top
+                    </button>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span class="current-year">2025</span> panaTECH. All Rights Reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Cookies Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals (placeholders – copy full HTML from index.html) -->
+    <div class="modal-overlay" id="demoModal"><!-- ... --></div>
+    <div class="modal-overlay" id="enquiryModal"><!-- ... --></div>
+</div> <!-- .page-wrapper -->
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- Main JS -->
+<script type="module" src="../../js/main.js"></script>
+</body>
+</html>

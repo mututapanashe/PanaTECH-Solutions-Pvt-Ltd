@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="panaTECH Cloud Solutions – Reliable, scalable cloud deployment, hosting, database management, and more for businesses.">
+    <title>Cloud Solutions | panaTECH</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../../css/main.css">
+    
+    <!-- Page-specific styles -->
+    <style>
+        /* Hero with background image */
+        .cloud-hero {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.75) 100%), url('../../images/cloudhero.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 100px 0;
+            color: var(--white);
+            position: relative;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .breadcrumb {
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            color: var(--gray-400);
+        }
+        
+        .breadcrumb a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .breadcrumb span {
+            color: var(--white);
+        }
+        
+        .cloud-hero h1 {
+            font-size: 3rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: 1.5rem;
+            max-width: 700px;
+            line-height: 1.2;
+        }
+        
+        .cloud-hero p {
+            font-size: 1.2rem;
+            color: var(--gray-300);
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn-outline-light {
+            background: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: var(--font-weight-semibold);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+        
+        .btn-outline-light:hover {
+            background: var(--white);
+            color: var(--black-900);
+            transform: translateY(-2px);
+        }
+        
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #25D366;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: var(--font-weight-semibold);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(37,211,102,0.3);
+        }
+        
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37,211,102,0.5);
+        }
+
+        /* Services grid with background image */
+        .services-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.85) 100%), url('../../images/cloud.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .services-section .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: var(--font-weight-bold);
+            text-align: center;
+            margin-bottom: 3.5rem;
+            position: relative;
+            padding-bottom: 1.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-gold);
+            border-radius: 2px;
+        }
+        
+        .section-title span {
+            color: var(--gold);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.8rem;
+        }
+        
+        .service-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 16px;
+            padding: 1.8rem 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-color: var(--gold);
+        }
+        
+        .service-icon {
+            width: 55px;
+            height: 55px;
+            background: rgba(201,162,39,0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.2rem;
+            color: var(--gold);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover .service-icon {
+            background: var(--gold);
+            color: var(--black);
+        }
+        
+        .service-card h3 {
+            font-size: 1.15rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: 0.75rem;
+        }
+        
+        .service-card p {
+            color: var(--gray-600);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Process steps – dark background with light cards */
+        .process-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+        }
+        
+        .process-section .section-title {
+            color: var(--white);
+        }
+        
+        .process-section .section-title span {
+            color: var(--gold);
+        }
+        
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .step-item {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .step-item:hover {
+            border-color: var(--gold);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(201,162,39,0.2);
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: var(--font-weight-bold);
+            font-size: 1.5rem;
+            color: var(--black);
+            margin: 0 auto 1rem;
+        }
+        
+        .step-item h3 {
+            font-size: 1.2rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: 0.75rem;
+            color: var(--black-900);
+        }
+        
+        .step-item p {
+            color: var(--gray-600);
+        }
+
+        /* Pricing */
+        .pricing-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 800px;
+            margin: 2rem auto 0;
+        }
+        
+        .pricing-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 40px rgba(0,0,0,0.1);
+            border-color: var(--gold);
+        }
+        
+        .pricing-card.featured {
+            border: 2px solid var(--gold);
+            box-shadow: 0 10px 30px rgba(201,162,39,0.2);
+        }
+        
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: 0.5rem;
+        }
+        
+        .price {
+            font-size: 2rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        
+        .pricing-card ul {
+            list-style: none;
+            margin: 1.5rem 0;
+            flex: 1;
+        }
+        
+        .pricing-card li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            color: var(--gray-700);
+        }
+        
+        .pricing-card li i {
+            color: var(--gold);
+            width: 20px;
+        }
+        
+        .btn-pricing {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 30px;
+            font-weight: var(--font-weight-semibold);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid var(--gray-200);
+            background: transparent;
+            color: var(--black-900);
+            display: inline-block;
+            text-decoration: none;
+        }
+        
+        .btn-pricing:hover {
+            border-color: var(--gold);
+            background: var(--gold);
+            color: var(--black);
+        }
+        
+        .btn-pricing.featured {
+            background: var(--gradient-gold);
+            border: none;
+            color: var(--black);
+        }
+        
+        .btn-pricing.featured:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(201,162,39,0.4);
+        }
+
+        /* FAQ */
+        .faq-section {
+            padding: 80px 0;
+            background: var(--gray-50);
+        }
+        
+        .faq-list {
+            max-width: 700px;
+            margin: 2rem auto 0;
+        }
+        
+        .faq-item {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            border-color: var(--gold);
+            box-shadow: 0 5px 15px rgba(201,162,39,0.1);
+        }
+        
+        .faq-item h4 {
+            font-weight: var(--font-weight-bold);
+            margin-bottom: 0.5rem;
+            color: var(--gold);
+        }
+        
+        .faq-item p {
+            color: var(--gray-600);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .cloud-hero {
+                padding: 60px 0;
+                min-height: 500px;
+                background-attachment: scroll;
+            }
+            
+            .cloud-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .cloud-hero p {
+                font-size: 1rem;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .services-grid,
+            .steps-grid,
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .whatsapp-btn,
+            .btn-outline-light {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .cloud-hero {
+                padding: 50px 0;
+                min-height: 450px;
+            }
+            
+            .cloud-hero h1 {
+                font-size: 1.6rem;
+            }
+            
+            .cloud-hero p {
+                font-size: 0.95rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+                margin-bottom: 2.5rem;
+            }
+        }
+    </style>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../images/mylogo.webp">
+</head>
+<body>
+<div class="page-wrapper">
+    <!-- Utility Bar (Desktop Only) -->
+    <div class="utility-bar" id="utilityBar">
+        <div class="container">
+            <div class="utility-content">
+                <div class="utility-left">
+                    <button class="utility-btn" id="demoBtn">
+                        <i class="fas fa-calendar-alt"></i> Book a Demo
+                    </button>
+                </div>
+                <div class="utility-right">
+                    <a href="mailto:info@panatech.co.zw" class="utility-link">
+                        <i class="fas fa-envelope"></i> info@panatech.co.zw
+                    </a>
+                    <a href="https://wa.me/263788596097" target="_blank" class="utility-link whatsapp-link">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <!-- Logo -->
+                <a href="../../index.html" class="nav-logo">
+                    <img src="../../images/mylogo.webp" alt="panaTECH Logo" class="logo-img">
+                </a>
+
+                <!-- Desktop Navigation -->
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="../../index.html" class="nav-link">Home</a></li>
+                    <li><a href="../../about-us/index.html" class="nav-link">About</a></li>
+                    
+                    <!-- Services Dropdown -->
+                    <li class="nav-dropdown">
+                        <a href="../../index.html#services" class="nav-link dropdown-toggle">
+                            Services <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="../web-development/index.html" class="dropdown-item">Web Development & Design</a>
+                            <a href="../web-maintenance/index.html" class="dropdown-item">Web Maintenance</a>
+                            <a href="../custom-software/index.html" class="dropdown-item">Custom Software Development</a>
+                            <a href="../mobile-app-development/index.html" class="dropdown-item">Mobile App Development</a>
+                            <a href="../ai-automation/index.html" class="dropdown-item">AI & Automation</a>
+                            <a href="index.html" class="dropdown-item active">Cloud Solutions</a>
+                            <a href="../cybersecurity/index.html" class="dropdown-item">Cybersecurity</a>
+                        </div>
+                    </li>
+                    
+                    <!-- Tech Products -->
+                    <li><a href="../../tech-products/index.html" class="nav-link">Tech Products</a></li>
+                    
+                    <li><a href="../../index.html#portfolio" class="nav-link">Portfolio</a></li>
+                    <li><a href="../../index.html#blog" class="nav-link">Blog</a></li>
+                    <li><a href="../../index.html#why-us" class="nav-link">Why Us</a></li>
+                    <li><a href="../../index.html#faq" class="nav-link">FAQ</a></li>
+                    <li><a href="../../index.html#contact" class="nav-link">Contact</a></li>
+                    <li><button class="nav-btn enquiry-btn" id="mobileEnquiryBtn">Enquiries</button></li>
+                    <li><a href="../../index.html#contact" class="nav-link nav-cta">Get Started</a></li>
+                </ul>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-toggle" id="mobileToggle">
+                    <span class="toggle-line"></span>
+                    <span class="toggle-line"></span>
+                    <span class="toggle-line"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-content">
+                <ul class="mobile-nav-menu">
+                    <li><a href="../../index.html" class="mobile-nav-link">Home</a></li>
+                    <li><a href="../../about-us/index.html" class="mobile-nav-link">About</a></li>
+                    <li><a href="../../index.html#services" class="mobile-nav-link">Services</a></li>
+                    <li><a href="../../tech-products/index.html" class="mobile-nav-link">Tech Products</a></li>
+                    <li><a href="../../index.html#portfolio" class="mobile-nav-link">Portfolio</a></li>
+                    <li><a href="../../index.html#blog" class="mobile-nav-link">Blog</a></li>
+                    <li><a href="../../index.html#why-us" class="mobile-nav-link">Why Us</a></li>
+                    <li><a href="../../index.html#faq" class="mobile-nav-link">FAQ</a></li>
+                    <li><a href="../../index.html#contact" class="mobile-nav-link">Contact</a></li>
+                    <li><button class="mobile-nav-btn enquiry-btn">Enquiries</button></li>
+                    <li><a href="../../index.html#contact" class="mobile-nav-link mobile-cta">Get Started</a></li>
+                </ul>
+                
+                <div class="mobile-contact-info">
+                    <a href="mailto:info@panatech.co.zw" class="mobile-contact-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@panatech.co.zw</span>
+                    </a>
+                    <a href="https://wa.me/263788596097" class="mobile-contact-link">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp Us</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section class="cloud-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../../index.html">Home</a> > 
+                <a href="../../index.html#services">Services</a> > 
+                <span>Cloud Solutions</span>
+            </div>
+
+            <div class="hero-content">
+                <h1>Reliable & Scalable Cloud Solutions</h1>
+                <p>
+                    We help businesses deploy, manage, and scale their digital systems
+                    securely in the cloud for maximum performance and reliability.
+                </p>
+
+                <div class="hero-cta">
+                    <a href="https://wa.me/263788596097?text=Hi%20there,%20I'm%20interested%20in%20Cloud%20Solutions." target="_blank" class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> Talk to Us
+                    </a>
+                    <a href="#plans" class="btn-outline-light">
+                        <i class="fas fa-cloud"></i> Explore Plans
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== OUR CLOUD SERVICES ========== -->
+    <section class="services-section">
+        <div class="container">
+            <h2 class="section-title">Our <span>Cloud Services</span></h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-globe"></i></div>
+                    <h3>Website & App Deployment</h3>
+                    <p>Deploy your website or web application to secure cloud servers with proper configuration and performance optimization.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-server"></i></div>
+                    <h3>Cloud Hosting Setup</h3>
+                    <p>Setup and configuration of VPS, shared hosting, or cloud platforms tailored to your business needs.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-database"></i></div>
+                    <h3>Database Management</h3>
+                    <p>Secure cloud database setup, optimization, and backup solutions to ensure your data is safe and accessible.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                    <h3>Cloud Backup & Recovery</h3>
+                    <p>Automated backup systems and disaster recovery planning to protect your business from unexpected data loss.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-network-wired"></i></div>
+                    <h3>Domain & DNS Configuration</h3>
+                    <p>Professional domain linking, DNS setup, and SSL certificate configuration for secure online presence.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <h3>Performance Optimization</h3>
+                    <p>Improve website speed, uptime, and reliability using cloud-based performance tools and best practices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== DEPLOYMENT PROCESS ========== -->
+    <section class="process-section">
+        <div class="container">
+            <h2 class="section-title">Deployment <span>Process</span></h2>
+            <div class="steps-grid">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <h3>Requirement Analysis</h3>
+                    <p>We understand your system, traffic needs, and business goals.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <h3>Cloud Architecture Planning</h3>
+                    <p>We design a cloud setup that ensures scalability and security.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <h3>Deployment & Configuration</h3>
+                    <p>We deploy your system to the cloud and configure all necessary services.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <h3>Monitoring & Support</h3>
+                    <p>We monitor performance and provide ongoing support as needed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PRICING PACKAGES ========== -->
+    <section id="plans" class="pricing-section">
+        <div class="container">
+            <h2 class="section-title">Cloud <span>Packages</span></h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Starter</h3>
+                    <div class="price">$300</div>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Basic cloud deployment</li>
+                        <li><i class="fas fa-check"></i> Domain & DNS setup</li>
+                        <li><i class="fas fa-check"></i> SSL configuration</li>
+                        <li><i class="fas fa-check"></i> Basic performance optimization</li>
+                    </ul>
+                    <a href="https://wa.me/263788596097?text=I'm%20interested%20in%20the%20Starter%20Cloud%20package" target="_blank" class="btn-pricing">Deploy My Project</a>
+                </div>
+                <div class="pricing-card featured">
+                    <h3>Standard</h3>
+                    <div class="price">$1000</div>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Advanced cloud deployment</li>
+                        <li><i class="fas fa-check"></i> Database configuration</li>
+                        <li><i class="fas fa-check"></i> Automated backups</li>
+                        <li><i class="fas fa-check"></i> Performance tuning</li>
+                        <li><i class="fas fa-check"></i> Security hardening</li>
+                    </ul>
+                    <a href="https://wa.me/263788596097?text=I'm%20interested%20in%20the%20Standard%20Cloud%20package" target="_blank" class="btn-pricing featured">Scale My Infrastructure</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FAQ ========== -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Cloud <span>FAQs</span></h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h4>Do I need cloud hosting?</h4>
+                    <p>If your business relies on online systems, cloud hosting improves reliability and scalability.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Can you migrate my existing website?</h4>
+                    <p>Yes. We safely migrate websites and databases to secure cloud environments.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Is cloud secure?</h4>
+                    <p>Yes. With proper configuration, cloud environments are highly secure and reliable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Column 1 -->
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="../../images/mylogo.webp" alt="panaTECH Logo">
+                    </div>
+                    <p>panaTECH is a creative software studio delivering authentic digital solutions through innovation, originality and dynamic technology.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Column 2 -->
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="../web-development/index.html">Web Development & Design</a></li>
+                        <li><a href="../web-maintenance/index.html">Web Maintenance</a></li>
+                        <li><a href="../custom-software/index.html">Custom Software</a></li>
+                        <li><a href="../mobile-app-development/index.html">Mobile Apps</a></li>
+                        <li><a href="../ai-automation/index.html">AI & Automation</a></li>
+                        <li><a href="index.html">Cloud Solutions</a></li>
+                        <li><a href="../cybersecurity/index.html">Cybersecurity</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="../../about-us/index.html">About</a></li>
+                        <li><a href="../../index.html#portfolio">Portfolio</a></li>
+                        <li><a href="../../index.html#blog">Blog</a></li>
+                        <li><a href="../../index.html#why-us">Why Us</a></li>
+                        <li><a href="../../index.html#faq">FAQ</a></li>
+                        <li><a href="../../index.html#contact">Contact</a></li>
+                        <li><button class="footer-link-btn enquiry-btn">Enquiries</button></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-envelope"></i> info@panatech.co.zw</p>
+                        <p><i class="fab fa-whatsapp"></i> WhatsApp Us</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Harare, Zimbabwe</p>
+                        <p><i class="fas fa-clock"></i> Mon-Sat: 8AM-6PM</p>
+                    </div>
+                    
+                    <button class="back-to-top" id="backToTop">
+                        <i class="fas fa-chevron-up"></i> Back to Top
+                    </button>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span class="current-year">2025</span> panaTECH. All Rights Reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Cookies Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals (placeholders – copy full HTML from index.html) -->
+    <div class="modal-overlay" id="demoModal"><!-- ... --></div>
+    <div class="modal-overlay" id="enquiryModal"><!-- ... --></div>
+</div> <!-- .page-wrapper -->
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- Main JS -->
+<script type="module" src="../../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="panaTECH Portfolio - Real solutions delivering real results. See our latest projects across web development, mobile apps, custom software, and more.">
+    <meta name="keywords" content="panaTECH portfolio, software projects Zimbabwe, web development projects, mobile app portfolio, custom software projects">
+    <title>Our Portfolio | panaTECH Solutions</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Main CSS (from root) -->
+    <link rel="stylesheet" href="../css/main.css">
+
+    <!-- Page specific styles -->
+    <style>
+        /* ===== Portfolio Page Styles ===== */
+        
+        /* Hero with background image and overlay */
+        .portfolio-hero {
+            background: linear-gradient(rgba(25, 30, 35, 0.4), rgba(25, 30, 35, 0.4)), url('../images/portfolio2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 120px 0;
+            color: var(--white);
+            text-align: left;
+        }
+        
+        .breadcrumb {
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            color: var(--gray-400);
+        }
+        
+        .breadcrumb a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .breadcrumb .separator {
+            margin: 0 0.5rem;
+            color: var(--gray-500);
+        }
+        
+        .breadcrumb .current {
+            color: var(--white);
+        }
+        
+        .portfolio-hero h1 {
+            font-size: 3rem;
+            font-weight: var(--font-weight-bold);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            max-width: 700px;
+        }
+        
+        .portfolio-hero p {
+            font-size: 1.1rem;
+            color: var(--gray-300);
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+        
+        /* Portfolio Filter Section */
+        .portfolio-filters {
+            padding: 40px 0;
+            background: var(--white);
+        }
+        
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+        
+        .filter-btn {
+            padding: 10px 25px;
+            border: 2px solid var(--gray-300);
+            background: var(--white);
+            color: var(--black-900);
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: var(--font-weight-semibold);
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            border-color: var(--gold);
+            background: var(--gold);
+            color: var(--black);
+        }
+        
+        /* Portfolio Grid */
+        .portfolio-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        
+        .portfolio-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid var(--gray-200);
+        }
+        
+        .portfolio-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(201, 162, 39, 0.2);
+        }
+        
+        .portfolio-card-image {
+            position: relative;
+            overflow: hidden;
+            height: 250px;
+        }
+        
+        .portfolio-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .portfolio-card:hover .portfolio-card-image img {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-card-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .portfolio-card:hover .portfolio-card-overlay {
+            opacity: 1;
+        }
+        
+        .portfolio-card-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: var(--gold);
+            color: var(--black);
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .portfolio-card-link:hover {
+            background: var(--white);
+            transform: scale(1.1);
+        }
+        
+        .portfolio-card-content {
+            padding: 1.5rem;
+        }
+        
+        .portfolio-card h3 {
+            font-size: 1.3rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: 0.5rem;
+            color: var(--black-900);
+        }
+        
+        .portfolio-card p {
+            color: var(--gray-600);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .portfolio-card-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .portfolio-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--gray-100);
+            color: var(--gold);
+            font-size: 0.8rem;
+            border-radius: 20px;
+            font-weight: var(--font-weight-semibold);
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .portfolio-items {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .portfolio-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .portfolio-items {
+                grid-template-columns: 1fr;
+            }
+            
+            .filter-buttons {
+                gap: 0.5rem;
+            }
+            
+            .filter-btn {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .portfolio-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .portfolio-hero p {
+                font-size: 0.95rem;
+            }
+            
+            .breadcrumb {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../images/mylogo.webp">
+</head>
+<body>
+<div class="page-wrapper">
+    <!-- Utility Bar (Desktop Only) -->
+    <div class="utility-bar" id="utilityBar">
+        <div class="container">
+            <div class="utility-content">
+                <div class="utility-left">
+                    <button class="utility-btn" id="demoBtn">
+                        <i class="fas fa-calendar-alt"></i> Book a Demo
+                    </button>
+                </div>
+                <div class="utility-right">
+                    <a href="mailto:info@panatech.co.zw" class="utility-link">
+                        <i class="fas fa-envelope"></i> info@panatech.co.zw
+                    </a>
+                    <a href="https://wa.me/263788596097" target="_blank" class="utility-link whatsapp-link">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <!-- Logo -->
+                <a href="../index.html" class="nav-logo">
+                    <img src="../images/mylogo.webp" alt="panaTECH Logo" class="logo-img">
+                </a>
+
+                <!-- Desktop Navigation -->
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="../index.html#home" class="nav-link">Home</a></li>
+                    <li><a href="../index.html#about" class="nav-link">About</a></li>
+                    
+                    <!-- Services Dropdown -->
+                    <li class="nav-dropdown">
+                        <a href="../index.html#services" class="nav-link dropdown-toggle">
+                            Services <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="../services/web-development/index.html" class="dropdown-item">Web Development & Design</a>
+                            <a href="../services/web-maintenance/index.html" class="dropdown-item">Web Maintenance & Support</a>
+                            <a href="../services/custom-software/index.html" class="dropdown-item">Custom Software Development</a>
+                            <a href="../services/mobile-app-development/index.html" class="dropdown-item">Mobile App Development</a>
+                            <a href="../services/ai-automation/index.html" class="dropdown-item">AI & Automation</a>
+                            <a href="../services/cloud-solutions/index.html" class="dropdown-item">Cloud Solutions</a>
+                            <a href="../services/cybersecurity/index.html" class="dropdown-item">Cybersecurity</a>
+                        </div>
+                    </li>
+                    
+                    <li><a href="../tech-products/index.html" class="nav-link">Tech Products</a></li>
+                    <li><a href="./index.html" class="nav-link active">Portfolio</a></li>
+                    <li><a href="../index.html#blog" class="nav-link">Blog</a></li>
+                    <li><a href="../index.html#why-us" class="nav-link">Why Us</a></li>
+                    <li><a href="../index.html#faq" class="nav-link">FAQ</a></li>
+                    <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+                    <li><button class="nav-btn enquiry-btn" id="mobileEnquiryBtn">Enquiries</button></li>
+                    <li><a href="../index.html#contact" class="nav-link nav-cta">Get Started</a></li>
+                </ul>
+
+                <!-- Mobile Menu Toggle - FIXED -->
+                <button class="mobile-toggle" id="mobileToggle">
+                    <span class="toggle-line"></span>
+                    <span class="toggle-line"></span>
+                    <span class="toggle-line"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-content">
+                <ul class="mobile-nav-menu">
+                    <li><a href="../index.html#home" class="mobile-nav-link">Home</a></li>
+                    <li><a href="../index.html#about" class="mobile-nav-link">About</a></li>
+                    <li><a href="../index.html#services" class="mobile-nav-link">Services</a></li>
+                    <li><a href="../tech-products/index.html" class="mobile-nav-link">Tech Products</a></li>
+                    <li><a href="./index.html" class="mobile-nav-link active">Portfolio</a></li>
+                    <li><a href="../index.html#blog" class="mobile-nav-link">Blog</a></li>
+                    <li><a href="../index.html#why-us" class="mobile-nav-link">Why Us</a></li>
+                    <li><a href="../index.html#faq" class="mobile-nav-link">FAQ</a></li>
+                    <li><a href="../index.html#contact" class="mobile-nav-link">Contact</a></li>
+                    <li><button class="mobile-nav-btn enquiry-btn">Enquiries</button></li>
+                    <li><a href="../index.html#contact" class="mobile-nav-link mobile-cta">Get Started</a></li>
+                </ul>
+                
+                <div class="mobile-contact-info">
+                    <a href="mailto:info@panatech.co.zw" class="mobile-contact-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@panatech.co.zw</span>
+                    </a>
+                    <a href="https://wa.me/263788596097" class="mobile-contact-link">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp Us</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="portfolio-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a>
+                <span class="separator">/</span>
+                <span class="current">Our Portfolio</span>
+            </div>
+            <h1>Our Portfolio</h1>
+            <p>Real solutions delivering real results for businesses across Africa and beyond</p>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio-filters">
+        <div class="container">
+            <div class="section-header" style="margin-bottom: 3rem;">
+                <h2 class="section-title">Featured <span class="text-gold">Projects</span></h2>
+                <p class="section-subtitle">Explore our latest work across various industries and technologies</p>
+            </div>
+            
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="web-dev">Web Development</button>
+                <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
+                <button class="filter-btn" data-filter="software">Custom Software</button>
+                <button class="filter-btn" data-filter="ai">AI & Automation</button>
+            </div>
+            
+            <div class="portfolio-items">
+                <!-- Project 1 -->
+                <div class="portfolio-card" data-complexity="8" data-impact="9" data-category="web-dev">
+                    <div class="portfolio-card-image">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="E-commerce Platform" loading="lazy">
+                        <div class="portfolio-card-overlay">
+                            <a href="#project1" class="portfolio-card-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portfolio-card-content">
+                        <h3>E-commerce Platform</h3>
+                        <p>Full-featured online store with payment integration, inventory management, and analytics dashboard for seamless online selling.</p>
+                        <div class="portfolio-card-tags">
+                            <span class="portfolio-tag">Web Development</span>
+                            <span class="portfolio-tag">E-commerce</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="portfolio-card" data-complexity="9" data-impact="8" data-category="mobile">
+                    <div class="portfolio-card-image">
+                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Fitness Tracking App" loading="lazy">
+                        <div class="portfolio-card-overlay">
+                            <a href="#project2" class="portfolio-card-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portfolio-card-content">
+                        <h3>Fitness Tracking App</h3>
+                        <p>Native iOS and Android fitness application with real-time tracking, workout plans, and social features for health-conscious users.</p>
+                        <div class="portfolio-card-tags">
+                            <span class="portfolio-tag">Mobile App</span>
+                            <span class="portfolio-tag">Health Tech</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="portfolio-card" data-complexity="7" data-impact="9" data-category="software">
+                    <div class="portfolio-card-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Business Analytics Dashboard" loading="lazy">
+                        <div class="portfolio-card-overlay">
+                            <a href="#project3" class="portfolio-card-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portfolio-card-content">
+                        <h3>Business Analytics Dashboard</h3>
+                        <p>Real-time analytics and reporting platform with custom metrics, data visualization, and predictive insights for data-driven decisions.</p>
+                        <div class="portfolio-card-tags">
+                            <span class="portfolio-tag">Custom Software</span>
+                            <span class="portfolio-tag">Analytics</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section style="padding: 60px 0; background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%); text-align: center; color: white;">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1rem; font-weight: 700;">Ready to Start Your Project?</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem; color: #d1d5db; max-width: 600px; margin-left: auto; margin-right: auto;">Let's discuss how we can transform your ideas into reality with our expert team and proven solutions.</p>
+            <a href="../index.html#contact" class="btn btn-primary" style="background: var(--gradient-gold); color: var(--black); border: none; padding: 12px 30px; font-weight: 600; border-radius: 4px; text-decoration: none; display: inline-block;">
+                Start Your Project
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Column 1 -->
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="../images/mylogo.webp" alt="panaTECH Logo">
+                        
+                    </div>
+                    <p>panaTECH is a creative software studio delivering authentic digital solutions through innovation, originality and dynamic technology.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Column 2 -->
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="../services/web-development/index.html">Web Development & Design</a></li>
+                        <li><a href="../services/web-maintenance/index.html">Web Maintenance & Support</a></li>
+                        <li><a href="../services/custom-software/index.html">Custom Software</a></li>
+                        <li><a href="../services/mobile-app-development/index.html">Mobile App Development</a></li>
+                        <li><a href="../services/ai-automation/index.html">AI & Automation</a></li>
+                        <li><a href="../services/cloud-solutions/index.html">Cloud Solutions</a></li>
+                        <li><a href="../services/cybersecurity/index.html">Cybersecurity</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html#home">Home</a></li>
+                        <li><a href="../index.html#about">About</a></li>
+                        <li><a href="./index.html">Portfolio</a></li>
+                        <li><a href="../index.html#blog">Blog</a></li>
+                        <li><a href="../index.html#why-us">Why Us</a></li>
+                        <li><a href="../index.html#faq">FAQ</a></li>
+                        <li><a href="../index.html#contact">Contact</a></li>
+                        <li><button class="footer-link-btn enquiry-btn">Enquiries</button></li>
+                        
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-envelope"></i> info@panatech.co.zw</p>
+                        <p><i class="fab fa-whatsapp"></i> WhatsApp Us</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Harare, Zimbabwe</p>
+                        <p><i class="fas fa-clock"></i> Mon-Sat: 8AM-6PM</p>
+                    </div>
+                    
+                    <button class="back-to-top" id="backToTop">
+                        <i class="fas fa-chevron-up"></i> Back to Top
+                    </button>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span class="current-year">2025</span> panaTECH. All Rights Reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Cookies Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Modals (placeholders – copy full HTML from index.html) -->
+    <div class="modal-overlay" id="demoModal"><!-- ... --></div>
+    <div class="modal-overlay" id="enquiryModal"><!-- ... --></div>
+</div> <!-- Close .page-wrapper -->
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- Main JS -->
+<script type="module" src="../js/main.js"></script>
+</body>
+</html>

@@ -5,8 +5,36 @@ export class Filters {
     }
     
     init() {
+        this.initPortfolioButtonFilters();
         this.initPortfolioFilters();
         this.initBlogFilters();
+    }
+    
+    // Portfolio Button Filters (for portfolio page)
+    initPortfolioButtonFilters() {
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        if (!filterBtns.length) return;
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Filter portfolio items
+                const filter = btn.dataset.filter;
+                const cards = document.querySelectorAll('.portfolio-card');
+                
+                cards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = 'block';
+                        card.style.animation = 'fadeIn 0.5s ease';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
     }
     
     // Portfolio Filters

@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="panaTECH Cybersecurity – Protect your digital assets with network security, endpoint protection, encryption, and more.">
+    <title>Cybersecurity | panaTECH</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../../css/main.css">
+    
+    <!-- Page-specific styles with animations -->
+    <style>
+        /* ===== Hero Section ===== */
+        .cyber-hero {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.75) 100%), url('../../images/cybersecurity.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 100px 0;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+        }
+        .cyber-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(201,162,39,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse 8s infinite;
+        }
+        .cyber-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(245,124,0,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse 12s infinite reverse;
+        }
+        @keyframes pulse {
+            0%,100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+        .breadcrumb {
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            color: var(--gray-400);
+            position: relative;
+            z-index: 2;
+        }
+        .breadcrumb a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .breadcrumb span {
+            color: var(--white);
+        }
+        .cyber-hero h1 {
+            font-size: 3rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: 1.5rem;
+            max-width: 700px;
+            animation: slideUp 1s ease-out;
+        }
+        .cyber-hero p {
+            font-size: 1.2rem;
+            color: var(--gray-300);
+            max-width: 600px;
+            margin-bottom: 2rem;
+            animation: slideUp 1s ease-out 0.2s both;
+        }
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            animation: slideUp 1s ease-out 0.4s both;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #25D366;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-weight: var(--font-weight-semibold);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(37,211,102,0.3);
+        }
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37,211,102,0.5);
+        }
+        .btn-outline-light {
+            background: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: var(--font-weight-semibold);
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+        .btn-outline-light:hover {
+            background: var(--white);
+            color: var(--black-900);
+            transform: translateY(-2px);
+        }
+
+        /* ===== Security Solutions – Animated List (No Cards) ===== */
+        .solutions-section {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #f8f8f8 0%, #f8f8f8 100%);
+        }
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: var(--font-weight-bold);
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--black-900);
+        }
+        .section-title span {
+            color: var(--gold);
+        }
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .solution-item {
+            text-align: center;
+            padding: 1.5rem;
+            transition: all 0.4s ease;
+            animation: fadeInUp 0.8s ease-out;
+            animation-fill-mode: both;
+        }
+        .solution-item:nth-child(1) { animation-delay: 0.1s; }
+        .solution-item:nth-child(2) { animation-delay: 0.2s; }
+        .solution-item:nth-child(3) { animation-delay: 0.3s; }
+        .solution-item:nth-child(4) { animation-delay: 0.4s; }
+        .solution-item:nth-child(5) { animation-delay: 0.5s; }
+        .solution-item:nth-child(6) { animation-delay: 0.6s; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .solution-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(201,162,39,0.1);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            color: var(--gold);
+            font-size: 2.5rem;
+            transition: all 0.5s ease;
+            animation: morph 8s infinite;
+        }
+        .solution-item:hover .solution-icon {
+            background: var(--gold);
+            color: var(--black);
+            transform: scale(1.1) rotate(5deg);
+            border-radius: 50%;
+        }
+        @keyframes morph {
+            0%,100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            25% { border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%; }
+            50% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; }
+            75% { border-radius: 40% 60% 60% 40% / 60% 40% 40% 60%; }
+        }
+        .solution-item h3 {
+            font-size: 1.4rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: 0.75rem;
+            transition: color 0.3s;
+            color: var(--black-900);
+        }
+        .solution-item:hover h3 {
+            color: var(--gold);
+        }
+        .solution-item p {
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        /* ===== Security Process – Animated Steps ===== */
+        .process-section {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #f5f5f5 0%, #f5f5f5 100%);
+        }
+        .process-section .section-title {
+            color: var(--black-900);
+        }
+        .process-section .section-title span {
+            color: var(--gold);
+        }
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            position: relative;
+        }
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            z-index: 1;
+        }
+        .step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            animation: stepAppear 1s ease-out;
+            animation-fill-mode: both;
+        }
+        .step:nth-child(1) { animation-delay: 0.2s; }
+        .step:nth-child(2) { animation-delay: 0.4s; }
+        .step:nth-child(3) { animation-delay: 0.6s; }
+        .step:nth-child(4) { animation-delay: 0.8s; }
+        @keyframes stepAppear {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--white);
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: var(--black-900);
+            font-size: 2rem;
+            transition: all 0.3s ease;
+            animation: float 3s infinite ease-in-out;
+        }
+        .step:hover .step-icon {
+            background: var(--gold);
+            color: var(--black);
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(201,162,39,0.5);
+        }
+        @keyframes float {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .step h3 {
+            font-size: 1.2rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: 0.5rem;
+            color: var(--black-900);
+        }
+        .step p {
+            color: var(--gray-700);
+        }
+
+        /* ===== Pricing (Cards with subtle animation) ===== */
+        .pricing-section {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #f8f8f8 0%, #f8f8f8 100%);
+        }
+        .pricing-section .section-title {
+            color: var(--black-900);
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 800px;
+            margin: 2rem auto 0;
+        }
+        .pricing-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            animation: slideUp 0.8s ease-out;
+        }
+        .pricing-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 40px rgba(0,0,0,0.1);
+            border-color: var(--gold);
+        }
+        .pricing-card.featured {
+            border: 2px solid var(--gold);
+            box-shadow: 0 10px 30px rgba(201,162,39,0.2);
+        }
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: 0.5rem;
+        }
+        .price {
+            font-size: 2rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        .pricing-card ul {
+            list-style: none;
+            margin: 1.5rem 0;
+            flex: 1;
+        }
+        .pricing-card li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            color: var(--gray-700);
+        }
+        .pricing-card li i {
+            color: var(--gold);
+            width: 20px;
+        }
+        .btn-pricing {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 30px;
+            font-weight: var(--font-weight-semibold);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid var(--gray-200);
+            background: transparent;
+            color: var(--black-900);
+            display: inline-block;
+            text-decoration: none;
+        }
+        .btn-pricing:hover {
+            border-color: var(--gold);
+            background: var(--gold);
+            color: var(--black);
+        }
+        .btn-pricing.featured {
+            background: var(--gradient-gold);
+            border: none;
+            color: var(--black);
+        }
+        .btn-pricing.featured:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(201,162,39,0.4);
+        }
+
+        /* ===== Gallery Slider Section ===== */
+        .gallery-slider-section {
+            padding: 40px 0;
+            background: var(--black);
+            overflow: hidden;
+        }
+        .gallery-container {
+            display: flex;
+            gap: 0;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+        }
+        .gallery-container::-webkit-scrollbar {
+            display: none;
+        }
+        .gallery-item {
+            flex: 0 0 100%;
+            height: 400px;
+            position: relative;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        /* Desktop: Show two images side by side with auto sliding */
+        @media (min-width: 769px) {
+            .gallery-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+                overflow-x: visible;
+                padding: 0 20px;
+            }
+            .gallery-item {
+                flex: none;
+                height: 350px;
+            }
+            .gallery-item:nth-child(1) {
+                animation: slideInLeft 1s ease-out;
+            }
+            .gallery-item:nth-child(2) {
+                animation: slideInRight 1s ease-out;
+            }
+        }
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-100px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(100px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        /* Mobile: Single image carousel */
+        @media (max-width: 768px) {
+            .gallery-item {
+                height: 300px;
+            }
+            .gallery-item:nth-child(1) {
+                animation: slideInUp 0.8s ease-out;
+            }
+            .gallery-item:nth-child(2) {
+                animation: slideInUp 0.8s ease-out 0.2s both;
+            }
+        }
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== FAQ ===== */
+        .faq-section {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #f0f0f0 0%, #f0f0f0 100%);
+        }
+        .faq-section .section-title {
+            color: var(--black-900);
+        }
+        .faq-grid {
+            max-width: 700px;
+            margin: 2rem auto 0;
+        }
+        .faq-item {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+            animation: slideRight 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+        .faq-item:nth-child(1) { animation-delay: 0.1s; }
+        .faq-item:nth-child(2) { animation-delay: 0.2s; }
+        .faq-item:nth-child(3) { animation-delay: 0.3s; }
+        @keyframes slideRight {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .faq-item:hover {
+            border-color: var(--gold);
+            box-shadow: 0 5px 15px rgba(201,162,39,0.1);
+            transform: translateX(5px);
+        }
+        .faq-item h4 {
+            font-weight: var(--font-weight-bold);
+            margin-bottom: 0.5rem;
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .faq-item h4 i {
+            font-size: 1.2rem;
+        }
+        .faq-item p {
+            color: var(--gray-600);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .solutions-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .cyber-hero {
+                padding: 60px 0;
+                min-height: 500px;
+                background-attachment: scroll;
+            }
+            .cyber-hero h1 {
+                font-size: 2rem;
+            }
+            .cyber-hero p {
+                font-size: 1rem;
+            }
+            .hero-cta {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .whatsapp-btn,
+            .btn-outline-light {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+            .solutions-grid,
+            .process-steps,
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+            .process-steps::before {
+                display: none;
+            }
+            
+            /* Disable animations on mobile for better performance */
+            .solution-item,
+            .step,
+            .pricing-card,
+            .faq-item {
+                animation: none !important;
+            }
+            
+            .solution-item:nth-child(1),
+            .solution-item:nth-child(2),
+            .solution-item:nth-child(3),
+            .solution-item:nth-child(4),
+            .solution-item:nth-child(5),
+            .solution-item:nth-child(6),
+            .step:nth-child(1),
+            .step:nth-child(2),
+            .step:nth-child(3),
+            .step:nth-child(4),
+            .faq-item:nth-child(1),
+            .faq-item:nth-child(2),
+            .faq-item:nth-child(3) {
+                animation-delay: 0s !important;
+                opacity: 1;
+            }
+            
+            .solution-icon {
+                animation: none !important;
+            }
+            
+            .step-icon {
+                animation: none !important;
+            }
+        }
+        @media (max-width: 480px) {
+            .cyber-hero {
+                padding: 50px 0;
+                min-height: 450px;
+            }
+            .cyber-hero h1 {
+                font-size: 1.6rem;
+            }
+            .whatsapp-btn,
+            .btn-outline-light {
+                padding: 11px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../images/mylogo.webp">
+</head>
+<body>
+<div class="page-wrapper">
+    <!-- Utility Bar (Desktop Only) -->
+    <div class="utility-bar" id="utilityBar">
+        <div class="container">
+            <div class="utility-content">
+                <div class="utility-left">
+                    <button class="utility-btn" id="demoBtn">
+                        <i class="fas fa-calendar-alt"></i> Book a Demo
+                    </button>
+                </div>
+                <div class="utility-right">
+                    <a href="mailto:info@panatech.co.zw" class="utility-link">
+                        <i class="fas fa-envelope"></i> info@panatech.co.zw
+                    </a>
+                    <a href="https://wa.me/263788596097" target="_blank" class="utility-link whatsapp-link">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <!-- Logo -->
+                <a href="../../index.html" class="nav-logo">
+                    <img src="../../images/mylogo.webp" alt="panaTECH Logo" class="logo-img">
+                </a>
+
+                <!-- Desktop Navigation -->
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="../../index.html" class="nav-link">Home</a></li>
+                    <li><a href="../../about-us/index.html" class="nav-link">About</a></li>
+                    
+                    <!-- Services Dropdown -->
+                    <li class="nav-dropdown">
+                        <a href="../../index.html#services" class="nav-link dropdown-toggle">
+                            Services <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="../web-development/index.html" class="dropdown-item">Web Development & Design</a>
+                            <a href="../web-maintenance/index.html" class="dropdown-item">Web Maintenance</a>
+                            <a href="../custom-software/index.html" class="dropdown-item">Custom Software Development</a>
+                            <a href="../mobile-app-development/index.html" class="dropdown-item">Mobile App Development</a>
+                            <a href="../ai-automation/index.html" class="dropdown-item">AI & Automation</a>
+                            <a href="../cloud-solutions/index.html" class="dropdown-item">Cloud Solutions</a>
+                            <a href="index.html" class="dropdown-item active">Cybersecurity</a>
+                        </div>
+                    </li>
+                    
+                    <!-- Tech Products -->
+                    <li><a href="../../tech-products/index.html" class="nav-link">Tech Products</a></li>
+                    
+                    <li><a href="../../index.html#portfolio" class="nav-link">Portfolio</a></li>
+                    <li><a href="../../index.html#blog" class="nav-link">Blog</a></li>
+                    <li><a href="../../index.html#why-us" class="nav-link">Why Us</a></li>
+                    <li><a href="../../index.html#faq" class="nav-link">FAQ</a></li>
+                    <li><a href="../../index.html#contact" class="nav-link">Contact</a></li>
+                    <li><button class="nav-btn enquiry-btn" id="mobileEnquiryBtn">Enquiries</button></li>
+                    <li><a href="../../index.html#contact" class="nav-link nav-cta">Get Started</a></li>
+                </ul>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-toggle" id="mobileToggle">
+                    <span class="toggle-line"></span>
+                    <span class="toggle-line"></span>
+                    <span class="toggle-line"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-content">
+                <ul class="mobile-nav-menu">
+                    <li><a href="../../index.html" class="mobile-nav-link">Home</a></li>
+                    <li><a href="../../about-us/index.html" class="mobile-nav-link">About</a></li>
+                    <li><a href="../../index.html#services" class="mobile-nav-link">Services</a></li>
+                    <li><a href="../../tech-products/index.html" class="mobile-nav-link">Tech Products</a></li>
+                    <li><a href="../../index.html#portfolio" class="mobile-nav-link">Portfolio</a></li>
+                    <li><a href="../../index.html#blog" class="mobile-nav-link">Blog</a></li>
+                    <li><a href="../../index.html#why-us" class="mobile-nav-link">Why Us</a></li>
+                    <li><a href="../../index.html#faq" class="mobile-nav-link">FAQ</a></li>
+                    <li><a href="../../index.html#contact" class="mobile-nav-link">Contact</a></li>
+                    <li><button class="mobile-nav-btn enquiry-btn">Enquiries</button></li>
+                    <li><a href="../../index.html#contact" class="mobile-nav-link mobile-cta">Get Started</a></li>
+                </ul>
+                
+                <div class="mobile-contact-info">
+                    <a href="mailto:info@panatech.co.zw" class="mobile-contact-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@panatech.co.zw</span>
+                    </a>
+                    <a href="https://wa.me/263788596097" class="mobile-contact-link">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp Us</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section class="cyber-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../../index.html">Home</a> > 
+                <a href="../../index.html#services">Services</a> > 
+                <span>Cybersecurity Services</span>
+            </div>
+
+            <div class="hero-content">
+                <h1>Protect Your Digital Assets</h1>
+                <p>
+                    We help businesses secure their systems, networks, and data 
+                    against cyber threats and attacks, keeping your operations safe.
+                </p>
+
+                <div class="hero-cta">
+                    <a href="https://wa.me/263788596097?text=Hi%20there,%20I'm%20interested%20in%20Cybersecurity%20services." target="_blank" class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> Chat with Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== OUR SECURITY SOLUTIONS (Animated, No Cards) ========== -->
+    <section class="solutions-section">
+        <div class="container">
+            <h2 class="section-title">Our <span>Security Solutions</span></h2>
+            <div class="solutions-grid">
+                <!-- Network Security -->
+                <div class="solution-item">
+                    <div class="solution-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Network Security</h3>
+                    <p>Protect your network from unauthorized access, malware, and intrusions.</p>
+                </div>
+                <!-- Endpoint Protection -->
+                <div class="solution-item">
+                    <div class="solution-icon">
+                        <!-- Heroicon style: could use Font Awesome, but we'll keep Font Awesome for simplicity -->
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>Endpoint Protection</h3>
+                    <p>Secure devices like computers, phones, and servers against cyber attacks.</p>
+                </div>
+                <!-- Data Encryption & Backup -->
+                <div class="solution-item">
+                    <div class="solution-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Data Encryption & Backup</h3>
+                    <p>Safeguard sensitive information using encryption and reliable backup solutions.</p>
+                </div>
+                <!-- Vulnerability Assessment -->
+                <div class="solution-item">
+                    <div class="solution-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Vulnerability Assessment</h3>
+                    <p>Identify weaknesses in your systems and take proactive steps to fix them.</p>
+                </div>
+                <!-- Incident Response -->
+                <div class="solution-item">
+                    <div class="solution-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3>Incident Response</h3>
+                    <p>Rapid response to any cyber attack to minimize damage and restore operations.</p>
+                </div>
+                <!-- Security Training -->
+                <div class="solution-item">
+                    <div class="solution-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Security Training</h3>
+                    <p>Educate your team on cybersecurity best practices to prevent breaches.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== HOW WE SECURE YOUR BUSINESS ========== -->
+    <section class="process-section">
+        <div class="container">
+            <h2 class="section-title">How We <span>Secure Your Business</span></h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h3>1. Risk Assessment</h3>
+                    <p>We evaluate your systems to identify potential security risks.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-pencil-ruler"></i>
+                    </div>
+                    <h3>2. Strategy & Planning</h3>
+                    <p>We design a comprehensive security plan tailored to your business.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>3. Implementation</h3>
+                    <p>We deploy security measures and technologies to protect your assets.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>4. Monitoring & Support</h3>
+                    <p>Continuous monitoring and support to detect and respond to threats.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== GALLERY SLIDER ========== -->
+    <section class="gallery-slider-section">
+        <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="../../images/cyber.jpg" alt="Cybersecurity Solutions">
+            </div>
+            <div class="gallery-item">
+                <img src="../../images/cyber2.jpg" alt="Security Monitoring">
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PRICING PACKAGES ========== -->
+    <section class="pricing-section">
+        <div class="container">
+            <h2 class="section-title">Cybersecurity <span>Packages</span></h2>
+            <div class="pricing-grid">
+                <!-- Starter -->
+                <div class="pricing-card">
+                    <h3>Starter</h3>
+                    <div class="price">$300</div>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Basic network protection</li>
+                        <li><i class="fas fa-check"></i> Device security setup</li>
+                        <li><i class="fas fa-check"></i> Data backup & encryption</li>
+                    </ul>
+                    <a href="https://wa.me/263788596097?text=I'm%20interested%20in%20the%20Starter%20Cybersecurity%20package" target="_blank" class="btn-pricing">Secure My Business</a>
+                </div>
+                <!-- Standard (featured) -->
+                <div class="pricing-card featured">
+                    <h3>Standard</h3>
+                    <div class="price">$1000</div>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Advanced network & endpoint security</li>
+                        <li><i class="fas fa-check"></i> Vulnerability assessment</li>
+                        <li><i class="fas fa-check"></i> Incident response planning</li>
+                        <li><i class="fas fa-check"></i> Staff training on security awareness</li>
+                    </ul>
+                    <a href="https://wa.me/263788596097?text=I'm%20interested%20in%20the%20Standard%20Cybersecurity%20package" target="_blank" class="btn-pricing featured">Protect My Business</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FAQ ========== -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Cybersecurity <span>FAQs</span></h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4><i class="fas fa-shield-alt"></i> Why is cybersecurity important?</h4>
+                    <p>It protects your business from data breaches, financial loss, and reputational damage.</p>
+                </div>
+                <div class="faq-item">
+                    <h4><i class="fas fa-server"></i> Can you secure my existing systems?</h4>
+                    <p>Yes. We analyze and strengthen your current infrastructure to meet security standards.</p>
+                </div>
+                <div class="faq-item">
+                    <h4><i class="fas fa-users"></i> Do I need staff training?</h4>
+                    <p>Absolutely. Most breaches happen due to human error; training reduces this risk.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Column 1 -->
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="../../images/mylogo.webp" alt="panaTECH Logo">
+                    </div>
+                    <p>panaTECH is a creative software studio delivering authentic digital solutions through innovation, originality and dynamic technology.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Column 2 -->
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="../web-development/index.html">Web Development & Design</a></li>
+                        <li><a href="../web-maintenance/index.html">Web Maintenance</a></li>
+                        <li><a href="../custom-software/index.html">Custom Software</a></li>
+                        <li><a href="../mobile-app-development/index.html">Mobile Apps</a></li>
+                        <li><a href="../ai-automation/index.html">AI & Automation</a></li>
+                        <li><a href="../cloud-solutions/index.html">Cloud Solutions</a></li>
+                        <li><a href="index.html">Cybersecurity</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="../../about-us/index.html">About</a></li>
+                        <li><a href="../../index.html#portfolio">Portfolio</a></li>
+                        <li><a href="../../index.html#blog">Blog</a></li>
+                        <li><a href="../../index.html#why-us">Why Us</a></li>
+                        <li><a href="../../index.html#faq">FAQ</a></li>
+                        <li><a href="../../index.html#contact">Contact</a></li>
+                        <li><button class="footer-link-btn enquiry-btn">Enquiries</button></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-envelope"></i> info@panatech.co.zw</p>
+                        <p><i class="fab fa-whatsapp"></i> WhatsApp Us</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Harare, Zimbabwe</p>
+                        <p><i class="fas fa-clock"></i> Mon-Sat: 8AM-6PM</p>
+                    </div>
+                    
+                    <button class="back-to-top" id="backToTop">
+                        <i class="fas fa-chevron-up"></i> Back to Top
+                    </button>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span class="current-year">2025</span> panaTECH. All Rights Reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Cookies Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals (placeholders – copy full HTML from index.html) -->
+    <div class="modal-overlay" id="demoModal"><!-- ... --></div>
+    <div class="modal-overlay" id="enquiryModal"><!-- ... --></div>
+</div> <!-- .page-wrapper -->
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- Main JS -->
+<script type="module" src="../../js/main.js"></script>
+</body>
+</html>
