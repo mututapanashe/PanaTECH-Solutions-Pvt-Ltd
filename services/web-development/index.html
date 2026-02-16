@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="panaTECH Website Development & Design – Fast, mobile-friendly websites that help your business grow online. Practical engineering, clean design, reliable delivery.">
+    <title>Website Development & Design | panaTECH</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../../css/main.css">
+    
+    <!-- Page-specific styles -->
+    <style>
+        /* Animation keyframes */
+        @keyframes slideInFromBottom {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Hero section */
+        .service-hero {
+            background: linear-gradient(rgba(25, 30, 35, 0.85), rgba(25, 30, 35, 0.85)), url('../../images/webpage.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 80px 0;
+            color: var(--white);
+            text-align: center;
+        }
+
+        /* Staggered animations for hero content */
+        .service-hero .breadcrumb {
+            animation: slideInFromBottom 0.6s ease-out forwards;
+            animation-delay: 0s;
+        }
+
+        .service-hero h1 {
+            font-size: 3rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: 1.5rem;
+            animation: slideInFromBottom 0.6s ease-out forwards;
+            animation-delay: 0.6s;
+        }
+
+        .service-hero > .container > p:first-of-type {
+            font-size: 1.2rem;
+            color: var(--gray-400);
+            max-width: 700px;
+            margin: 0 auto 1rem;
+            animation: slideInFromBottom 0.6s ease-out forwards;
+            animation-delay: 1.2s;
+        }
+
+        .service-hero p {
+            font-size: 1.2rem;
+            color: var(--gray-400);
+            max-width: 700px;
+            margin: 0 auto 1rem;
+        }
+
+        .service-hero .micro-line {
+            font-size: 1rem;
+            color: var(--gold);
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+            animation: slideInFromBottom 0.6s ease-out forwards;
+            animation-delay: 1.8s;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            animation: slideInFromBottom 0.6s ease-out forwards;
+            animation-delay: 2.4s;
+        }
+
+        /* Mobile - increase delays for better effect */
+        @media (max-width: 768px) {
+            .service-hero .breadcrumb {
+                animation-delay: 0.1s;
+            }
+            .service-hero h1 {
+                animation-delay: 0.8s;
+            }
+            .service-hero > .container > p:first-of-type {
+                animation-delay: 1.5s;
+            }
+            .service-hero .micro-line {
+                animation-delay: 2.2s;
+            }
+            .hero-buttons {
+                animation-delay: 2.9s;
+            }
+        }
+
+        /* What We Build blocks */
+        .build-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .build-item {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            padding: 2rem 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .build-item:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .build-item h3 {
+            font-size: 1.3rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+        .build-item p {
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        /* Pricing cards */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .pricing-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.1);
+            border-color: var(--gold);
+        }
+        .pricing-card.featured {
+            border: 2px solid var(--gold);
+            box-shadow: 0 10px 30px rgba(201, 162, 39, 0.2);
+        }
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: 1rem;
+        }
+        .price {
+            font-size: 2.5rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--gold);
+            line-height: 1.2;
+        }
+        .period {
+            display: block;
+            color: var(--gray-500);
+            margin-bottom: 1.5rem;
+        }
+        .pricing-features {
+            list-style: none;
+            margin: 2rem 0;
+        }
+        .pricing-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            color: var(--gray-700);
+            font-size: 0.95rem;
+        }
+        .pricing-features li i {
+            color: var(--gold);
+            width: 20px;
+            font-size: 1rem;
+        }
+        .ideal-for {
+            background: var(--gray-50);
+            padding: 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: var(--gray-600);
+            margin: 1.5rem 0;
+            border-left: 3px solid var(--gold);
+        }
+        .btn-block {
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Add-ons */
+        .addons-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .addon-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--white);
+            padding: 1rem;
+            border-radius: 6px;
+            border: 1px solid var(--gray-200);
+        }
+        .addon-item i {
+            color: var(--gold);
+        }
+
+        /* What's included grid */
+        .included-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .included-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+        .included-icon {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--black);
+            font-size: 0.9rem;
+        }
+        .included-text h4 {
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: 0.25rem;
+        }
+        .included-text p {
+            color: var(--gray-600);
+            font-size: 0.9rem;
+        }
+
+        /* Recent projects placeholder */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .project-card {
+            background: var(--gray-100);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .project-image {
+            height: 200px;
+            background: var(--gray-300);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-600);
+        }
+        .project-info {
+            padding: 1.5rem;
+            background: var(--white);
+        }
+        .project-info h4 {
+            font-weight: var(--font-weight-bold);
+            margin-bottom: 0.25rem;
+        }
+        .project-info p {
+            color: var(--gray-600);
+            font-size: 0.9rem;
+        }
+
+        /* How it works steps */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .step-item {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .step-item:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--gold);
+            color: var(--black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: var(--font-weight-bold);
+            margin: 0 auto 1rem;
+        }
+        .step-item h4 {
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: 0.5rem;
+        }
+        .step-item p {
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* FAQ accordion */
+        .faq-list {
+            max-width: 800px;
+            margin: 2rem auto 0;
+        }
+        .faq-item {
+            border-bottom: 1px solid var(--gray-200);
+        }
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            padding: 1.2rem 0;
+            background: none;
+            border: none;
+            font-weight: var(--font-weight-semibold);
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 1rem 0 0;
+            color: var(--gray-600);
+        }
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding-bottom: 1.2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .build-grid,
+            .pricing-grid,
+            .addons-grid,
+            .included-grid,
+            .projects-grid,
+            .steps-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .service-hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .build-grid,
+            .pricing-grid,
+            .addons-grid,
+            .included-grid,
+            .projects-grid,
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../images/mylogo.webp">
+</head>
+<body>
+<div class="page-wrapper">
+    <!-- Utility Bar (Desktop Only) -->
+    <div class="utility-bar" id="utilityBar">
+        <div class="container">
+            <div class="utility-content">
+                <div class="utility-left">
+                    <button class="utility-btn" id="demoBtn">
+                        <i class="fas fa-calendar-alt"></i> Book a Demo
+                    </button>
+                </div>
+                <div class="utility-right">
+                    <a href="mailto:info@panatech.co.zw" class="utility-link">
+                        <i class="fas fa-envelope"></i> info@panatech.co.zw
+                    </a>
+                    <a href="https://wa.me/263788596097" target="_blank" class="utility-link whatsapp-link">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <!-- Logo -->
+                <a href="../../index.html" class="nav-logo">
+                    <img src="../../images/mylogo.webp" alt="panaTECH Logo" class="logo-img">
+                </a>
+
+                <!-- Desktop Navigation -->
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="../../index.html#home" class="nav-link">Home</a></li>
+                    <li><a href="../../index.html#about" class="nav-link">About</a></li>
+                    
+                    <!-- Services Dropdown -->
+                    <li class="nav-dropdown">
+                        <a href="../../index.html#services" class="nav-link dropdown-toggle">
+                            Services <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="index.html" class="dropdown-item active">Web Development & Design</a>
+                            <a href="../web-maintenance/index.html" class="dropdown-item">Web Maintenance</a>
+                            <a href="../custom-software/index.html" class="dropdown-item">Custom Software Development</a>
+                            <a href="../mobile-app-development/index.html" class="dropdown-item">Mobile App Development</a>
+                            <a href="../ai-automation/index.html" class="dropdown-item">AI & Automation</a>
+                            <a href="../cloud-solutions/index.html" class="dropdown-item">Cloud Solutions</a>
+                            <a href="../cybersecurity/index.html" class="dropdown-item">Cybersecurity</a>
+                        </div>
+                    </li>
+                    
+                    <!-- Tech Products -->
+                    <li><a href="../../tech-products/index.html" class="nav-link">Tech Products</a></li>
+                    
+                    <li><a href="../../index.html#portfolio" class="nav-link">Portfolio</a></li>
+                    <li><a href="../../index.html#blog" class="nav-link">Blog</a></li>
+                    <li><a href="../../index.html#why-us" class="nav-link">Why Us</a></li>
+                    <li><a href="../../index.html#faq" class="nav-link">FAQ</a></li>
+                    <li><a href="../../index.html#contact" class="nav-link">Contact</a></li>
+                    <li><button class="nav-btn enquiry-btn" id="mobileEnquiryBtn">Enquiries</button></li>
+                    <li><a href="../../index.html#contact" class="nav-link nav-cta">Get Started</a></li>
+                </ul>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-toggle" id="mobileToggle">
+                    <span class="toggle-line"></span>
+                    <span class="toggle-line"></span>
+                    <span class="toggle-line"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-content">
+                <ul class="mobile-nav-menu">
+                    <li><a href="../../index.html#home" class="mobile-nav-link">Home</a></li>
+                    <li><a href="../../index.html#about" class="mobile-nav-link">About</a></li>
+                    <li><a href="../../index.html#services" class="mobile-nav-link">Services</a></li>
+                    <li><a href="../../tech-products/index.html" class="mobile-nav-link">Tech Products</a></li>
+                    <li><a href="../../index.html#portfolio" class="mobile-nav-link">Portfolio</a></li>
+                    <li><a href="../../index.html#blog" class="mobile-nav-link">Blog</a></li>
+                    <li><a href="../../index.html#why-us" class="mobile-nav-link">Why Us</a></li>
+                    <li><a href="../../index.html#faq" class="mobile-nav-link">FAQ</a></li>
+                    <li><a href="../../index.html#contact" class="mobile-nav-link">Contact</a></li>
+                    <li><button class="mobile-nav-btn enquiry-btn">Enquiries</button></li>
+                    <li><a href="../../index.html#contact" class="mobile-nav-link mobile-cta">Get Started</a></li>
+                </ul>
+                
+                <div class="mobile-contact-info">
+                    <a href="mailto:info@panatech.co.zw" class="mobile-contact-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@panatech.co.zw</span>
+                    </a>
+                    <a href="https://wa.me/263788596097" class="mobile-contact-link">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp Us</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section class="service-hero">
+        <div class="container">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="../../index.html">Home</a>
+                <span class="separator">/</span>
+                <a href="../../index.html#services">Services</a>
+                <span class="separator">/</span>
+                <span class="current">Web Development & Design</span>
+            </nav>
+            <h1>Website Development & Design</h1>
+            <p>We design and develop fast, mobile-friendly websites and web applications that help businesses look professional, establish credibility and grow online. No fluff – just clean, functional design and reliable performance.</p>
+            <div class="micro-line">Practical engineering. Clean design. Reliable delivery.</div>
+            <div class="hero-buttons">
+                <a href="#pricing" class="btn btn-primary">View Packages</a>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== WHAT WE BUILD SECTION ========== -->
+    <section class="section" style="padding: 60px 0;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Complete Website Solutions</h2>
+                <p>Everything your business needs to operate professionally online.</p>
+            </div>
+            <div class="build-grid">
+                <div class="build-item">
+                    <h3>Mobile-Friendly Design</h3>
+                    <p>Websites that look and work perfectly on phones, tablets, and desktops. No pinching or zooming required.</p>
+                </div>
+                <div class="build-item">
+                    <h3>SEO Foundations</h3>
+                    <p>Basic on-page SEO so search engines can understand and rank your site. We set the groundwork for visibility.</p>
+                </div>
+                <div class="build-item">
+                    <h3>Secure & Reliable Setup</h3>
+                    <p>SSL certificates, secure hosting, and regular updates. Your site and your visitors' data stay safe.</p>
+                </div>
+                <div class="build-item">
+                    <h3>Performance Optimized</h3>
+                    <p>Fast loading times and smooth interactions. We optimize images, code, and server response.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PRICING SECTION ========== -->
+    <section id="pricing" class="section" style="padding: 60px 0; background: var(--gray-50);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Transparent Website Packages</h2>
+                <p>Choose a package that fits your business stage and growth needs.</p>
+            </div>
+            <div class="pricing-grid">
+                <!-- Basic -->
+                <div class="pricing-card">
+                    <h3>Basic Package</h3>
+                    <div class="price">$300</div>
+                    <span class="period">USD – one-time payment</span>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Up to 5 pages</li>
+                        <li><i class="fas fa-check"></i> Mobile-responsive design</li>
+                        <li><i class="fas fa-check"></i> Contact form</li>
+                        <li><i class="fas fa-check"></i> Basic SEO setup</li>
+                        <li><i class="fas fa-check"></i> Google Business Profile setup (with Maps listing)</li>
+                        <li><i class="fas fa-check"></i> Domain connection assistance</li>
+                        <li><i class="fas fa-check"></i> 5 professional email accounts</li>
+                        <li><i class="fas fa-check"></i> Basic DNS configuration</li>
+                        <li><i class="fas fa-check"></i> Go-live checklist & launch support</li>
+                    </ul>
+                    <div class="ideal-for">Ideal for: Small businesses, startups, and personal brands</div>
+                    <a href="../../index.html#contact" class="btn btn-secondary btn-block">Get Started</a>
+                </div>
+                <!-- Standard -->
+                <div class="pricing-card featured">
+                    <h3>Standard Package</h3>
+                    <div class="price">$1,000</div>
+                    <span class="period">USD – one-time payment</span>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Everything in Basic</li>
+                        <li><i class="fas fa-check"></i> Up to 12 pages</li>
+                        <li><i class="fas fa-check"></i> Custom branding alignment</li>
+                        <li><i class="fas fa-check"></i> Blog or news system</li>
+                        <li><i class="fas fa-check"></i> Advanced SEO setup</li>
+                        <li><i class="fas fa-check"></i> CMS integration (WordPress or custom)</li>
+                        <li><i class="fas fa-check"></i> Analytics & tracking setup</li>
+                        <li><i class="fas fa-check"></i> Basic performance optimization</li>
+                        <li><i class="fas fa-check"></i> 60 days post-launch support</li>
+                    </ul>
+                    <div class="ideal-for">Ideal for: Growing businesses needing more content and control</div>
+                    <a href="../../index.html#contact" class="btn btn-primary btn-block">Get Started</a>
+                </div>
+                <!-- Premium -->
+                <div class="pricing-card">
+                    <h3>Premium Package</h3>
+                    <div class="price">Custom</div>
+                    <span class="period">quote based on requirements</span>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Everything in Standard</li>
+                        <li><i class="fas fa-check"></i> Fully custom UI/UX</li>
+                        <li><i class="fas fa-check"></i> Large-scale architecture</li>
+                        <li><i class="fas fa-check"></i> Advanced features (portals, dynamic forms)</li>
+                        <li><i class="fas fa-check"></i> CMS with role-based access</li>
+                        <li><i class="fas fa-check"></i> Advanced SEO strategy</li>
+                        <li><i class="fas fa-check"></i> Security hardening</li>
+                        <li><i class="fas fa-check"></i> Third-party integrations (CRM, payment systems)</li>
+                        <li><i class="fas fa-check"></i> Dedicated project consultation</li>
+                    </ul>
+                    <div class="ideal-for">Ideal for: Corporates, NGOs, institutions with complex needs</div>
+                    <a href="../../index.html#contact" class="btn btn-secondary btn-block">Contact Us</a>
+                </div>
+            </div>
+
+            <!-- Optional Add-Ons -->
+            <div style="margin-top: 3rem;">
+                <h3 style="text-align: center; margin-bottom: 1.5rem;">Optional Add-Ons</h3>
+                <div class="addons-grid">
+                    <div class="addon-item"><i class="fas fa-plus-circle"></i> Website maintenance & support plans</div>
+                    <div class="addon-item"><i class="fas fa-plus-circle"></i> Copywriting & content creation</div>
+                    <div class="addon-item"><i class="fas fa-plus-circle"></i> E-commerce integration</div>
+                    <div class="addon-item"><i class="fas fa-plus-circle"></i> Payment gateway setup</div>
+                    <div class="addon-item"><i class="fas fa-plus-circle"></i> Hosting & domain management</div>
+                    <div class="addon-item"><i class="fas fa-plus-circle"></i> Additional professional mailboxes</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== WHAT'S INCLUDED SECTION ========== -->
+    <section class="section" style="padding: 60px 0;">
+        <div class="container">
+            <div class="section-header">
+                <h2>What's Included</h2>
+                <p>Clear process. Reliable communication. Professional delivery.</p>
+            </div>
+            <div class="included-grid">
+                <div class="included-item">
+                    <div class="included-icon"><i class="fas fa-check"></i></div>
+                    <div class="included-text">
+                        <h4>Mobile-friendly website</h4>
+                        <p>Responsive design that works on all devices</p>
+                    </div>
+                </div>
+                <div class="included-item">
+                    <div class="included-icon"><i class="fas fa-check"></i></div>
+                    <div class="included-text">
+                        <h4>Basic SEO structure</h4>
+                        <p>Optimized headings, meta tags, and URL structure</p>
+                    </div>
+                </div>
+                <div class="included-item">
+                    <div class="included-icon"><i class="fas fa-check"></i></div>
+                    <div class="included-text">
+                        <h4>Contact form</h4>
+                        <p>Easy way for customers to reach you</p>
+                    </div>
+                </div>
+                <div class="included-item">
+                    <div class="included-icon"><i class="fas fa-check"></i></div>
+                    <div class="included-text">
+                        <h4>Google Business Profile</h4>
+                        <p>Complete setup with Maps listing</p>
+                    </div>
+                </div>
+                <div class="included-item">
+                    <div class="included-icon"><i class="fas fa-check"></i></div>
+                    <div class="included-text">
+                        <h4>Verification guidance</h4>
+                        <p>Step-by-step help to verify your profile</p>
+                    </div>
+                </div>
+                <div class="included-item">
+                    <div class="included-icon"><i class="fas fa-check"></i></div>
+                    <div class="included-text">
+                        <h4>Domain connection help</h4>
+                        <p>Assistance connecting your domain</p>
+                    </div>
+                </div>
+                <div class="included-item">
+                    <div class="included-icon"><i class="fas fa-check"></i></div>
+                    <div class="included-text">
+                        <h4>5 professional mailboxes</h4>
+                        <p>Email accounts like info@yourbusiness.com</p>
+                    </div>
+                </div>
+                <div class="included-item">
+                    <div class="included-icon"><i class="fas fa-check"></i></div>
+                    <div class="included-text">
+                        <h4>Basic DNS setup</h4>
+                        <p>Configuration for email and website records</p>
+                    </div>
+                </div>
+                <div class="included-item">
+                    <div class="included-icon"><i class="fas fa-check"></i></div>
+                    <div class="included-text">
+                        <h4>Launch checklist</h4>
+                        <p>Final review and go-live support</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ 
+
+    <!-- ========== HOW IT WORKS SECTION ========== -->
+    <section class="section" style="padding: 60px 0;">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>A straightforward process from start to launch.</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <h4>Send your information</h4>
+                    <p>Share your business description, goals, and any examples you like.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <h4>We craft a draft</h4>
+                    <p>We build a draft website for your review – typically within 5–7 business days.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <h4>Review and request tweaks</h4>
+                    <p>You review the draft and ask for adjustments. We refine until you're happy.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <h4>Payment after approval</h4>
+                    <p>Once you approve the design, we send an invoice. No upfront payment.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">5</div>
+                    <h4>Launch & setup</h4>
+                    <p>We finalise your site, set up your Google Business Profile, and configure your professional emails.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FAQ SECTION ========== -->
+    <section class="section" style="padding: 60px 0; background: var(--gray-50);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">How long does it take? <i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-answer">Typically 5–7 business days to receive your draft website. After approval and payment, final setup (Google Business Profile, emails) takes 2–3 business days.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">What if I don't have a domain? <i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-answer">No problem. We can guide you on purchasing a domain, or you can use a temporary subdomain initially. You'll own the domain, and we'll help connect it to your website.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Do I own the website? <i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-answer">Yes, once payment is complete you own the website code and any domain you purchase. We can provide hosting or you can host elsewhere.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Can I add more email accounts later? <i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-answer">Absolutely. The package includes 5 mailboxes. Additional accounts can be added for a small fee.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Do you provide maintenance? <i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-answer">Yes, we offer optional maintenance and support plans. The package includes launch support, but ongoing updates and hosting are available separately.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">When do I pay? <i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-answer">Payment is only required after you approve the draft website. No upfront payment. We invoice you, and once paid we finalise everything.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FINAL CTA SECTION ========== -->
+    <section class="section" style="padding: 60px 0; background: var(--black-900); color: var(--white);">
+        <div class="container text-center">
+            <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Ready to Build Your Website?</h2>
+            <p style="color: var(--gray-400); max-width: 600px; margin: 0 auto 2rem;">Get a professional, reliable website tailored to your business. No jargon, no hidden costs – just clear communication and a site that works.</p>
+            <div class="hero-buttons" style="justify-content: center;">
+                <a href="../../index.html#contact" class="btn btn-primary">Get Started</a>
+                
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Column 1 -->
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="../../images/mylogo.webp" alt="panaTECH Logo">
+                    </div>
+                    <p>panaTECH is a creative software studio delivering authentic digital solutions through innovation, originality and dynamic technology.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Column 2 -->
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="index.html">Web Development & Design</a></li>
+                        <li><a href="../web-maintenance/index.html">Web Maintenance</a></li>
+                        <li><a href="../custom-software/index.html">Custom Software</a></li>
+                        <li><a href="../mobile-app-development/index.html">Mobile Apps</a></li>
+                        <li><a href="../ai-automation/index.html">AI & Automation</a></li>
+                        <li><a href="../cloud-solutions/index.html">Cloud Solutions</a></li>
+                        <li><a href="../cybersecurity/index.html">Cybersecurity</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="../../about-us/index.html">About</a></li>
+                        <li><a href="../../index.html#portfolio">Portfolio</a></li>
+                        <li><a href="../../index.html#blog">Blog</a></li>
+                        <li><a href="../../index.html#why-us">Why Us</a></li>
+                        <li><a href="../../index.html#faq">FAQ</a></li>
+                        <li><a href="../../index.html#contact">Contact</a></li>
+                        <li><button class="footer-link-btn enquiry-btn">Enquiries</button></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-envelope"></i> info@panatech.co.zw</p>
+                        <p><i class="fab fa-whatsapp"></i> WhatsApp Us</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Harare, Zimbabwe</p>
+                        <p><i class="fas fa-clock"></i> Mon-Sat: 8AM-6PM</p>
+                    </div>
+                    
+                    <button class="back-to-top" id="backToTop">
+                        <i class="fas fa-chevron-up"></i> Back to Top
+                    </button>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span class="current-year">2025</span> panaTECH. All Rights Reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Cookies Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals (placeholders – copy full HTML from index.html) -->
+    <div class="modal-overlay" id="demoModal"><!-- ... --></div>
+    <div class="modal-overlay" id="enquiryModal"><!-- ... --></div>
+</div> <!-- .page-wrapper -->
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- Main JS -->
+<script type="module" src="../../js/main.js"></script>
+</body>
+</html>

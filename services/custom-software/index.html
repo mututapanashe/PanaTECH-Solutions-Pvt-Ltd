@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="panaTECH Custom Software Development – Tailored software solutions for your unique business challenges. Web apps, desktop apps, AI integration, and more.">
+    <title>Custom Software Development | panaTECH</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../../css/main.css">
+    
+    <!-- Page-specific styles -->
+    <style>
+        /* Floating animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(201, 162, 39, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(201, 162, 39, 0.6); }
+        }
+
+        @keyframes slideInTopLeft {
+            from {
+                opacity: 0;
+                transform: translateY(-40px) translateX(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) translateX(0);
+            }
+        }
+
+        /* Hero – unique design with gradient overlay */
+        .custom-software-hero {
+            position: relative;
+            background: linear-gradient(135deg, rgba(25, 30, 35, 0.9) 0%, rgba(201, 162, 39, 0.15) 50%, rgba(25, 30, 35, 0.9) 100%), 
+                        url('../../images/custom2.png');
+            background-size: cover, 150%;
+            background-position: center, 0;
+            background-attachment: fixed;
+            padding: 80px 0;
+            color: var(--white);
+            text-align: center;
+            isolation: isolate;
+            overflow: hidden;
+        }
+
+        /* Animated background elements */
+        .custom-software-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(201, 162, 39, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(201, 162, 39, 0.08) 0%, transparent 50%);
+            z-index: -1;
+            animation: glow 6s ease-in-out infinite;
+        }
+
+        /* Floating code blocks decoration */
+        .custom-software-hero::after {
+            content: '{ }';
+            position: absolute;
+            top: 10%;
+            right: 5%;
+            font-size: 4rem;
+            opacity: 0.1;
+            animation: float 4s ease-in-out infinite;
+            color: var(--gold);
+            font-weight: bold;
+            z-index: 0;
+        }
+
+        .breadcrumb {
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            color: var(--gray-400);
+            animation: slideInTopLeft 0.6s ease-out forwards;
+            animation-delay: 0s;
+        }
+        .breadcrumb a {
+            color: var(--gold);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .breadcrumb span {
+            color: var(--white);
+            font-weight: 500;
+        }
+        .custom-software-hero h1 {
+            font-size: 3.5rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: 1.5rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: slideInTopLeft 0.6s ease-out forwards;
+            animation-delay: 0.4s;
+            position: relative;
+            z-index: 1;
+        }
+        .custom-software-hero p {
+            font-size: 1.3rem;
+            color: var(--gray-200);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            animation: slideInTopLeft 0.6s ease-out forwards;
+            animation-delay: 0.8s;
+            position: relative;
+            z-index: 1;
+            line-height: 1.8;
+        }
+        .custom-software-hero .btn-primary {
+            animation: slideInTopLeft 0.6s ease-out forwards;
+            animation-delay: 1.2s;
+            position: relative;
+            z-index: 1;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold) 0%, #d4af37 100%);
+            color: var(--black);
+            border: none;
+            padding: 14px 40px;
+            font-weight: var(--font-weight-semibold);
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(201, 162, 39, 0.8);
+        }
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        /* Service description */
+        .service-description {
+            padding: 50px 0;
+            background: var(--white);
+            text-align: center;
+        }
+        .service-description h2 {
+            font-size: 2.2rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: 1.5rem;
+        }
+        .service-description p {
+            color: var(--gray-600);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Features section – unique design */
+        .software-features {
+            padding: 50px 0;
+            background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
+        }
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: var(--font-weight-bold);
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, var(--black-900) 0%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .section-title span {
+            color: var(--gold);
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .feature-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid var(--gray-100);
+            position: relative;
+            overflow: hidden;
+            transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+        }
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(201, 162, 39, 0.2) 0%, transparent 70%);
+            transform: scale(0);
+            transition: transform 0.4s ease;
+            z-index: 0;
+        }
+        .feature-card:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 25px 50px rgba(201, 162, 39, 0.2);
+            border-color: var(--gold);
+        }
+        .feature-card:hover::before {
+            transform: scale(1);
+        }
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(201, 162, 39, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--gold);
+            font-size: 2rem;
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover .feature-icon {
+            background: var(--gold);
+            color: var(--black);
+        }
+        .feature-card h3 {
+            font-size: 1.4rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: 1rem;
+        }
+        .feature-card p {
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        /* CTA section */
+        .custom-software-cta {
+            background: var(--black-900);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+        .custom-software-cta h2 {
+            font-size: 2.2rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: 1rem;
+        }
+        .custom-software-cta p {
+            color: var(--gray-400);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .custom-software-hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+        @media (max-width: 768px) {
+            .custom-software-hero {
+                padding: 60px 0 40px 0;
+            }
+            .custom-software-hero h1 {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+                animation-delay: 0.5s;
+            }
+            .custom-software-hero p {
+                font-size: 0.95rem;
+                animation-delay: 1s;
+            }
+            .custom-software-hero .btn-primary {
+                animation-delay: 1.4s;
+            }
+            .breadcrumb {
+                font-size: 0.8rem;
+            }
+            .custom-software-hero::after {
+                font-size: 2.5rem;
+                top: 15%;
+                right: 2%;
+            }
+            .service-description {
+                padding: 40px 0;
+            }
+            .service-description h2 {
+                font-size: 1.6rem;
+            }
+            .software-features {
+                padding: 40px 0;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .feature-card {
+                padding: 1.5rem 1.2rem;
+            }
+        }
+    </style>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../images/mylogo.webp">
+</head>
+<body>
+<div class="page-wrapper">
+    <!-- Utility Bar (Desktop Only) -->
+    <div class="utility-bar" id="utilityBar">
+        <div class="container">
+            <div class="utility-content">
+                <div class="utility-left">
+                    <button class="utility-btn" id="demoBtn">
+                        <i class="fas fa-calendar-alt"></i> Book a Demo
+                    </button>
+                </div>
+                <div class="utility-right">
+                    <a href="mailto:info@panatech.co.zw" class="utility-link">
+                        <i class="fas fa-envelope"></i> info@panatech.co.zw
+                    </a>
+                    <a href="https://wa.me/263788596097" target="_blank" class="utility-link whatsapp-link">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <!-- Logo -->
+                <a href="../../index.html" class="nav-logo">
+                    <img src="../../images/mylogo.webp" alt="panaTECH Logo" class="logo-img">
+                </a>
+
+                <!-- Desktop Navigation -->
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="../../index.html#home" class="nav-link">Home</a></li>
+                    <li><a href="../../index.html#about" class="nav-link">About</a></li>
+                    
+                    <!-- Services Dropdown -->
+                    <li class="nav-dropdown">
+                        <a href="../../index.html#services" class="nav-link dropdown-toggle">
+                            Services <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="../web-development/index.html" class="dropdown-item">Web Development & Design</a>
+                            <a href="../web-maintenance/index.html" class="dropdown-item">Web Maintenance</a>
+                            <a href="index.html" class="dropdown-item active">Custom Software Development</a>
+                            <a href="../mobile-app-development/index.html" class="dropdown-item">Mobile App Development</a>
+                            <a href="../ai-automation/index.html" class="dropdown-item">AI & Automation</a>
+                            <a href="../cloud-solutions/index.html" class="dropdown-item">Cloud Solutions</a>
+                            <a href="../cybersecurity/index.html" class="dropdown-item">Cybersecurity</a>
+                        </div>
+                    </li>
+                    
+                    <!-- Tech Products -->
+                    <li><a href="../../tech-products/index.html" class="nav-link">Tech Products</a></li>
+                    
+                    <li><a href="../../index.html#portfolio" class="nav-link">Portfolio</a></li>
+                    <li><a href="../../index.html#blog" class="nav-link">Blog</a></li>
+                    <li><a href="../../index.html#why-us" class="nav-link">Why Us</a></li>
+                    <li><a href="../../index.html#faq" class="nav-link">FAQ</a></li>
+                    <li><a href="../../index.html#contact" class="nav-link">Contact</a></li>
+                    <li><button class="nav-btn enquiry-btn" id="mobileEnquiryBtn">Enquiries</button></li>
+                    <li><a href="../../index.html#contact" class="nav-link nav-cta">Get Started</a></li>
+                </ul>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-toggle" id="mobileToggle">
+                    <span class="toggle-line"></span>
+                    <span class="toggle-line"></span>
+                    <span class="toggle-line"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-content">
+                <ul class="mobile-nav-menu">
+                    <li><a href="../../index.html#home" class="mobile-nav-link">Home</a></li>
+                    <li><a href="../../index.html#about" class="mobile-nav-link">About</a></li>
+                    <li><a href="../../index.html#services" class="mobile-nav-link">Services</a></li>
+                    <li><a href="../../tech-products/index.html" class="mobile-nav-link">Tech Products</a></li>
+                    <li><a href="../../index.html#portfolio" class="mobile-nav-link">Portfolio</a></li>
+                    <li><a href="../../index.html#blog" class="mobile-nav-link">Blog</a></li>
+                    <li><a href="../../index.html#why-us" class="mobile-nav-link">Why Us</a></li>
+                    <li><a href="../../index.html#faq" class="mobile-nav-link">FAQ</a></li>
+                    <li><a href="../../index.html#contact" class="mobile-nav-link">Contact</a></li>
+                    <li><button class="mobile-nav-btn enquiry-btn">Enquiries</button></li>
+                    <li><a href="../../index.html#contact" class="mobile-nav-link mobile-cta">Get Started</a></li>
+                </ul>
+                
+                <div class="mobile-contact-info">
+                    <a href="mailto:info@panatech.co.zw" class="mobile-contact-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@panatech.co.zw</span>
+                    </a>
+                    <a href="https://wa.me/263788596097" class="mobile-contact-link">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp Us</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section class="custom-software-hero">
+        <div class="container">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb">
+                <a href="../../index.html">Home</a> / 
+                <a href="../../index.html#services">Services</a> / 
+                <span>Custom Software Development</span>
+            </nav>
+
+            <h1>Tailored Software Solutions for Your Unique Business Challenges</h1>
+            <p>We design, develop, and optimize custom software to automate workflows, integrate AI, and power business growth.</p>
+            <a href="../../index.html#contact" class="btn-primary">Get a Custom Quote</a>
+        </div>
+    </section>
+
+    <!-- ========== SERVICE DESCRIPTION ========== -->
+    <section class="service-description">
+        <div class="container">
+            <h2>Why Choose Our Custom Software Development?</h2>
+            <p>At panaTECH, we create software that perfectly fits your business needs. Whether it’s a web application, desktop software, AI integration, or system automation, our solutions are designed to optimize your workflows, boost efficiency, and scale with your growth.</p>
+        </div>
+    </section>
+
+    <!-- ========== FEATURES / OFFERINGS ========== -->
+    <section class="software-features">
+        <div class="container">
+            <h2 class="section-title">Our <span>Custom Software Services</span></h2>
+            <div class="features-grid">
+                <!-- Feature 1: Web Applications -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Web Applications</h3>
+                    <p>Custom SaaS, client portals, and internal tools tailored for your workflow and business processes.</p>
+                </div>
+
+                <!-- Feature 2: Desktop Applications -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3>Desktop Applications</h3>
+                    <p>Specialized desktop software for Windows, macOS, and cross-platform compatibility to meet unique requirements.</p>
+                </div>
+
+                <!-- Feature 3: AI & Automation Integration -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI & Automation Integration</h3>
+                    <p>Integrate intelligent automation and predictive analytics to optimize operations and reduce manual effort.</p>
+                </div>
+
+                <!-- Feature 4: System Integration -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>System Integration</h3>
+                    <p>Seamlessly connect APIs, legacy systems, and third-party platforms for smooth data flow and management.</p>
+                </div>
+
+                <!-- Feature 5: Ongoing Support & Upgrades -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Ongoing Support & Upgrades</h3>
+                    <p>Continuous maintenance, updates, and optimization to keep your software secure, efficient, and future-ready.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CALL TO ACTION ========== -->
+    <section class="custom-software-cta">
+        <div class="container">
+            <h2>Ready to Build Your Custom Software?</h2>
+            <p>Let’s create a solution that fits your business perfectly. Get in touch today and get a personalized quote.</p>
+            <a href="../../index.html#contact" class="btn-primary">Request a Quote</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Column 1 -->
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="../../images/mylogo.webp" alt="panaTECH Logo">
+                    </div>
+                    <p>panaTECH is a creative software studio delivering authentic digital solutions through innovation, originality and dynamic technology.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Column 2 -->
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="../web-development/index.html">Web Development & Design</a></li>
+                        <li><a href="../web-maintenance/index.html">Web Maintenance</a></li>
+                        <li><a href="index.html">Custom Software</a></li>
+                        <li><a href="../mobile-app-development/index.html">Mobile Apps</a></li>
+                        <li><a href="../ai-automation/index.html">AI & Automation</a></li>
+                        <li><a href="../cloud-solutions/index.html">Cloud Solutions</a></li>
+                        <li><a href="../cybersecurity/index.html">Cybersecurity</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="../../about-us/index.html">About</a></li>
+                        <li><a href="../../index.html#portfolio">Portfolio</a></li>
+                        <li><a href="../../index.html#blog">Blog</a></li>
+                        <li><a href="../../index.html#why-us">Why Us</a></li>
+                        <li><a href="../../index.html#faq">FAQ</a></li>
+                        <li><a href="../../index.html#contact">Contact</a></li>
+                        <li><button class="footer-link-btn enquiry-btn">Enquiries</button></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-envelope"></i> info@panatech.co.zw</p>
+                        <p><i class="fab fa-whatsapp"></i> WhatsApp Us</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Harare, Zimbabwe</p>
+                        <p><i class="fas fa-clock"></i> Mon-Sat: 8AM-6PM</p>
+                    </div>
+                    
+                    <button class="back-to-top" id="backToTop">
+                        <i class="fas fa-chevron-up"></i> Back to Top
+                    </button>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span class="current-year">2025</span> panaTECH. All Rights Reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Cookies Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals (placeholders – copy full HTML from index.html) -->
+    <div class="modal-overlay" id="demoModal"><!-- ... --></div>
+    <div class="modal-overlay" id="enquiryModal"><!-- ... --></div>
+</div> <!-- .page-wrapper -->
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- Main JS -->
+<script type="module" src="../../js/main.js"></script>
+</body>
+</html>

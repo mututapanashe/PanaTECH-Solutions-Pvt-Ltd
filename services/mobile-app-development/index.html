@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="panaTECH Mobile App Development – Native-quality iOS and Android apps built for performance, offline capability, and scale. From MVP to App Store submission.">
+    <title>Mobile App Development | panaTECH</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../../css/main.css">
+    
+    <!-- Page-specific styles -->
+    <style>
+        /* Slide in from left animation */
+        @keyframes slideInFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Gradient text */
+        .brand-gradient-text {
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        /* Hero */
+        .mobile-hero {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(25, 30, 35, 0.9) 0%, rgba(201, 162, 39, 0.15) 50%, rgba(25, 30, 35, 0.9) 100%), url('../../images/app.jpg');
+            background-size: cover, 150%;
+            background-position: center, 0;
+            background-attachment: fixed;
+            padding: 80px 0;
+        }
+        .mobile-hero .hero-badge {
+            display: none;
+        }
+        .mobile-hero .breadcrumb {
+            animation: slideInFromLeft 0.6s ease-out forwards;
+            animation-delay: 0s;
+        }
+        .mobile-hero h1 {
+            font-size: 3rem;
+            font-weight: var(--font-weight-bold);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+            animation: slideInFromLeft 0.6s ease-out forwards;
+            animation-delay: 0.4s;
+        }
+        .mobile-hero p {
+            font-size: 1.2rem;
+            color: var(--gray-400);
+            max-width: 600px;
+            margin-bottom: 2rem;
+            animation: slideInFromLeft 0.6s ease-out forwards;
+            animation-delay: 0.8s;
+        }
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+            animation: slideInFromLeft 0.6s ease-out forwards;
+            animation-delay: 1.2s;
+        }
+        .btn-outline-light {
+            background: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-weight: var(--font-weight-semibold);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .btn-outline-light:hover {
+            background: var(--white);
+            color: var(--black-900);
+        }
+        .starting-price {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gray-400);
+            animation: slideInFromLeft 0.6s ease-out forwards;
+            animation-delay: 1.6s;
+        }
+        .price-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--gradient-gold);
+        }
+        .hero-image {
+            position: relative;
+        }
+        .hero-image .image-wrapper {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .hero-floating-card {
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 1rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .floating-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--gradient-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--black);
+        }
+
+        /* Pricing cards */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .pricing-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.1);
+            border-color: var(--gold);
+        }
+        .pricing-card.featured {
+            border: 2px solid var(--gold);
+            position: relative;
+            box-shadow: 0 10px 30px rgba(201, 162, 39, 0.2);
+        }
+        .featured-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient-gold);
+            color: var(--black);
+            font-size: 0.75rem;
+            font-weight: var(--font-weight-bold);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+        .starter-icon { background: rgba(16,185,129,0.1); color: #10b981; }
+        .standard-icon { background: rgba(59,130,246,0.1); color: #3b82f6; }
+        .premium-icon { background: rgba(239,68,68,0.1); color: #ef4444; }
+        .pricing-card h3 {
+            font-size: 1.3rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: 0.5rem;
+        }
+        .price-tag {
+            font-size: 1.5rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--gold);
+            margin-bottom: 0.25rem;
+        }
+        .price-note {
+            color: var(--gray-500);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        .feature-list {
+            list-style: none;
+            margin: 1.5rem 0;
+            flex: 1;
+        }
+        .feature-list li {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+            color: var(--gray-700);
+        }
+        .feature-list li i {
+            color: var(--gold);
+            width: 18px;
+            flex-shrink: 0;
+        }
+        .ideal-box {
+            background: var(--gray-50);
+            border-radius: 8px;
+            padding: 1rem;
+            font-size: 0.9rem;
+            color: var(--gray-600);
+            border-left: 3px solid var(--gold);
+            margin-bottom: 1.5rem;
+        }
+        .btn-card {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 30px;
+            font-weight: var(--font-weight-semibold);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid var(--gray-200);
+            background: transparent;
+            color: var(--black-900);
+        }
+        .btn-card:hover {
+            border-color: var(--gold);
+            background: var(--gold);
+            color: var(--black);
+        }
+        .btn-card.featured {
+            background: var(--gradient-gold);
+            border: none;
+            color: var(--black);
+        }
+        .btn-card.featured:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(201, 162, 39, 0.4);
+        }
+
+        /* Add-ons */
+        .addons-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .addon-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--white);
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--gray-200);
+        }
+        .addon-item i {
+            color: var(--gold);
+        }
+
+        /* Why us */
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .reason-item {
+            display: flex;
+            gap: 1rem;
+        }
+        .reason-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--gradient-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--black);
+            flex-shrink: 0;
+        }
+        .reason-text h4 {
+            font-weight: var(--font-weight-bold);
+            margin-bottom: 0.5rem;
+        }
+        .reason-text p {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+        }
+
+        /* Process steps */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .step-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .step-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .step-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .step-number {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: var(--gradient-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: var(--font-weight-bold);
+            color: var(--black);
+        }
+        .step-header h4 {
+            font-weight: var(--font-weight-semibold);
+        }
+        .step-card p {
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* FAQ accordion */
+        .faq-list {
+            max-width: 800px;
+            margin: 2rem auto 0;
+        }
+        .faq-item {
+            border-bottom: 1px solid var(--gray-200);
+        }
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            padding: 1.2rem 0;
+            background: none;
+            border: none;
+            font-weight: var(--font-weight-semibold);
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 1rem 0 0;
+            color: var(--gray-600);
+        }
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding-bottom: 1.2rem;
+        }
+
+        /* Contact section */
+        .contact-section {
+            background: var(--gray-50);
+            padding: 60px 0;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 2fr 3fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        .contact-info h2 {
+            font-size: 2rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: 1rem;
+        }
+        .contact-info p {
+            color: var(--gray-300);
+            margin-bottom: 2rem;
+        }
+        .contact-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .btn-whatsapp {
+            background: #25D366;
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: var(--font-weight-semibold);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .pricing-grid,
+            .reasons-grid,
+            .steps-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .addons-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .mobile-hero {
+                padding: 50px 0 30px 0;
+            }
+            .mobile-hero .grid {
+                grid-template-columns: 1fr !important;
+            }
+            .mobile-hero .breadcrumb {
+                animation-delay: 0.2s;
+            }
+            .mobile-hero h1 {
+                font-size: 1.8rem;
+                margin-bottom: 1rem;
+                line-height: 1.3;
+                animation-delay: 0.6s;
+            }
+            .mobile-hero p {
+                font-size: 0.95rem;
+                color: var(--gray-300);
+                margin-bottom: 1.5rem;
+                animation-delay: 1s;
+            }
+            .hero-cta {
+                animation-delay: 1.4s;
+            }
+            .starting-price {
+                animation-delay: 1.8s;
+            }
+            .hero-image {
+                display: none;
+            }
+            .hero-floating-card {
+                display: none;
+            }
+            .starting-price {
+                font-size: 0.9rem;
+            }
+            .pricing-grid,
+            .reasons-grid,
+            .steps-grid,
+            .addons-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .hero-cta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.75rem;
+            }
+            .contact-img-wrapper {
+                order: -1;
+            }
+        }
+    </style>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../images/mylogo.webp">
+</head>
+<body>
+<div class="page-wrapper">
+    <!-- Utility Bar (Desktop Only) -->
+    <div class="utility-bar" id="utilityBar">
+        <div class="container">
+            <div class="utility-content">
+                <div class="utility-left">
+                    <button class="utility-btn" id="demoBtn">
+                        <i class="fas fa-calendar-alt"></i> Book a Demo
+                    </button>
+                </div>
+                <div class="utility-right">
+                    <a href="mailto:info@panatech.co.zw" class="utility-link">
+                        <i class="fas fa-envelope"></i> info@panatech.co.zw
+                    </a>
+                    <a href="https://wa.me/263788596097" target="_blank" class="utility-link whatsapp-link">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <!-- Logo -->
+                <a href="../../index.html" class="nav-logo">
+                    <img src="../../images/mylogo.webp" alt="panaTECH Logo" class="logo-img">
+                </a>
+
+                <!-- Desktop Navigation -->
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="../../index.html#home" class="nav-link">Home</a></li>
+                    <li><a href="../../index.html#about" class="nav-link">About</a></li>
+                    
+                    <!-- Services Dropdown -->
+                    <li class="nav-dropdown">
+                        <a href="../../index.html#services" class="nav-link dropdown-toggle">
+                            Services <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="../web-development/index.html" class="dropdown-item">Web Development & Design</a>
+                            <a href="../web-maintenance/index.html" class="dropdown-item">Web Maintenance</a>
+                            <a href="../custom-software/index.html" class="dropdown-item">Custom Software Development</a>
+                            <a href="index.html" class="dropdown-item active">Mobile App Development</a>
+                            <a href="../ai-automation/index.html" class="dropdown-item">AI & Automation</a>
+                            <a href="../cloud-solutions/index.html" class="dropdown-item">Cloud Solutions</a>
+                            <a href="../cybersecurity/index.html" class="dropdown-item">Cybersecurity</a>
+                        </div>
+                    </li>
+                    
+                    <!-- Tech Products -->
+                    <li><a href="../../tech-products/index.html" class="nav-link">Tech Products</a></li>
+                    
+                    <li><a href="../../index.html#portfolio" class="nav-link">Portfolio</a></li>
+                    <li><a href="../../index.html#blog" class="nav-link">Blog</a></li>
+                    <li><a href="../../index.html#why-us" class="nav-link">Why Us</a></li>
+                    <li><a href="../../index.html#faq" class="nav-link">FAQ</a></li>
+                    <li><a href="../../index.html#contact" class="nav-link">Contact</a></li>
+                    <li><button class="nav-btn enquiry-btn" id="mobileEnquiryBtn">Enquiries</button></li>
+                    <li><a href="../../index.html#contact" class="nav-link nav-cta">Get Started</a></li>
+                </ul>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-toggle" id="mobileToggle">
+                    <span class="toggle-line"></span>
+                    <span class="toggle-line"></span>
+                    <span class="toggle-line"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-content">
+                <ul class="mobile-nav-menu">
+                    <li><a href="../../index.html#home" class="mobile-nav-link">Home</a></li>
+                    <li><a href="../../index.html#about" class="mobile-nav-link">About</a></li>
+                    <li><a href="../../index.html#services" class="mobile-nav-link">Services</a></li>
+                    <li><a href="../../tech-products/index.html" class="mobile-nav-link">Tech Products</a></li>
+                    <li><a href="../../index.html#portfolio" class="mobile-nav-link">Portfolio</a></li>
+                    <li><a href="../../index.html#blog" class="mobile-nav-link">Blog</a></li>
+                    <li><a href="../../index.html#why-us" class="mobile-nav-link">Why Us</a></li>
+                    <li><a href="../../index.html#faq" class="mobile-nav-link">FAQ</a></li>
+                    <li><a href="../../index.html#contact" class="mobile-nav-link">Contact</a></li>
+                    <li><button class="mobile-nav-btn enquiry-btn">Enquiries</button></li>
+                    <li><a href="../../index.html#contact" class="mobile-nav-link mobile-cta">Get Started</a></li>
+                </ul>
+                
+                <div class="mobile-contact-info">
+                    <a href="mailto:info@panatech.co.zw" class="mobile-contact-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@panatech.co.zw</span>
+                    </a>
+                    <a href="https://wa.me/263788596097" class="mobile-contact-link">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp Us</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section class="mobile-hero">
+        <div class="container">
+            <div class="grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+                <div>
+                    <nav class="breadcrumb">
+                        <a href="../../index.html">Home</a> / 
+                        <a href="../../index.html#services">Services</a> / 
+                        <span>Mobile App Development</span>
+                    </nav>
+                    <h1>Native <span class="brand-gradient-text">mobile experiences</span> that drive growth.</h1>
+                    <p>We craft high-performance iOS and Android applications designed for user retention, seamless offline functionality, and enterprise-grade scalability. From concept validation to global app store distribution, we deliver end-to-end mobile solutions.</p>
+                    <div class="hero-cta">
+                        <a href="#contact" class="btn btn-primary">Start Your App</a>
+                        <a href="https://wa.me/263788596097?text=Hi%20there,%20I'm%20interested%20in%20Mobile%20App%20Development." target="_blank" class="btn-outline-light"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+                    </div>
+                    <div class="starting-price">
+                        <div class="price-dot"></div>
+                        <span>Starting at $600 • Quick turnaround</span>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-wrapper">
+                        <img src="../../images/mobile-app-mockup.jpg" alt="Mobile app development" onerror="this.src='https://placehold.co/600x400/222/fff?text=Mobile+App'">
+                    </div>
+                    <div class="hero-floating-card">
+                        <div class="floating-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <div>
+                            <strong>iOS & Android</strong>
+                            <p style="margin:0; font-size:0.8rem;">Both platforms included</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PRICING SECTION ========== -->
+    <section id="pricing" class="section" style="padding: 60px 0;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Pricing</h2>
+                <p class="section-subtitle">At panaTECH, we design and build mobile applications that help businesses validate ideas, streamline operations, and scale with confidence. Our packages are structured to match your business stage — from MVP to enterprise-grade systems.</p>
+            </div>
+            <div class="pricing-grid">
+                <!-- Starter Package -->
+                <div class="pricing-card">
+                    <div class="card-icon starter-icon"><i class="fas fa-seedling"></i></div>
+                    <h3>Starter Package</h3>
+                    <div class="price-tag">$600</div>
+                    <div class="price-note">starting at</div>
+                    <p style="color: var(--gray-600); margin-bottom: 1.5rem;">For startups & small businesses testing an idea. A simple, functional mobile application designed to validate your concept quickly and affordably.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Mobile app for Android or iOS</li>
+                        <li><i class="fas fa-check"></i> Clean, modern UI</li>
+                        <li><i class="fas fa-check"></i> Basic navigation & user flows</li>
+                        <li><i class="fas fa-check"></i> Simple user forms</li>
+                        <li><i class="fas fa-check"></i> Basic authentication</li>
+                        <li><i class="fas fa-check"></i> Local data storage / simple backend</li>
+                        <li><i class="fas fa-check"></i> Basic app setup & configuration</li>
+                        <li><i class="fas fa-check"></i> App store deployment</li>
+                    </ul>
+                    <div class="ideal-box">Ideal for: MVPs, pilot projects, internal tools, and early-stage ideas.</div>
+                    <a href="#contact" class="btn-card">Get Started</a>
+                </div>
+
+                <!-- Standard Package (featured) -->
+                <div class="pricing-card featured">
+                    <div class="featured-badge">Most Popular</div>
+                    <div class="card-icon standard-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Standard Package</h3>
+                    <div class="price-tag">$2,000</div>
+                    <div class="price-note">starting at</div>
+                    <p style="color: var(--gray-600); margin-bottom: 1.5rem;">For growing businesses ready to monetize. A fully functional business application with backend services and payment integration.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Everything in Starter</li>
+                        <li><i class="fas fa-check"></i> Android & iOS (cross-platform)</li>
+                        <li><i class="fas fa-check"></i> UI/UX Design in Figma included</li>
+                        <li><i class="fas fa-check"></i> Full user authentication & profiles</li>
+                        <li><i class="fas fa-check"></i> Backend API & database</li>
+                        <li><i class="fas fa-check"></i> Push notifications</li>
+                        <li><i class="fas fa-check"></i> Payment integration</li>
+                        <li><i class="fas fa-check"></i> Basic analytics & usage tracking</li>
+                        <li><i class="fas fa-check"></i> Admin management features (limited)</li>
+                    </ul>
+                    <div class="ideal-box">Ideal for: Customer-facing apps, paid services, marketplaces, and subscription platforms.</div>
+                    <a href="#contact" class="btn-card featured">Get Standard</a>
+                </div>
+
+                <!-- Premium Package -->
+                <div class="pricing-card">
+                    <div class="card-icon premium-icon"><i class="fas fa-crown"></i></div>
+                    <h3>Premium Package</h3>
+                    <div class="price-tag">Custom Quote</div>
+                    <div class="price-note">for enterprises & scalable products</div>
+                    <p style="color: var(--gray-600); margin-bottom: 1.5rem;">A robust, custom-built mobile solution designed for performance, security, and growth.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Everything in Standard</li>
+                        <li><i class="fas fa-check"></i> Custom UI/UX design tailored to brand</li>
+                        <li><i class="fas fa-check"></i> Advanced app features (real-time, maps)</li>
+                        <li><i class="fas fa-check"></i> Full web-based admin dashboard</li>
+                        <li><i class="fas fa-check"></i> Advanced roles & permissions</li>
+                        <li><i class="fas fa-check"></i> Subscription billing & reports</li>
+                        <li><i class="fas fa-check"></i> 3rd-party integrations (CRM, ERP)</li>
+                        <li><i class="fas fa-check"></i> Cloud infra & deployment setup</li>
+                        <li><i class="fas fa-check"></i> Performance optimization</li>
+                    </ul>
+                    <div class="ideal-box">Ideal for: Scaling startups, corporates, fintech, logistics, and high-traffic platforms.</div>
+                    <a href="#contact" class="btn-card">Schedule Consultation</a>
+                </div>
+            </div>
+
+            <!-- Optional Add-Ons -->
+            <div class="addons-section" style="margin-top: 3rem;">
+                <h3 style="text-align: center; margin-bottom: 1.5rem;">Optional Add-Ons</h3>
+                <div class="addons-grid">
+                    <div class="addon-item"><i class="fas fa-plus-circle"></i> WhatsApp / SMS automation</div>
+                    <div class="addon-item"><i class="fas fa-plus-circle"></i> Multi-language support</div>
+                    <div class="addon-item"><i class="fas fa-plus-circle"></i> Offline functionality</div>
+                    <div class="addon-item"><i class="fas fa-plus-circle"></i> Advanced reporting & dashboards</div>
+                    <div class="addon-item"><i class="fas fa-plus-circle"></i> Ongoing monthly support & maintenance</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== WHY BUILD WITH panaTECH ========== -->
+    <section class="section" style="padding: 60px 0; background: var(--gray-50);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Build With panaTECH?</h2>
+            </div>
+            <div class="reasons-grid">
+                <div class="reason-item">
+                    <div class="reason-icon"><i class="fas fa-briefcase"></i></div>
+                    <div class="reason-text">
+                        <h4>Business-focused development</h4>
+                        <p>We build solutions that drive real business value.</p>
+                    </div>
+                </div>
+                <div class="reason-item">
+                    <div class="reason-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div class="reason-text">
+                        <h4>Scalable & secure architecture</h4>
+                        <p>Built to grow with your user base and protect data.</p>
+                    </div>
+                </div>
+                <div class="reason-item">
+                    <div class="reason-icon"><i class="fas fa-paint-brush"></i></div>
+                    <div class="reason-text">
+                        <h4>Clean, modern UI/UX</h4>
+                        <p>Interfaces that users love to engage with.</p>
+                    </div>
+                </div>
+                <div class="reason-item">
+                    <div class="reason-icon"><i class="fas fa-file-alt"></i></div>
+                    <div class="reason-text">
+                        <h4>Transparent scope & delivery</h4>
+                        <p>No surprises—clear timelines and deliverables.</p>
+                    </div>
+                </div>
+                <div class="reason-item">
+                    <div class="reason-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div class="reason-text">
+                        <h4>Local support with global standards</h4>
+                        <p>World-class quality with accessible local team.</p>
+                    </div>
+                </div>
+                <div class="reason-item">
+                    <div class="reason-icon"><i class="fas fa-rocket"></i></div>
+                    <div class="reason-text">
+                        <h4>Rapid MVP delivery</h4>
+                        <p>From idea to app store in weeks, not months.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== HOW IT WORKS ========== -->
+    <section id="process" class="section" style="padding: 60px 0;">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-number">1</div>
+                        <h4>Discover</h4>
+                    </div>
+                    <p>We map your goals, users, and technical requirements.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-number">2</div>
+                        <h4>Design</h4>
+                    </div>
+                    <p>Create clickable prototypes and user-tested flows.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-number">3</div>
+                        <h4>Build</h4>
+                    </div>
+                    <p>Ship in sprints with weekly demos and feedback.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-number">4</div>
+                        <h4>Test</h4>
+                    </div>
+                    <p>Rigorous testing across devices and OS versions.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-number">5</div>
+                        <h4>Launch</h4>
+                    </div>
+                    <p>Publish to App Stores and monitor performance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FAQS ========== -->
+    <section id="faq" class="section" style="padding: 60px 0; background: var(--gray-50);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">How long does it take to build a mobile app? <i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-answer">MVPs typically take 3-6 weeks. More complex apps with advanced features can take 2-4 months, delivered in phases with releases along the way.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Do you build native or cross-platform apps? <i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-answer">We primarily use cross-platform frameworks (Flutter/React Native) that deliver native-quality performance while building once for both iOS and Android. This saves time and cost while maintaining excellent user experience.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Will my app work offline? <i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-answer">Yes! We build offline-first architectures so your app works reliably even with poor connectivity. Data syncs automatically when connection is restored.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Do you handle App Store submission? <i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-answer">Yes. We handle the entire submission process for both Google Play Store and Apple App Store, including preparing all required assets, descriptions, and screenshots.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">What about ongoing maintenance? <i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-answer">We offer maintenance packages starting at US$200/month that include bug fixes, security updates, performance monitoring, and small feature enhancements. We'll discuss options during the project.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Who owns the app code? <i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-answer">On full payment, you own the code and all deliverables. We can provide hosting or you can host elsewhere. Full source code and documentation are included.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Can you integrate payment gateways? <i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-answer">Absolutely. We integrate with Paynow, Stripe, and other payment gateways. We also support mobile money integrations for African markets.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CONTACT SECTION ========== -->
+    <section id="contact" class="contact-section" style="background: var(--black-900); color: var(--white); padding: 60px 0;">
+        <div class="container">
+            <div class="contact-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+                <div>
+                    <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Ready to build your next mobile app?</h2>
+                    <p style="color: var(--gray-300); margin-bottom: 2rem;">Let's discuss your ideas and create a winning strategy. We respond within 24 hours.</p>
+                    <div class="contact-actions" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <a href="https://wa.me/263788596097?text=Hi%20there,%20I'm%20interested%20in%20Mobile%20App%20Development." target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+                        <a href="mailto:info@panatech.co.zw" class="btn-outline-light" style="border-color: var(--gray-400); color: var(--white); border-color: var(--white);">Email Us</a>
+                    </div>
+                </div>
+                <div class="contact-img-wrapper" style="border-radius: 12px; overflow: hidden;">
+                    <img src="../../images/appdevelopment.jpg" alt="App Development" style="width: 100%; height: auto; display: block;" />
+                </div>
+            </div>
+        </div>
+        <style>
+            @media (max-width: 768px) {
+                .contact-grid {
+                    grid-template-columns: 1fr !important;
+                }
+                #contact h2 {
+                    font-size: 1.8rem !important;
+                }
+            }
+        </style>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Column 1 -->
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="../../images/mylogo.webp" alt="panaTECH Logo">
+                    </div>
+                    <p>panaTECH is a creative software studio delivering authentic digital solutions through innovation, originality and dynamic technology.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Column 2 -->
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="../web-development/index.html">Web Development & Design</a></li>
+                        <li><a href="../web-maintenance/index.html">Web Maintenance</a></li>
+                        <li><a href="../custom-software/index.html">Custom Software</a></li>
+                        <li><a href="index.html">Mobile Apps</a></li>
+                        <li><a href="../ai-automation/index.html">AI & Automation</a></li>
+                        <li><a href="../cloud-solutions/index.html">Cloud Solutions</a></li>
+                        <li><a href="../cybersecurity/index.html">Cybersecurity</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="../../about-us/index.html">About</a></li>
+                        <li><a href="../../index.html#portfolio">Portfolio</a></li>
+                        <li><a href="../../index.html#blog">Blog</a></li>
+                        <li><a href="../../index.html#why-us">Why Us</a></li>
+                        <li><a href="../../index.html#faq">FAQ</a></li>
+                        <li><a href="../../index.html#contact">Contact</a></li>
+                        <li><button class="footer-link-btn enquiry-btn">Enquiries</button></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-envelope"></i> info@panatech.co.zw</p>
+                        <p><i class="fab fa-whatsapp"></i> WhatsApp Us</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Harare, Zimbabwe</p>
+                        <p><i class="fas fa-clock"></i> Mon-Sat: 8AM-6PM</p>
+                    </div>
+                    
+                    <button class="back-to-top" id="backToTop">
+                        <i class="fas fa-chevron-up"></i> Back to Top
+                    </button>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span class="current-year">2025</span> panaTECH. All Rights Reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Cookies Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals (placeholders – copy full HTML from index.html) -->
+    <div class="modal-overlay" id="demoModal"><!-- ... --></div>
+    <div class="modal-overlay" id="enquiryModal"><!-- ... --></div>
+</div> <!-- .page-wrapper -->
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- Main JS -->
+<script type="module" src="../../js/main.js"></script>
+<!-- FAQ accordion script -->
+<script>
+    function setupFAQ() {
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+            
+            if (question && answer) {
+                question.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            }
+        });
+    }
+    
+    // Run on DOMContentLoaded
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setupFAQ);
+    } else {
+        setupFAQ();
+    }
+    
+    // Also run after a small delay to ensure everything is ready
+    setTimeout(setupFAQ, 100);
+</script>
+</body>
+</html>

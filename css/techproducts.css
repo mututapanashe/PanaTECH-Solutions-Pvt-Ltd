@@ -1,0 +1,47 @@
+/* ============================================
+   TECH PRODUCTS PAGE STYLES
+   ============================================ */
+
+/* Waitlist Section with Image */
+.waitlist-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.waitlist-image {
+    order: 2; /* Image on the right (second item) */
+}
+
+.waitlist-image img.construction-image {
+    width: 100%;
+    height: auto;
+    max-width: 500px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.cta-content {
+    order: 1; /* Content on the left (first item) */
+}
+
+/* Mobile Responsive - Image on top */
+@media (max-width: 768px) {
+    .waitlist-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .waitlist-image {
+        order: -1; /* Image appears first (on top) */
+    }
+
+    .cta-content {
+        order: 0; /* Content appears second (below image) */
+    }
+
+    .waitlist-image img.construction-image {
+        max-width: 100%;
+    }
+}
