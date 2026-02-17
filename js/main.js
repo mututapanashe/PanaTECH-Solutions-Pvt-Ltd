@@ -166,6 +166,7 @@ class panaTECHWebsite {
         this.initMobileEnquiryButton();
         this.initSmoothScroll();
         this.initEmphasisEffects();
+        this.initScrollAnimations();
         
         console.log('panaTECH Website initialized');
     }
@@ -480,6 +481,38 @@ initMobileOptimizations() {
                 }, 1500);
             });
         }
+    }
+
+    // Scroll-triggered animations for emphasis section
+    initScrollAnimations() {
+        const emphasisTitle = document.querySelector('.emphasis-title');
+        const emphasisSubtitle = document.querySelector('.emphasis-subtitle');
+        const emphasisActions = document.querySelector('.emphasis-actions');
+
+        if (!emphasisTitle || !emphasisSubtitle || !emphasisActions) return;
+
+        // Use Intersection Observer to trigger animations on scroll
+        const observerOptions = {
+            threshold: 0.3, // Trigger when 30% of element is visible
+            rootMargin: '0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('animate')) {
+                    // Add animate class to trigger animation
+                    entry.target.classList.add('animate');
+                    
+                    // Unobserve so animation doesn't trigger again
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe each element individually
+        observer.observe(emphasisTitle);
+        observer.observe(emphasisSubtitle);
+        observer.observe(emphasisActions);
     }
 }
 // In main.js - update hero carousel

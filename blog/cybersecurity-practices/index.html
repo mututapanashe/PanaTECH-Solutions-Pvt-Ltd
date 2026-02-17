@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn essential cybersecurity practices for Zimbabwean businesses to protect data and maintain customer trust.">
+    <title>Essential Cybersecurity Practices for Businesses | panaTECH Blog</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    
+    <style>
+        .article-hero {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9f0f8 100%);
+            padding: 60px 0 40px;
+            border-bottom: 2px solid var(--gold);
+        }
+        .breadcrumb {
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            color: var(--gray-600);
+        }
+        .breadcrumb a { 
+            color: var(--gold);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .breadcrumb .separator {
+            margin: 0 0.5rem;
+            color: var(--gray-400);
+        }
+        .breadcrumb .current {
+            color: var(--black-900);
+            font-weight: 600;
+        }
+        .article-hero h1 {
+            font-size: 3rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--black-900);
+            line-height: 1.2;
+            max-width: 100%;
+        }
+        .meta-bar {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            background: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 40px;
+            max-width: 600px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            flex-wrap: wrap;
+        }
+        .meta-bar span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            white-space: nowrap;
+        }
+        @media (max-width: 640px) {
+            .meta-bar {
+                flex-direction: column;
+                gap: 0.75rem;
+                max-width: 100%;
+                padding: 0.75rem 1rem;
+                border-radius: 12px;
+            }
+            .meta-bar span {
+                font-size: 0.9rem;
+            }
+        }
+
+        .article-body {
+            padding: 60px 0;
+            background: var(--white);
+        }
+        .checklist-item {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+            align-items: flex-start;
+            padding: 1.5rem;
+            background: var(--gray-50);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        .checklist-item:hover {
+            background: #f0f4ff;
+            box-shadow: 0 4px 12px rgba(201,162,39,0.1);
+        }
+        .checklist-number {
+            font-size: 2.5rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--gold);
+            opacity: 1;
+            line-height: 1;
+            min-width: 60px;
+        }
+        .checklist-content h2 {
+            font-size: 1.8rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: 0.5rem;
+            color: var(--black-900);
+        }
+        .checklist-content p {
+            color: var(--gray-700);
+            line-height: 1.6;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #e6f7ff 0%, #f0faff 100%);
+            border-left: 4px solid #1890ff;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            box-shadow: 0 2px 8px rgba(24,144,255,0.1);
+        }
+        .tip-box i {
+            color: #1890ff;
+            margin-right: 0.5rem;
+        }
+        .sidebar-box {
+            background: var(--black-900);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
+            margin: 2rem 0;
+            border: 1px solid rgba(201,162,39,0.2);
+        }
+        .sidebar-box h3 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        .sidebar-box ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar-box li {
+            margin-bottom: 1rem;
+            display: flex;
+            gap: 1rem;
+            padding: 0.5rem 0;
+        }
+        .sidebar-box i {
+            color: var(--gold);
+            width: 20px;
+        }
+        @media (max-width: 768px) {
+            .article-hero h1 { font-size: 2.2rem; }
+            .checklist-item { flex-direction: column; gap: 0.5rem; }
+            .meta-bar { flex-direction: column; max-width: 100%; }
+        }
+    </style>
+
+    <link rel="icon" type="image/x-icon" href="../../images/mylogo.webp">
+</head>
+<body>
+<div class="page-wrapper">
+    <!-- Utility Bar -->
+    <div class="utility-bar" id="utilityBar">
+        <div class="container">
+            <div class="utility-content">
+                <div class="utility-left">
+                    <button class="utility-btn" id="demoBtn">
+                        <i class="fas fa-calendar-alt"></i> Book a Demo
+                    </button>
+                </div>
+                <div class="utility-right">
+                    <a href="mailto:info@panatech.co.zw" class="utility-link">
+                        <i class="fas fa-envelope"></i> info@panatech.co.zw
+                    </a>
+                    <a href="https://wa.me/263788596097" target="_blank" class="utility-link whatsapp-link">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <!-- Logo -->
+                <a href="../../index.html" class="nav-logo">
+                    <img src="../../images/mylogo.webp" alt="panaTECH Logo" class="logo-img">
+                </a>
+
+                <!-- Desktop Navigation -->
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="../../index.html#home" class="nav-link">Home</a></li>
+                    <li><a href="../../index.html#about" class="nav-link">About</a></li>
+                    
+                    <!-- Services Dropdown -->
+                    <li class="nav-dropdown">
+                        <a href="../../index.html#services" class="nav-link dropdown-toggle">
+                            Services <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="../../services/web-development/index.html" class="dropdown-item">Web Development & Design</a>
+                            <a href="../../services/web-maintenance/index.html" class="dropdown-item">Web Maintenance & Support</a>
+                            <a href="../../services/custom-software/index.html" class="dropdown-item">Custom Software Development</a>
+                            <a href="../../services/mobile-app-development/index.html" class="dropdown-item">Mobile App Development</a>
+                            <a href="../../services/ai-automation/index.html" class="dropdown-item">AI & Automation</a>
+                            <a href="../../services/cloud-solutions/index.html" class="dropdown-item">Cloud Solutions</a>
+                            <a href="../../services/cybersecurity/index.html" class="dropdown-item">Cybersecurity</a>
+                        </div>
+                    </li>
+                    
+                    <li><a href="../../tech-products/" class="nav-link">Tech Products</a></li>
+                    <li><a href="../../our-portfolio/" class="nav-link">Portfolio</a></li>
+                    <li><a href="../../index.html#blog" class="nav-link active">Blog</a></li>
+                    <li><a href="../../index.html#why-us" class="nav-link">Why Us</a></li>
+                    <li><a href="../../index.html#faq" class="nav-link">FAQ</a></li>
+                    <li><a href="../../index.html#contact" class="nav-link">Contact</a></li>
+                    <li><button class="nav-btn enquiry-btn" id="mobileEnquiryBtn">Enquiries</button></li>
+                    <li><a href="../../index.html#contact" class="nav-link nav-cta">Get Started</a></li>
+                </ul>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-toggle" id="mobileToggle">
+                    <span class="toggle-line"></span>
+                    <span class="toggle-line"></span>
+                    <span class="toggle-line"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-content">
+                <ul class="mobile-nav-menu">
+                    <li><a href="../../index.html#home" class="mobile-nav-link">Home</a></li>
+                    <li><a href="../../index.html#about" class="mobile-nav-link">About</a></li>
+                    <li><a href="../../index.html#services" class="mobile-nav-link">Services</a></li>
+                    <li><a href="../../tech-products/" class="mobile-nav-link">Tech Products</a></li>
+                    <li><a href="../../our-portfolio/" class="mobile-nav-link">Portfolio</a></li>
+                    <li><a href="../../index.html#blog" class="mobile-nav-link active">Blog</a></li>
+                    <li><a href="../../index.html#why-us" class="mobile-nav-link">Why Us</a></li>
+                    <li><a href="../../index.html#faq" class="mobile-nav-link">FAQ</a></li>
+                    <li><a href="../../index.html#contact" class="mobile-nav-link">Contact</a></li>
+                    <li><button class="mobile-nav-btn enquiry-btn">Enquiries</button></li>
+                    <li><a href="../../index.html#contact" class="mobile-nav-link mobile-cta">Get Started</a></li>
+                </ul>
+                
+                <div class="mobile-contact-info">
+                    <a href="mailto:info@panatech.co.zw" class="mobile-contact-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@panatech.co.zw</span>
+                    </a>
+                    <a href="https://wa.me/263788596097" class="mobile-contact-link">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp Us</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="article-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../../index.html">Home</a>
+                <span class="separator">/</span>
+                <a href="../../index.html#blog">Blog</a>
+                <span class="separator">/</span>
+                <span class="current">Cybersecurity</span>
+            </div>
+            <h1>Essential Cybersecurity Practices for Businesses</h1>
+            <div class="meta-bar">
+                <span><i class="far fa-calendar-alt"></i> Feb 17, 2026</span>
+                <span><i class="far fa-clock"></i> 6 min read</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="article-body">
+        <div class="container" style="max-width: 1000px;">
+            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem;">
+                <div>
+                    <img src="../../images/cyber2.jpg" alt="Cybersecurity" style="width:100%; border-radius:16px; margin-bottom:2rem;" onerror="this.src='https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+                    <p class="lead" style="font-size:1.1rem; color:var(--gray-600);">Cyber threats are on the rise globally, and Zimbabwe is no exception. From phishing scams targeting local businesses to ransomware attacks on institutions, the need for robust cybersecurity has never been greater.</p>
+
+                    <div class="checklist-item">
+                        <div class="checklist-number">1</div>
+                        <div class="checklist-content">
+                            <h2>Train Your Staff</h2>
+                            <p>Human error is the weakest link. Regular training on spotting phishing emails, using strong passwords, and safe browsing habits can prevent most breaches. Simulated phishing exercises help reinforce learning.</p>
+                        </div>
+                    </div>
+
+                    <div class="checklist-item">
+                        <div class="checklist-number">2</div>
+                        <div class="checklist-content">
+                            <h2>Use Strong Authentication</h2>
+                            <p>Enable multi-factor authentication (MFA) on all critical accounts—email, banking, cloud services. Even if a password is stolen, MFA blocks unauthorized access.</p>
+                        </div>
+                    </div>
+
+                    <div class="checklist-item">
+                        <div class="checklist-number">3</div>
+                        <div class="checklist-content">
+                            <h2>Keep Software Updated</h2>
+                            <p>Outdated software is a goldmine for hackers. Enable automatic updates for operating systems, antivirus, and applications.</p>
+                        </div>
+                    </div>
+
+                    <div class="checklist-item">
+                        <div class="checklist-number">4</div>
+                        <div class="checklist-content">
+                            <h2>Regular Backups</h2>
+                            <p>Ransomware can lock you out of your own data. Regular, automated backups stored offline ensure you can recover without paying a ransom. Test your backups periodically.</p>
+                        </div>
+                    </div>
+
+                    <div class="checklist-item">
+                        <div class="checklist-number">5</div>
+                        <div class="checklist-content">
+                            <h2>Secure Your Network</h2>
+                            <p>Use firewalls, secure Wi-Fi (WPA3), and segment guest networks from business networks.</p>
+                        </div>
+                    </div>
+
+                    <div class="checklist-item">
+                        <div class="checklist-number">6</div>
+                        <div class="checklist-content">
+                            <h2>Have an Incident Response Plan</h2>
+                            <p>When a breach happens, time is critical. A clear plan minimizes damage.</p>
+                        </div>
+                    </div>
+
+                    <div class="tip-box">
+                        <i class="fas fa-lightbulb"></i> <strong>Quick Win:</strong> Start with MFA on your email and a scheduled weekly backup. These two steps alone block 80% of common attacks.
+                    </div>
+
+                    <blockquote style="border-left:4px solid var(--gold); padding:1rem 2rem; background:var(--gray-50);">
+                        "Cybersecurity is not just an IT issue—it's a business continuity issue. A single breach can destroy years of reputation." 
+                    </blockquote>
+                </div>
+
+                <div>
+                    <div class="sidebar-box">
+                        <h3><i class="fas fa-shield-alt"></i> Security at a Glance</h3>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> 95% of breaches involve human error</li>
+                            <li><i class="fas fa-check-circle"></i> MFA blocks 99.9% of automated attacks</li>
+                            <li><i class="fas fa-check-circle"></i> Ransomware attacks up 150% in Africa (2025)</li>
+                            <li><i class="fas fa-check-circle"></i> Average cost of a data breach: $4.5M</li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-box" style="margin-top:2rem;">
+                        <h3><i class="fas fa-tools"></i> Tools & Resources</h3>
+                        <ul>
+                            <li><i class="fas fa-link"></i> <a href="https://www.cyber.gov.au/acsc/view-all-content/publications/essential-eight" target="_blank" style="color:var(--white); text-decoration:underline;">ACSC Essential Eight</a></li>
+                            <li><i class="fas fa-link"></i> <a href="https://www.cisa.gov/stopransomware" target="_blank" style="color:var(--white); text-decoration:underline;">CISA Stop Ransomware</a></li>
+                            <li><i class="fas fa-link"></i> <a href="https://haveibeenpwned.com/" target="_blank" style="color:var(--white); text-decoration:underline;">Have I Been Pwned?</a></li>
+                            <li><i class="fas fa-link"></i> <a href="https://www.cybersecuritytraining.com/" target="_blank" style="color:var(--white); text-decoration:underline;">Cybersecurity Training</a></li>
+                        </ul>
+                </div>
+            </div>
+
+            <div style="margin-top:3rem; text-align:center; background:var(--black-900); color:var(--white); padding:2rem; border-radius:16px;">
+                <h2 style="color:var(--gold); font-size:1.8rem; margin-bottom:1rem;">Need a security audit?</h2>
+                <p style="margin-bottom:1.5rem; font-size:0.95rem; line-height:1.6; max-width:500px; margin-left:auto; margin-right:auto;">panaTECH offers vulnerability assessments and security training tailored to Zimbabwean businesses.</p>
+                <a href="../../index.html#contact" class="btn btn-primary" style="background:var(--gold); color:var(--black); padding:10px 24px; border-radius:6px; text-decoration:none; display:inline-block; font-weight:600; transition:all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(201,162,39,0.3)';" onmouseout="this.style.transform='none'; this.style.boxShadow='none';">Contact a Security Specialist</a>
+            </div>
+
+            <div class="share-section" style="margin-top:3rem; padding-top:2rem; border-top:1px solid #e0e0e0; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1.5rem;">
+                <span style="font-weight:600; color:var(--black-900);">Share this guide:</span>
+                <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+                    <a href="#" onclick="shareOnFacebook(event); return false;" target="_blank" rel="noopener noreferrer" title="Share on Facebook" style="display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; background:#f0f0f0; color:var(--gold); border-radius:50%; transition:all 0.3s ease; text-decoration:none; font-size:1.2rem;" onmouseover="this.style.background='var(--gold)'; this.style.color='var(--black)'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 4px 12px rgba(201,162,39,0.3)';" onmouseout="this.style.background='#f0f0f0'; this.style.color='var(--gold)'; this.style.transform='none'; this.style.boxShadow='none';"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" onclick="shareOnTwitter(event); return false;" target="_blank" rel="noopener noreferrer" title="Share on Twitter" style="display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; background:#f0f0f0; color:var(--gold); border-radius:50%; transition:all 0.3s ease; text-decoration:none; font-size:1.2rem;" onmouseover="this.style.background='var(--gold)'; this.style.color='var(--black)'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 4px 12px rgba(201,162,39,0.3)';" onmouseout="this.style.background='#f0f0f0'; this.style.color='var(--gold)'; this.style.transform='none'; this.style.boxShadow='none';"><i class="fab fa-twitter"></i></a>
+                    <a href="#" onclick="shareOnLinkedIn(event); return false;" target="_blank" rel="noopener noreferrer" title="Share on LinkedIn" style="display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; background:#f0f0f0; color:var(--gold); border-radius:50%; transition:all 0.3s ease; text-decoration:none; font-size:1.2rem;" onmouseover="this.style.background='var(--gold)'; this.style.color='var(--black)'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 4px 12px rgba(201,162,39,0.3)';" onmouseout="this.style.background='#f0f0f0'; this.style.color='var(--gold)'; this.style.transform='none'; this.style.boxShadow='none';"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" onclick="shareOnWhatsApp(event); return false;" target="_blank" rel="noopener noreferrer" title="Share on WhatsApp" style="display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; background:#f0f0f0; color:var(--gold); border-radius:50%; transition:all 0.3s ease; text-decoration:none; font-size:1.2rem;" onmouseover="this.style.background='var(--gold)'; this.style.color='var(--black)'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 4px 12px rgba(201,162,39,0.3)';" onmouseout="this.style.background='#f0f0f0'; this.style.color='var(--gold)'; this.style.transform='none'; this.style.boxShadow='none';"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <script>
+                function shareOnFacebook(e) {
+                    e.preventDefault();
+                    const url = window.location.href;
+                    window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url), 'facebook-share', 'width=600,height=400');
+                }
+                function shareOnTwitter(e) {
+                    e.preventDefault();
+                    const url = window.location.href;
+                    const title = document.title || 'Essential Cybersecurity Practices for Businesses';
+                    window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(title), 'twitter-share', 'width=600,height=400');
+                }
+                function shareOnLinkedIn(e) {
+                    e.preventDefault();
+                    const url = window.location.href;
+                    window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(url), 'linkedin-share', 'width=600,height=400');
+                }
+                function shareOnWhatsApp(e) {
+                    e.preventDefault();
+                    const url = window.location.href;
+                    const title = document.title || 'Essential Cybersecurity Practices for Businesses';
+                    const text = 'Check out this article: ' + title + ' ' + url;
+                    window.open('https://wa.me/?text=' + encodeURIComponent(text), 'whatsapp-share');
+                }
+            </script>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Column 1 -->
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="../../images/mylogo.webp" alt="panaTECH Logo">
+                    </div>
+                    <p>panaTECH is a creative software studio delivering authentic digital solutions through innovation, originality and dynamic technology.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Column 2 -->
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="../../services/web-development/index.html">Web Development & Design</a></li>
+                        <li><a href="../../services/web-maintenance/index.html">Web Maintenance & Support</a></li>
+                        <li><a href="../../services/custom-software/index.html">Custom Software</a></li>
+                        <li><a href="../../services/mobile-app-development/index.html">Mobile App Development</a></li>
+                        <li><a href="../../services/ai-automation/index.html">AI & Automation</a></li>
+                        <li><a href="../../services/cloud-solutions/index.html">Cloud Solutions</a></li>
+                        <li><a href="../../services/cybersecurity/index.html">Cybersecurity</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../../index.html#home">Home</a></li>
+                        <li><a href="../../index.html#about">About</a></li>
+                        <li><a href="../../our-portfolio/">Portfolio</a></li>
+                        <li><a href="../../index.html#blog">Blog</a></li>
+                        <li><a href="../../index.html#why-us">Why Us</a></li>
+                        <li><a href="../../index.html#faq">FAQ</a></li>
+                        <li><a href="../../index.html#contact">Contact</a></li>
+                        <li><button class="footer-link-btn enquiry-btn">Enquiries</button></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-envelope"></i> info@panatech.co.zw</p>
+                        <p><i class="fab fa-whatsapp"></i> WhatsApp Us</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Harare, Zimbabwe</p>
+                        <p><i class="fas fa-clock"></i> Mon-Sat: 8AM-6PM</p>
+                    </div>
+                    
+                    <button class="back-to-top" id="backToTop">
+                        <i class="fas fa-chevron-up"></i> Back to Top
+                    </button>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span class="current-year">2025</span> panaTECH. All Rights Reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Cookies Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Book a Demo Call Modal -->
+    <div class="modal-overlay" id="demoModal">
+        <div class="modal-container demo-modal">
+            <div class="modal-header">
+                <h3>Book a Demo Call</h3>
+                <button class="modal-close" id="closeDemoModal" aria-label="Close modal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="demo-form-intro">
+                    <p>Book a quick 15–30 minute call with our team to discuss your idea, see how we work, and explore the best solution for your needs.</p>
+                </div>
+                <form id="demoForm" class="demo-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="demoName">Full Name *</label>
+                            <input type="text" id="demoName" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="demoEmail">Email Address *</label>
+                            <input type="email" id="demoEmail" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="demoPhone">Phone / WhatsApp *</label>
+                            <input type="tel" id="demoPhone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="demoService">Service of Interest *</label>
+                            <select id="demoService" name="service" required>
+                                <option value="">Select a service</option>
+                                <option value="web-development">Web Development & Design</option>
+                                <option value="custom-software">Custom Software Development</option>
+                                <option value="mobile-app-development">Mobile App Development</option>
+                                <option value="ai-automation">AI & Automation</option>
+                                <option value="cloud-solutions">Cloud Solutions</option>
+                                <option value="cybersecurity">Cybersecurity</option>
+                                <option value="not-sure">Not Sure – Need Guidance</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="demoDate">Preferred Date *</label>
+                            <input type="date" id="demoDate" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="demoTime">Preferred Time *</label>
+                            <input type="time" id="demoTime" name="time" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="demoCallType">Preferred Call Type *</label>
+                        <select id="demoCallType" name="callType" required>
+                            <option value="">Select call type</option>
+                            <option value="google-meet">Google Meet</option>
+                            <option value="zoom">Zoom</option>
+                            <option value="phone">Phone Call</option>
+                            <option value="whatsapp">WhatsApp Call</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="demoNote">Anything specific you'd like us to cover? (Optional)</label>
+                        <textarea id="demoNote" name="note" rows="3" placeholder="Briefly tell us what you'd like to discuss..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-submit">Book Demo Call</button>
+                    <p class="form-footnote">No obligation • 15–30 minutes</p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enquiry Modal -->
+    <div class="modal-overlay" id="enquiryModal">
+        <div class="modal-container enquiry-modal">
+            <div class="modal-header">
+                <h3>Make an Enquiry</h3>
+                <button class="modal-close" id="closeEnquiryModal" aria-label="Close modal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="enquiry-form-intro">
+                    <p>Have a question, idea, or need more information? Send us a message and we'll get back to you shortly.</p>
+                </div>
+                <form id="enquiryForm" class="enquiry-form">
+                    <div class="form-group">
+                        <label for="enquiryType">Type of Enquiry *</label>
+                        <select id="enquiryType" name="enquiryType" required>
+                            <option value="">Select enquiry type</option>
+                            <option value="general">General Information</option>
+                            <option value="quote">Request a Quote</option>
+                            <option value="support">Technical Support</option>
+                            <option value="partnership">Partnership</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="enquiryName">Full Name *</label>
+                            <input type="text" id="enquiryName" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="enquiryEmail">Email Address *</label>
+                            <input type="email" id="enquiryEmail" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="enquiryMessage">Message *</label>
+                        <textarea id="enquiryMessage" name="message" rows="5" placeholder="Tell us more..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit Enquiry</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type="module" src="../../js/main.js"></script>
+</body>
+</html>

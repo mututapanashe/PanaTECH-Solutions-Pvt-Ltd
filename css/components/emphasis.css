@@ -3,6 +3,18 @@
    Matches Hero Alignment | Clean | Modern
    ============================================ */
 
+/* ============ ANIMATION KEYFRAMES ============ */
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .emphasis-section {
     position: relative;
     padding: 80px 0;
@@ -149,7 +161,6 @@
 .emphasis-text {
     position: relative;
     text-align: left;
-    animation: fadeInLeft 0.8s ease-out;
 }
 
 @keyframes fadeInLeft {
@@ -173,6 +184,13 @@
     position: relative;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
     letter-spacing: -0.5px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: none;
+}
+
+.emphasis-title.animate {
+    animation: slideUpFade 0.8s ease-out 0.2s forwards;
 }
 
 .emphasis-title .text-highlight {
@@ -197,6 +215,13 @@
     background: none;
     font-weight: 400;
     letter-spacing: 0.3px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: none;
+}
+
+.emphasis-subtitle.animate {
+    animation: slideUpFade 0.8s ease-out 0.4s forwards;
 }
 
 /* ============ EMPHASIS BUTTONS ============ */
@@ -204,6 +229,13 @@
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: none;
+}
+
+.emphasis-actions.animate {
+    animation: slideUpFade 0.8s ease-out 0.6s forwards;
 }
 
 .btn-elegant {
@@ -461,16 +493,34 @@
         font-size: 2rem;
         line-height: 1.2;
         margin-bottom: 15px;
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    
+    .emphasis-title.animate {
+        animation: slideUpFade 0.8s ease-out 0.4s forwards;
     }
     
     .emphasis-subtitle {
         font-size: 0.95rem;
         margin-bottom: 25px;
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    
+    .emphasis-subtitle.animate {
+        animation: slideUpFade 0.8s ease-out 0.6s forwards;
     }
     
     .emphasis-actions {
         flex-direction: column;
         gap: 12px;
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    
+    .emphasis-actions.animate {
+        animation: slideUpFade 0.8s ease-out 0.8s forwards;
     }
     
     .btn-elegant,
@@ -502,16 +552,34 @@
     .emphasis-title {
         font-size: 1.6rem;
         margin-bottom: 12px;
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    
+    .emphasis-title.animate {
+        animation: slideUpFade 0.8s ease-out 0.6s forwards;
     }
     
     .emphasis-subtitle {
         font-size: 0.9rem;
         margin-bottom: 20px;
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    
+    .emphasis-subtitle.animate {
+        animation: slideUpFade 0.8s ease-out 1.2s forwards;
     }
     
     .emphasis-actions {
         flex-direction: column;
         gap: 10px;
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    
+    .emphasis-actions.animate {
+        animation: slideUpFade 0.8s ease-out 1.8s forwards;
     }
     
     .btn-elegant,

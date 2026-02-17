@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover how AI is transforming business operations in Zimbabwe and Africa, from automation to customer insights.">
+    <title>How AI is Transforming Business Operations | panaTECH Blog</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    
+    <style>
+        .article-hero {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecf0 100%);
+            padding: 60px 0 40px;
+            border-bottom: 1px solid var(--gray-200);
+        }
+        .breadcrumb {
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            color: var(--gray-500);
+        }
+        .breadcrumb a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .breadcrumb .separator {
+            margin: 0 0.5rem;
+            color: var(--gray-400);
+        }
+        .breadcrumb .current {
+            color: var(--black-900);
+            font-weight: var(--font-weight-medium);
+        }
+        .article-hero h1 {
+            font-size: 3rem;
+            font-weight: var(--font-weight-bold);
+            line-height: 1.2;
+            max-width: 900px;
+            color: var(--black-900);
+        }
+        .author-card {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            background: var(--white);
+            padding: 1.5rem 2rem;
+            border-radius: 60px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            margin-top: 2rem;
+            max-width: 500px;
+        }
+        .author-card img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .author-info h4 {
+            font-weight: var(--font-weight-bold);
+            margin-bottom: 0.2rem;
+        }
+        .author-info p {
+            color: var(--gray-500);
+            font-size: 0.9rem;
+        }
+        .meta-row {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+            color: var(--gray-600);
+        }
+
+        .article-body {
+            padding: 60px 0;
+        }
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+            margin: 2.5rem 0;
+        }
+        .stat-box {
+            background: var(--black-900);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 4rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--gold);
+            line-height: 1;
+        }
+        .stat-label {
+            font-size: 1rem;
+            color: var(--gray-400);
+        }
+        .blockquote-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .blockquote-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .quick-stat {
+            text-align: center;
+            padding: 1rem;
+            background: var(--gray-50);
+            border-radius: 8px;
+        }
+        .quick-stat i {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+        .quick-stat span {
+            display: block;
+            font-weight: var(--font-weight-bold);
+        }
+        .cta-mini {
+            background: var(--gold);
+            color: var(--black);
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        @media (max-width: 768px) {
+            .article-hero h1 { font-size: 2.2rem; }
+            .two-col { grid-template-columns: 1fr; }
+            .author-card { flex-direction: column; text-align: center; }
+            .quick-stats { grid-template-columns: 1fr; }
+        }
+    </style>
+
+    <link rel="icon" type="image/x-icon" href="../../images/mylogo.webp">
+</head>
+<body>
+<div class="page-wrapper">
+    <!-- Utility Bar -->
+    <div class="utility-bar" id="utilityBar">
+        <div class="container">
+            <div class="utility-content">
+                <div class="utility-left">
+                    <button class="utility-btn" id="demoBtn">
+                        <i class="fas fa-calendar-alt"></i> Book a Demo
+                    </button>
+                </div>
+                <div class="utility-right">
+                    <a href="mailto:info@panatech.co.zw" class="utility-link">
+                        <i class="fas fa-envelope"></i> info@panatech.co.zw
+                    </a>
+                    <a href="https://wa.me/263788596097" target="_blank" class="utility-link whatsapp-link">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <!-- Logo -->
+                <a href="../../index.html" class="nav-logo">
+                    <img src="../../images/mylogo.webp" alt="panaTECH Logo" class="logo-img">
+                </a>
+
+                <!-- Desktop Navigation -->
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="../../index.html#home" class="nav-link">Home</a></li>
+                    <li><a href="../../index.html#about" class="nav-link">About</a></li>
+                    
+                    <!-- Services Dropdown -->
+                    <li class="nav-dropdown">
+                        <a href="../../index.html#services" class="nav-link dropdown-toggle">
+                            Services <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="../../services/web-development/index.html" class="dropdown-item">Web Development & Design</a>
+                            <a href="../../services/web-maintenance/index.html" class="dropdown-item">Web Maintenance & Support</a>
+                            <a href="../../services/custom-software/index.html" class="dropdown-item">Custom Software Development</a>
+                            <a href="../../services/mobile-app-development/index.html" class="dropdown-item">Mobile App Development</a>
+                            <a href="../../services/ai-automation/index.html" class="dropdown-item">AI & Automation</a>
+                            <a href="../../services/cloud-solutions/index.html" class="dropdown-item">Cloud Solutions</a>
+                            <a href="../../services/cybersecurity/index.html" class="dropdown-item">Cybersecurity</a>
+                        </div>
+                    </li>
+                    
+                    <li><a href="../../tech-products/" class="nav-link">Tech Products</a></li>
+                    <li><a href="../../our-portfolio/" class="nav-link">Portfolio</a></li>
+                    <li><a href="../../index.html#blog" class="nav-link active">Blog</a></li>
+                    <li><a href="../../index.html#why-us" class="nav-link">Why Us</a></li>
+                    <li><a href="../../index.html#faq" class="nav-link">FAQ</a></li>
+                    <li><a href="../../index.html#contact" class="nav-link">Contact</a></li>
+                    <li><button class="nav-btn enquiry-btn" id="mobileEnquiryBtn">Enquiries</button></li>
+                    <li><a href="../../index.html#contact" class="nav-link nav-cta">Get Started</a></li>
+                </ul>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-toggle" id="mobileToggle">
+                    <span class="toggle-line"></span>
+                    <span class="toggle-line"></span>
+                    <span class="toggle-line"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-content">
+                <ul class="mobile-nav-menu">
+                    <li><a href="../../index.html#home" class="mobile-nav-link">Home</a></li>
+                    <li><a href="../../index.html#about" class="mobile-nav-link">About</a></li>
+                    <li><a href="../../index.html#services" class="mobile-nav-link">Services</a></li>
+                    <li><a href="../../tech-products/" class="mobile-nav-link">Tech Products</a></li>
+                    <li><a href="../../our-portfolio/" class="mobile-nav-link">Portfolio</a></li>
+                    <li><a href="../../index.html#blog" class="mobile-nav-link active">Blog</a></li>
+                    <li><a href="../../index.html#why-us" class="mobile-nav-link">Why Us</a></li>
+                    <li><a href="../../index.html#faq" class="mobile-nav-link">FAQ</a></li>
+                    <li><a href="../../index.html#contact" class="mobile-nav-link">Contact</a></li>
+                    <li><button class="mobile-nav-btn enquiry-btn">Enquiries</button></li>
+                    <li><a href="../../index.html#contact" class="mobile-nav-link mobile-cta">Get Started</a></li>
+                </ul>
+                
+                <div class="mobile-contact-info">
+                    <a href="mailto:info@panatech.co.zw" class="mobile-contact-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@panatech.co.zw</span>
+                    </a>
+                    <a href="https://wa.me/263788596097" class="mobile-contact-link">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp Us</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="article-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../../index.html">Home</a>
+                <span class="separator">/</span>
+                <a href="../../index.html#blog">Blog</a>
+                <span class="separator">/</span>
+                <span class="current">AI & Automation</span>
+            </div>
+            <h1>How AI is Transforming Business Operations</h1>
+            <div class="meta-row" style="margin-top: 1.5rem; color: var(--gray-600);">
+                <span><i class="far fa-calendar-alt"></i> Feb 17, 2026</span>
+                <span><i class="far fa-clock"></i> 7 min read</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="article-body">
+        <div class="container" style="max-width: 900px;">
+            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="AI in Business" style="width:100%; border-radius:16px; margin-bottom:2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+
+            <p class="lead" style="font-size:1.2rem; color:var(--gray-600); border-left: 4px solid var(--gold); padding-left: 1.5rem; margin-bottom: 2.5rem; font-style: italic;">Artificial Intelligence (AI) is no longer a buzzword reserved for tech giants. In Zimbabwe and across Africa, small and medium businesses are using AI to streamline operations, understand customers better, and make data-driven decisions.</p>
+
+            <div class="quick-stats">
+                <div class="quick-stat"><i class="fas fa-robot"></i> <span>70%</span> of SMEs could benefit from chatbots</div>
+                <div class="quick-stat"><i class="fas fa-chart-line"></i> <span>40%</span> potential efficiency gain in inventory</div>
+                <div class="quick-stat"><i class="fas fa-shield-alt"></i> <span>60%</span> reduction in fraud with AI monitoring</div>
+            </div>
+
+            <h2>1. Customer Service Chatbots</h2>
+            <div class="two-col">
+                <div>
+                    <p>Imagine answering customer queries 24/7 without hiring extra staff. AI-powered chatbots on your website or WhatsApp can handle FAQs, bookings, and even sales. For Zimbabwean businesses with limited support teams, this is a game-changer. A local retail store using a chatbot can serve customers even when the shop is closed.</p>
+                </div>
+                <div>
+                    <img src="/images/chatbot.jpg" alt="Chatbot" style="width:100%; border-radius:12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                </div>
+            </div>
+
+            <h2>2. Predictive Analytics for Inventory</h2>
+            <p>AI can analyze past sales, seasonality, and even weather patterns to predict demand. For a hardware store in Harare, this means stocking the right items at the right time, reducing overstock and stockouts. Less waste, more profit.</p>
+
+            <div class="stat-box">
+                <div class="stat-number">35%</div>
+                <div class="stat-label">average reduction in inventory costs for local businesses using AI</div>
+            </div>
+
+            <h2>3. Automated Accounting & Reporting</h2>
+            <p>Tools like automated invoicing, expense tracking, and fraud detection free up hours of manual work. Accountants can focus on strategy instead of data entry. For SMEs, this is a low-cost way to improve financial health.</p>
+
+            <h2>4. Personalized Marketing</h2>
+            <p>AI can segment customers based on behavior and send tailored offers. A Bulawayo restaurant could send lunch specials to nearby office workers. The result: higher engagement and customer loyalty.</p>
+
+            <h2>5. Process Automation (RPA)</h2>
+            <p>Robotic Process Automation (RPA) handles repetitive tasks like data entry, report generation, and email responses. A local NGO could automate donor acknowledgment letters, saving time and reducing errors.</p>
+
+            <blockquote style="border-left:4px solid var(--gold); padding:1.5rem 2rem; background:var(--gray-50); margin:2rem 0; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                <p style="margin: 0; font-style: italic;""AI is not about replacing people—it's about empowering them. Businesses that adopt AI early will leapfrog competitors."</p>
+                <div class="blockquote-author" style="margin-top: 1rem;">
+                    <span><strong>panaTECH AI Team</strong></span>
+                </div>
+            </blockquote>
+
+            <h2>Getting Started with AI</h2>
+            <p>You don't need a huge budget. Start with a simple chatbot or automate one workflow. panaTECH helps Zimbabwean businesses implement practical AI solutions that deliver ROI.</p>
+
+            <div class="cta-mini" style="background:var(--black-900); padding:2rem; border-radius:16px; text-align:center; margin-top:3rem;">
+                <h3 style="margin-bottom:1rem; color:var(--gold); font-size:1.8rem;">Ready to automate?</h3>
+                <p style="margin-bottom:1.5rem; font-size:0.95rem; line-height:1.6; max-width:500px; margin-left:auto; margin-right:auto; color:var(--white);">panaTECH helps Zimbabwean businesses implement practical AI solutions that deliver measurable ROI.</p>
+                <a href="../../index.html#contact" class="btn btn-primary" style="background:var(--gold); color:var(--black); padding:10px 24px; border-radius:6px; text-decoration:none; display:inline-block; font-weight:600; transition:all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(201,162,39,0.3)';" onmouseout="this.style.transform='none'; this.style.boxShadow='none';">Chat with an AI Specialist</a>
+            </div>
+
+            <div class="share-section" style="margin-top:3rem; padding-top:2rem; border-top:1px solid #e0e0e0; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1.5rem;">
+                <span style="font-weight:600; color:var(--black-900);">Share this article:</span>
+                <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+                    <a href="#" onclick="shareOnFacebook(event); return false;" target="_blank" rel="noopener noreferrer" title="Share on Facebook" style="display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; background:#f0f0f0; color:var(--gold); border-radius:50%; transition:all 0.3s ease; text-decoration:none; font-size:1.2rem;" onmouseover="this.style.background='var(--gold)'; this.style.color='var(--black)'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 4px 12px rgba(201,162,39,0.3)';" onmouseout="this.style.background='#f0f0f0'; this.style.color='var(--gold)'; this.style.transform='none'; this.style.boxShadow='none';"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" onclick="shareOnTwitter(event); return false;" target="_blank" rel="noopener noreferrer" title="Share on Twitter" style="display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; background:#f0f0f0; color:var(--gold); border-radius:50%; transition:all 0.3s ease; text-decoration:none; font-size:1.2rem;" onmouseover="this.style.background='var(--gold)'; this.style.color='var(--black)'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 4px 12px rgba(201,162,39,0.3)';" onmouseout="this.style.background='#f0f0f0'; this.style.color='var(--gold)'; this.style.transform='none'; this.style.boxShadow='none';"><i class="fab fa-twitter"></i></a>
+                    <a href="#" onclick="shareOnLinkedIn(event); return false;" target="_blank" rel="noopener noreferrer" title="Share on LinkedIn" style="display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; background:#f0f0f0; color:var(--gold); border-radius:50%; transition:all 0.3s ease; text-decoration:none; font-size:1.2rem;" onmouseover="this.style.background='var(--gold)'; this.style.color='var(--black)'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 4px 12px rgba(201,162,39,0.3)';" onmouseout="this.style.background='#f0f0f0'; this.style.color='var(--gold)'; this.style.transform='none'; this.style.boxShadow='none';"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" onclick="shareOnWhatsApp(event); return false;" target="_blank" rel="noopener noreferrer" title="Share on WhatsApp" style="display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; background:#f0f0f0; color:var(--gold); border-radius:50%; transition:all 0.3s ease; text-decoration:none; font-size:1.2rem;" onmouseover="this.style.background='var(--gold)'; this.style.color='var(--black)'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 4px 12px rgba(201,162,39,0.3)';" onmouseout="this.style.background='#f0f0f0'; this.style.color='var(--gold)'; this.style.transform='none'; this.style.boxShadow='none';"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <script>
+                function shareOnFacebook(e) {
+                    e.preventDefault();
+                    const url = window.location.href;
+                    window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url), 'facebook-share', 'width=600,height=400');
+                }
+                function shareOnTwitter(e) {
+                    e.preventDefault();
+                    const url = window.location.href;
+                    const title = document.title || 'How AI is Transforming Business Operations';
+                    window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(title), 'twitter-share', 'width=600,height=400');
+                }
+                function shareOnLinkedIn(e) {
+                    e.preventDefault();
+                    const url = window.location.href;
+                    window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(url), 'linkedin-share', 'width=600,height=400');
+                }
+                function shareOnWhatsApp(e) {
+                    e.preventDefault();
+                    const url = window.location.href;
+                    const title = document.title || 'How AI is Transforming Business Operations';
+                    const text = 'Check out this article: ' + title + ' ' + url;
+                    window.open('https://wa.me/?text=' + encodeURIComponent(text), 'whatsapp-share');
+                }
+            </script>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Column 1 -->
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="../../images/mylogo.webp" alt="panaTECH Logo">
+                    </div>
+                    <p>panaTECH is a creative software studio delivering authentic digital solutions through innovation, originality and dynamic technology.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Column 2 -->
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="../../services/web-development/index.html">Web Development & Design</a></li>
+                        <li><a href="../../services/web-maintenance/index.html">Web Maintenance & Support</a></li>
+                        <li><a href="../../services/custom-software/index.html">Custom Software</a></li>
+                        <li><a href="../../services/mobile-app-development/index.html">Mobile App Development</a></li>
+                        <li><a href="../../services/ai-automation/index.html">AI & Automation</a></li>
+                        <li><a href="../../services/cloud-solutions/index.html">Cloud Solutions</a></li>
+                        <li><a href="../../services/cybersecurity/index.html">Cybersecurity</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../../index.html#home">Home</a></li>
+                        <li><a href="../../index.html#about">About</a></li>
+                        <li><a href="../../our-portfolio/">Portfolio</a></li>
+                        <li><a href="../../index.html#blog">Blog</a></li>
+                        <li><a href="../../index.html#why-us">Why Us</a></li>
+                        <li><a href="../../index.html#faq">FAQ</a></li>
+                        <li><a href="../../index.html#contact">Contact</a></li>
+                        <li><button class="footer-link-btn enquiry-btn">Enquiries</button></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-envelope"></i> info@panatech.co.zw</p>
+                        <p><i class="fab fa-whatsapp"></i> WhatsApp Us</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Harare, Zimbabwe</p>
+                        <p><i class="fas fa-clock"></i> Mon-Sat: 8AM-6PM</p>
+                    </div>
+                    
+                    <button class="back-to-top" id="backToTop">
+                        <i class="fas fa-chevron-up"></i> Back to Top
+                    </button>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span class="current-year">2025</span> panaTECH. All Rights Reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Cookies Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Book a Demo Call Modal -->
+    <div class="modal-overlay" id="demoModal">
+        <div class="modal-container demo-modal">
+            <div class="modal-header">
+                <h3>Book a Demo Call</h3>
+                <button class="modal-close" id="closeDemoModal" aria-label="Close modal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="demo-form-intro">
+                    <p>Book a quick 15–30 minute call with our team to discuss your idea, see how we work, and explore the best solution for your needs.</p>
+                </div>
+                <form id="demoForm" class="demo-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="demoName">Full Name *</label>
+                            <input type="text" id="demoName" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="demoEmail">Email Address *</label>
+                            <input type="email" id="demoEmail" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="demoPhone">Phone / WhatsApp *</label>
+                            <input type="tel" id="demoPhone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="demoService">Service of Interest *</label>
+                            <select id="demoService" name="service" required>
+                                <option value="">Select a service</option>
+                                <option value="web-development">Web Development & Design</option>
+                                <option value="custom-software">Custom Software Development</option>
+                                <option value="mobile-app-development">Mobile App Development</option>
+                                <option value="ai-automation">AI & Automation</option>
+                                <option value="cloud-solutions">Cloud Solutions</option>
+                                <option value="cybersecurity">Cybersecurity</option>
+                                <option value="not-sure">Not Sure – Need Guidance</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="demoDate">Preferred Date *</label>
+                            <input type="date" id="demoDate" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="demoTime">Preferred Time *</label>
+                            <input type="time" id="demoTime" name="time" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="demoCallType">Preferred Call Type *</label>
+                        <select id="demoCallType" name="callType" required>
+                            <option value="">Select call type</option>
+                            <option value="google-meet">Google Meet</option>
+                            <option value="zoom">Zoom</option>
+                            <option value="phone">Phone Call</option>
+                            <option value="whatsapp">WhatsApp Call</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="demoNote">Anything specific you'd like us to cover? (Optional)</label>
+                        <textarea id="demoNote" name="note" rows="3" placeholder="Briefly tell us what you'd like to discuss..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-submit">Book Demo Call</button>
+                    <p class="form-footnote">No obligation • 15–30 minutes</p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enquiry Modal -->
+    <div class="modal-overlay" id="enquiryModal">
+        <div class="modal-container enquiry-modal">
+            <div class="modal-header">
+                <h3>Make an Enquiry</h3>
+                <button class="modal-close" id="closeEnquiryModal" aria-label="Close modal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="enquiry-form-intro">
+                    <p>Have a question, idea, or need more information? Send us a message and we'll get back to you shortly.</p>
+                </div>
+                <form id="enquiryForm" class="enquiry-form">
+                    <div class="form-group">
+                        <label for="enquiryType">Type of Enquiry *</label>
+                        <select id="enquiryType" name="enquiryType" required>
+                            <option value="">Select enquiry type</option>
+                            <option value="general">General Information</option>
+                            <option value="quote">Request a Quote</option>
+                            <option value="support">Technical Support</option>
+                            <option value="partnership">Partnership</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="enquiryName">Full Name *</label>
+                            <input type="text" id="enquiryName" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="enquiryEmail">Email Address *</label>
+                            <input type="email" id="enquiryEmail" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="enquiryMessage">Message *</label>
+                        <textarea id="enquiryMessage" name="message" rows="5" placeholder="Tell us more..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit Enquiry</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type="module" src="../../js/main.js"></script>
+</body>
+</html>
