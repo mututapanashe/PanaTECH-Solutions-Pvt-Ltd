@@ -131,6 +131,8 @@
             border-radius: 16px;
             margin: 2rem 0;
             border: 1px solid rgba(201,162,39,0.2);
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
         .sidebar-box h3 {
             color: var(--gold);
@@ -145,15 +147,38 @@
             display: flex;
             gap: 1rem;
             padding: 0.5rem 0;
+            word-break: break-word;
         }
         .sidebar-box i {
             color: var(--gold);
             width: 20px;
+            min-width: 20px;
+            flex-shrink: 0;
+        }
+        .article-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
         }
         @media (max-width: 768px) {
+            .article-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
             .article-hero h1 { font-size: 2.2rem; }
             .checklist-item { flex-direction: column; gap: 0.5rem; }
             .meta-bar { flex-direction: column; max-width: 100%; }
+            .sidebar-box {
+                padding: 1.25rem;
+                margin: 1.5rem 0;
+            }
+            .sidebar-box h3 {
+                font-size: 1.1rem;
+            }
+            .sidebar-box li {
+                font-size: 0.9rem;
+                margin-bottom: 0.75rem;
+            }
         }
     </style>
 
@@ -217,9 +242,9 @@
                     <li><a href="../../index.html#blog" class="nav-link active">Blog</a></li>
                     <li><a href="../../index.html#why-us" class="nav-link">Why Us</a></li>
                     <li><a href="../../index.html#faq" class="nav-link">FAQ</a></li>
-                    <li><a href="../../index.html#contact" class="nav-link">Contact</a></li>
-                    <li><button class="nav-btn enquiry-btn" id="mobileEnquiryBtn">Enquiries</button></li>
-                    <li><a href="../../index.html#contact" class="nav-link nav-cta">Get Started</a></li>
+                    <li><a href="../../contact-us/" class="nav-link">Contact</a></li>
+                    <li><button class="nav-btn enquiry-btn" id="enquiryBtn">Enquiries</button></li>
+                    <li><a href="../../contact-us/" class="nav-link nav-cta">Get Started</a></li>
                 </ul>
 
                 <!-- Mobile Menu Toggle -->
@@ -243,9 +268,9 @@
                     <li><a href="../../index.html#blog" class="mobile-nav-link active">Blog</a></li>
                     <li><a href="../../index.html#why-us" class="mobile-nav-link">Why Us</a></li>
                     <li><a href="../../index.html#faq" class="mobile-nav-link">FAQ</a></li>
-                    <li><a href="../../index.html#contact" class="mobile-nav-link">Contact</a></li>
+                    <li><a href="../../contact-us/" class="mobile-nav-link">Contact</a></li>
                     <li><button class="mobile-nav-btn enquiry-btn">Enquiries</button></li>
-                    <li><a href="../../index.html#contact" class="mobile-nav-link mobile-cta">Get Started</a></li>
+                    <li><a href="../../contact-us/" class="mobile-nav-link mobile-cta">Get Started</a></li>
                 </ul>
                 
                 <div class="mobile-contact-info">
@@ -281,7 +306,7 @@
 
     <section class="article-body">
         <div class="container" style="max-width: 1000px;">
-            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem;">
+            <div class="article-grid">
                 <div>
                     <img src="../../images/cyber2.jpg" alt="Cybersecurity" style="width:100%; border-radius:16px; margin-bottom:2rem;" onerror="this.src='https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
                     <p class="lead" style="font-size:1.1rem; color:var(--gray-600);">Cyber threats are on the rise globally, and Zimbabwe is no exception. From phishing scams targeting local businesses to ransomware attacks on institutions, the need for robust cybersecurity has never been greater.</p>
@@ -367,7 +392,7 @@
             <div style="margin-top:3rem; text-align:center; background:var(--black-900); color:var(--white); padding:2rem; border-radius:16px;">
                 <h2 style="color:var(--gold); font-size:1.8rem; margin-bottom:1rem;">Need a security audit?</h2>
                 <p style="margin-bottom:1.5rem; font-size:0.95rem; line-height:1.6; max-width:500px; margin-left:auto; margin-right:auto;">panaTECH offers vulnerability assessments and security training tailored to Zimbabwean businesses.</p>
-                <a href="../../index.html#contact" class="btn btn-primary" style="background:var(--gold); color:var(--black); padding:10px 24px; border-radius:6px; text-decoration:none; display:inline-block; font-weight:600; transition:all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(201,162,39,0.3)';" onmouseout="this.style.transform='none'; this.style.boxShadow='none';">Contact a Security Specialist</a>
+                <a href="../../contact-us/" class="btn btn-primary" style="background:var(--gold); color:var(--black); padding:10px 24px; border-radius:6px; text-decoration:none; display:inline-block; font-weight:600; transition:all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(201,162,39,0.3)';" onmouseout="this.style.transform='none'; this.style.boxShadow='none';">Contact a Security Specialist</a>
             </div>
 
             <div class="share-section" style="margin-top:3rem; padding-top:2rem; border-top:1px solid #e0e0e0; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1.5rem;">
@@ -450,7 +475,7 @@
                         <li><a href="../../index.html#blog">Blog</a></li>
                         <li><a href="../../index.html#why-us">Why Us</a></li>
                         <li><a href="../../index.html#faq">FAQ</a></li>
-                        <li><a href="../../index.html#contact">Contact</a></li>
+                        <li><a href="../../contact-us/">Contact</a></li>
                         <li><button class="footer-link-btn enquiry-btn">Enquiries</button></li>
                     </ul>
                 </div>
