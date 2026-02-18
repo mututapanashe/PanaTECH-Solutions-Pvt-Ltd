@@ -603,6 +603,7 @@
         </div>
     </div>
 
+    <!-- Enquiry Modal -->
     <div class="modal-overlay" id="enquiryModal">
         <div class="modal-container enquiry-modal">
             <div class="modal-header">
@@ -630,20 +631,73 @@
                             <option value="other">Other</option>
                         </select>
                     </div>
+
+                    <div class="form-group">
+                        <label for="enquiryService">Service (Optional)</label>
+                        <select id="enquiryService" name="service">
+                            <option value="">Choose a service</option>
+                            <option value="web-development">Web Development & Design</option>
+                            <option value="custom-software">Custom Software Development</option>
+                            <option value="mobile-app-development">Mobile App Development</option>
+                            <option value="ai-automation">AI & Automation</option>
+                            <option value="cloud-solutions">Cloud Solutions</option>
+                            <option value="cybersecurity">Cybersecurity</option>
+                            <option value="not-sure">Not Sure</option>
+                        </select>
+                    </div>
+
                     <div class="form-row">
                         <div class="form-group">
                             <label for="enquiryName">Full Name *</label>
                             <input type="text" id="enquiryName" name="name" required>
                         </div>
                         <div class="form-group">
+                            <label for="enquiryCompany">Company / Organization </label>
+                            <input type="text" id="enquiryCompany" name="company">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
                             <label for="enquiryEmail">Email Address *</label>
                             <input type="email" id="enquiryEmail" name="email" required>
                         </div>
+                        <div class="form-group">
+                            <label for="enquiryPhone">Phone / WhatsApp (Optional)</label>
+                            <input type="tel" id="enquiryPhone" name="phone">
+                        </div>
                     </div>
+
+                    <div class="form-group">
+                        <label for="enquiryBudget">Estimated Budget (Optional)</label>
+                        <select id="enquiryBudget" name="budget">
+                            <option value="">Select budget range</option>
+                            <option value="under-100">Under US$100</option>
+                            <option value="100-1000">US$100 – $1000</option>
+                            <option value="1000-5000">US$1000 – $5000</option>
+                            <option value="5000-20000">US$5000– $20000</option>
+                            <option value="20000-plus">US$20000+</option>
+                            <option value="not-sure">Not Sure</option>
+                        </select>
+                    </div>
+
                     <div class="form-group">
                         <label for="enquiryMessage">Message *</label>
-                        <textarea id="enquiryMessage" name="message" rows="5" placeholder="Tell us more..." required></textarea>
+                        <textarea id="enquiryMessage" name="message" rows="5" placeholder="Tell us more about what you're looking for..." required></textarea>
                     </div>
+
+                    <div class="form-group">
+                        <label class="file-upload">
+                            <input type="file" id="enquiryFile" name="file" accept=".pdf,.doc,.docx,.jpg,.png">
+                            <span>Attach File (Optional)</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                        </label>
+                    </div>
+
                     <button type="submit" class="btn btn-primary">Submit Enquiry</button>
                 </form>
             </div>

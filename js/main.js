@@ -42,8 +42,8 @@ class TypingAnimation {
         // Set initial cursor position
         this.updateCursorPosition();
         
-        // Start typing animation
-        setTimeout(() => this.type(), 1000); // Delay start for better UX
+        // Start typing animation immediately without delay
+        this.type();
         
         // Add mouse interaction
         this.addInteractions();
@@ -98,38 +98,29 @@ class TypingAnimation {
     }
     
     updateCursorPosition() {
-        if (!this.cursorElement || !this.typingElement) return;
-        
-        // Simple positioning - cursor will be after the text
-        this.cursorElement.style.display = 'inline-block';
-        this.cursorElement.style.marginLeft = '2px';
+        // Cursor is now hidden, no positioning needed
+        // This method is kept for backward compatibility
     }
     
     addInteractions() {
         // Pause animation on hover
         this.typingElement.addEventListener('mouseenter', () => {
             this.isPaused = true;
-            this.cursorElement.style.animation = 'none';
-            this.cursorElement.style.opacity = '1';
         });
         
         this.typingElement.addEventListener('mouseleave', () => {
             this.isPaused = false;
-            this.cursorElement.style.animation = 'blink 1s infinite';
             setTimeout(() => this.type(), 500);
         });
         
         // Touch interaction for mobile
         this.typingElement.addEventListener('touchstart', () => {
             this.isPaused = true;
-            this.cursorElement.style.animation = 'none';
-            this.cursorElement.style.opacity = '1';
         });
         
         this.typingElement.addEventListener('touchend', () => {
             setTimeout(() => {
                 this.isPaused = false;
-                this.cursorElement.style.animation = 'blink 1s infinite';
                 this.type();
             }, 1000);
         });
@@ -164,6 +155,7 @@ class panaTECHWebsite {
         this.initLearnMoreButton();
         this.initTypingAnimation();
         this.initMobileEnquiryButton();
+        this.initConditionalSmoothScroll();
         this.initSmoothScroll();
         this.initEmphasisEffects();
         this.initScrollAnimations();
@@ -193,7 +185,39 @@ class panaTECHWebsite {
             this.modules.modals.openEnquiryModal();
         });
     }
-}  
+}
+
+    initConditionalSmoothScroll() {
+        // Only applies to index.html (homepage)
+        const isHomepage = window.location.pathname === '/' || window.location.pathname.endsWith('index.html');
+        if (!isHomepage) return;
+
+        // Check if page loaded with a hash (linking from another page)
+        const hash = window.location.hash;
+        if (hash) {
+            // Temporarily disable smooth scrolling for instant jump
+            const htmlElement = document.documentElement;
+            
+            // Disable smooth scroll
+            htmlElement.style.scrollBehavior = 'auto';
+            
+            // Get target element
+            const targetId = hash.substring(1); // Remove '#'
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                // Use a small delay to ensure DOM is fully rendered
+                setTimeout(() => {
+                    targetElement.scrollIntoView({ behavior: 'auto', block: 'start' });
+                    
+                    // Re-enable smooth scrolling after instant scroll
+                    setTimeout(() => {
+                        htmlElement.style.scrollBehavior = 'smooth';
+                    }, 50);
+                }, 100);
+            }
+        }
+    }
 
 initSmoothScroll() {
     document.querySelectorAll('.btn-tech[href^="#"], .btn-tech-outline[href^="#"]').forEach(button => {
@@ -493,18 +517,19 @@ initMobileOptimizations() {
 
         // Use Intersection Observer to trigger animations on scroll
         const observerOptions = {
-            threshold: 0.3, // Trigger when 30% of element is visible
-            rootMargin: '0px'
+            threshold: 0.2, // Trigger when 20% of element is visible
+            rootMargin: '50px 0px -50px 0px' // Trigger animation slightly above viewport
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting && !entry.target.classList.contains('animate')) {
-                    // Add animate class to trigger animation
-                    entry.target.classList.add('animate');
-                    
-                    // Unobserve so animation doesn't trigger again
-                    observer.unobserve(entry.target);
+                    // Use requestAnimationFrame to batch DOM writes and prevent paint thrashing
+                    requestAnimationFrame(() => {
+                        entry.target.classList.add('animate');
+                        // Unobserve so animation doesn't trigger again
+                        observer.unobserve(entry.target);
+                    });
                 }
             });
         }, observerOptions);

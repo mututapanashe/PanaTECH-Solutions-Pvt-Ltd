@@ -28,7 +28,13 @@
     overflow: hidden;
     isolation: isolate;
     margin-top: 0;
+    margin-bottom: 0;
     box-shadow: inset 0 0 60px rgba(201, 162, 39, 0.08);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    contain: layout style paint;
 }
 
 /* ============ GEOMETRIC BACKGROUND - SUBTLE ============ */
@@ -124,6 +130,12 @@
     height: 80px;
     z-index: 2;
     pointer-events: none;
+    line-height: 0;
+    will-change: auto;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .top-edge {
@@ -131,13 +143,19 @@
 }
 
 .bottom-edge {
-    bottom: -1px;
+    bottom: 0;
     transform: rotate(180deg);
 }
 
 .section-edge svg {
     width: 100%;
     height: 100%;
+    display: block;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    will-change: auto;
 }
 
 .section-edge path {
@@ -155,6 +173,8 @@
     grid-template-columns: 1fr 1fr;
     gap: 80px;
     align-items: center;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 /* ============ TEXT SECTION ============ */
@@ -187,6 +207,10 @@
     opacity: 0;
     transform: translateY(50px);
     transition: none;
+    will-change: transform, opacity;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateY(50px);
 }
 
 .emphasis-title.animate {
@@ -218,6 +242,10 @@
     opacity: 0;
     transform: translateY(50px);
     transition: none;
+    will-change: transform, opacity;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateY(50px);
 }
 
 .emphasis-subtitle.animate {
@@ -232,6 +260,10 @@
     opacity: 0;
     transform: translateY(50px);
     transition: none;
+    will-change: transform, opacity;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateY(50px);
 }
 
 .emphasis-actions.animate {
@@ -321,6 +353,11 @@
 .emphasis-visual {
     position: relative;
     animation: fadeInRight 0.8s ease-out;
+    will-change: transform, opacity;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
 }
 
 @keyframes fadeInRight {
@@ -449,11 +486,15 @@
 @media (max-width: 1024px) {
     .emphasis-section {
         padding: 70px 0;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
     }
     
     .emphasis-content {
         grid-template-columns: 1fr;
         gap: 50px;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
     }
     
     .emphasis-visual {
@@ -467,15 +508,26 @@
     .emphasis-title {
         font-size: 2.5rem;
         margin-bottom: 20px;
+        will-change: transform, opacity;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
     }
     
     .emphasis-subtitle {
         font-size: 1rem;
         margin-bottom: 30px;
+        will-change: transform, opacity;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
     }
     
     .section-edge {
         height: 70px;
+    }
+    
+    .section-edge svg {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
     }
 }
 
@@ -483,6 +535,11 @@
 @media (max-width: 768px) {
     .emphasis-section {
         padding: 60px 0;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        contain: layout style paint;
     }
     
     .emphasis-content {
@@ -499,6 +556,9 @@
     
     .emphasis-title.animate {
         animation: slideUpFade 0.8s ease-out 0.4s forwards;
+        will-change: transform, opacity;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
     }
     
     .emphasis-subtitle {
@@ -510,6 +570,9 @@
     
     .emphasis-subtitle.animate {
         animation: slideUpFade 0.8s ease-out 0.6s forwards;
+        will-change: transform, opacity;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
     }
     
     .emphasis-actions {
@@ -521,6 +584,9 @@
     
     .emphasis-actions.animate {
         animation: slideUpFade 0.8s ease-out 0.8s forwards;
+        will-change: transform, opacity;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
     }
     
     .btn-elegant,
@@ -532,6 +598,17 @@
     
     .section-edge {
         height: 60px;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+    
+    .section-edge svg {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
     }
     
     .geometric-shape {
@@ -543,6 +620,11 @@
 @media (max-width: 480px) {
     .emphasis-section {
         padding: 50px 0;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        contain: layout style paint;
     }
     
     .emphasis-content {
@@ -558,6 +640,9 @@
     
     .emphasis-title.animate {
         animation: slideUpFade 0.8s ease-out 0.6s forwards;
+        will-change: transform, opacity;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
     }
     
     .emphasis-subtitle {
@@ -569,6 +654,9 @@
     
     .emphasis-subtitle.animate {
         animation: slideUpFade 0.8s ease-out 1.2s forwards;
+        will-change: transform, opacity;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
     }
     
     .emphasis-actions {
@@ -580,6 +668,9 @@
     
     .emphasis-actions.animate {
         animation: slideUpFade 0.8s ease-out 1.8s forwards;
+        will-change: transform, opacity;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
     }
     
     .btn-elegant,
@@ -592,6 +683,17 @@
     
     .section-edge {
         height: 50px;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+    
+    .section-edge svg {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
     }
 }
 
@@ -599,6 +701,11 @@
 @media (max-width: 360px) {
     .emphasis-section {
         padding: 40px 0;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        contain: layout style paint;
     }
     
     .emphasis-title {
@@ -617,8 +724,20 @@
     
     .section-edge {
         height: 40px;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+    
+    .section-edge svg {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
     }
 }
+
 
 /* ============ REDUCED MOTION ============ */
 @media (prefers-reduced-motion: reduce) {
@@ -640,6 +759,40 @@
     .btn-elegant:hover,
     .btn-elegant-outline:hover {
         transform: none;
+    }
+}
+
+/* ============ MOBILE PERFORMANCE OPTIMIZATION ============ */
+@media (max-width: 480px) and (hover: none) {
+    /* Disable geometric animations on touch devices to reduce paint thrashing */
+    .geometric-line,
+    .geometric-shape {
+        animation: none !important;
+    }
+    
+    /* Reduce animation delay staggering for performance */
+    .emphasis-title.animate {
+        animation: slideUpFade 0.6s ease-out 0.1s forwards !important;
+    }
+    
+    .emphasis-subtitle.animate {
+        animation: slideUpFade 0.6s ease-out 0.15s forwards !important;
+    }
+    
+    .emphasis-actions.animate {
+        animation: slideUpFade 0.6s ease-out 0.2s forwards !important;
+    }
+    
+    /* Ensure GPU acceleration is maximized */
+    .emphasis-section,
+    .emphasis-content,
+    .emphasis-title,
+    .emphasis-subtitle,
+    .emphasis-actions,
+    .section-edge,
+    .section-edge svg {
+        -webkit-transform: translateZ(0) !important;
+        transform: translateZ(0) !important;
     }
 }
 

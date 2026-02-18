@@ -801,10 +801,218 @@
         </div>
     </footer>
 
-    <!-- Modals (placeholders – copy full HTML from index.html) -->
-    <div class="modal-overlay" id="demoModal"><!-- ... --></div>
-    <div class="modal-overlay" id="enquiryModal"><!-- ... --></div>
-</div> <!-- .page-wrapper -->
+    <!-- Book a Demo Call Modal -->
+<div class="modal-overlay" id="demoModal">
+    <div class="modal-container demo-modal">
+        <div class="modal-header">
+            <h3>Book a Demo Call</h3>
+            <button class="modal-close" id="closeDemoModal" aria-label="Close modal">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+
+        <div class="modal-body">
+            <div class="demo-form-intro">
+                <p>
+                    Book a quick 15–30 minute call with our team to discuss your idea,
+                    see how we work, and explore the best solution for your needs.
+                </p>
+            </div>
+
+            <form id="demoForm" class="demo-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="demoName">Full Name *</label>
+                        <input type="text" id="demoName" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="demoEmail">Email Address *</label>
+                        <input type="email" id="demoEmail" name="email" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="demoPhone">Phone / WhatsApp *</label>
+                        <input type="tel" id="demoPhone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="demoService">Service of Interest *</label>
+                        <select id="demoService" name="service" required>
+                            <option value="">Select a service</option>
+                            <option value="web-development">Web Development & Design</option>
+                            <option value="custom-software">Custom Software Development</option>
+                            <option value="mobile-app-development">Mobile App Development</option>
+                            <option value="ai-automation">AI & Automation</option>
+                            <option value="cloud-solutions">Cloud Solutions</option>
+                            <option value="cybersecurity">Cybersecurity</option>
+                            <option value="not-sure">Not Sure – Need Guidance</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="demoDate">Preferred Date *</label>
+                        <input type="date" id="demoDate" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="demoTime">Preferred Time *</label>
+                        <input type="time" id="demoTime" name="time" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="demoCallType">Preferred Call Type *</label>
+                    <select id="demoCallType" name="callType" required>
+                        <option value="">Select call type</option>
+                        <option value="google-meet">Google Meet</option>
+                        <option value="zoom">Zoom</option>
+                        <option value="phone">Phone Call</option>
+                        <option value="whatsapp">WhatsApp Call</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="demoNote">Anything specific you'd like us to cover? (Optional)</label>
+                    <textarea
+                        id="demoNote"
+                        name="note"
+                        rows="3"
+                        placeholder="Briefly tell us what you'd like to discuss..."
+                    ></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-submit">
+                    Book Demo Call
+                </button>
+
+                <p class="form-footnote">
+                    No obligation • 15–30 minutes
+                </p>
+            </form>
+        </div>
+    </div>
+</div>
+
+   <!-- Enquiry Modal -->
+<div class="modal-overlay" id="enquiryModal">
+    <div class="modal-container enquiry-modal">
+        <div class="modal-header">
+            <h3>Make an Enquiry</h3>
+            <button class="modal-close" id="closeEnquiryModal" aria-label="Close modal">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+
+        <div class="modal-body">
+            <div class="enquiry-form-intro">
+                <p>
+                    Have a question, idea, or need more information?
+                    Send us a message and we'll get back to you shortly.
+                </p>
+            </div>
+
+            <form id="enquiryForm" class="enquiry-form">
+                <div class="form-group">
+                    <label for="enquiryType">Type of Enquiry *</label>
+                    <select id="enquiryType" name="enquiryType" required>
+                        <option value="">Select enquiry type</option>
+                        <option value="general">General Information</option>
+                        <option value="quote">Request a Quote</option>
+                        <option value="support">Technical Support</option>
+                        <option value="partnership">Partnership</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="enquiryService">Service (Optional)</label>
+                    <select id="enquiryService" name="service">
+                        <option value="">Choose a service</option>
+                        <option value="web-development">Web Development & Design</option>
+                        <option value="custom-software">Custom Software Development</option>
+                        <option value="mobile-app-development">Mobile App Development</option>
+                        <option value="ai-automation">AI & Automation</option>
+                        <option value="cloud-solutions">Cloud Solutions</option>
+                        <option value="cybersecurity">Cybersecurity</option>
+                        <option value="not-sure">Not Sure</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="enquiryName">Full Name *</label>
+                        <input type="text" id="enquiryName" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="enquiryCompany">Company / Organization </label>
+                        <input type="text" id="enquiryCompany" name="company">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="enquiryEmail">Email Address *</label>
+                        <input type="email" id="enquiryEmail" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="enquiryPhone">Phone / WhatsApp (Optional)</label>
+                        <input type="tel" id="enquiryPhone" name="phone">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="enquiryBudget">Estimated Budget (Optional)</label>
+                    <select id="enquiryBudget" name="budget">
+                        <option value="">Select budget range</option>
+                        <option value="under-100">Under US$100</option>
+                        <option value="100-1000">US$100 – $1000</option>
+                        <option value="1000-5000">US$1000 – $5000</option>
+                        <option value="5000-20000">US$5000– $20000</option>
+                        <option value="20000-plus">US$20000+</option>
+                        <option value="not-sure">Not Sure</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="enquiryMessage">Message *</label>
+                    <textarea
+                        id="enquiryMessage"
+                        name="message"
+                        rows="5"
+                        placeholder="Tell us more about what you're looking for..."
+                        required
+                    ></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="file-upload">
+                        <input type="file" id="enquiryFile" name="file" accept=".pdf,.doc,.docx,.jpg,.png">
+                        <span>Attach File (Optional)</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    Submit Enquiry
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</div> <!-- Close .page-wrapper -->
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- Main JS -->

@@ -79,20 +79,17 @@
 }
 
 .typing-cursor {
-    display: inline-block;
+    display: none; /* Hide cursor completely */
     width: 2px;
     height: 1.2em;
-    background: rgba(201,162,39,0.95); /* subtle gold */
+    background: rgba(201,162,39,0.95);
     border-radius: 1px;
     box-shadow: 0 0 6px rgba(201,162,39,0.18);
     margin-left: 6px;
-    animation: caret 1s steps(2, end) infinite;
+    animation: none; /* Remove blinking animation */
 }
 
-@keyframes caret {
-    50% { opacity: 0; }
-}
-
+/* Keyframe removed - cursor animation no longer needed */
 /* Mobile responsiveness */
 @media (max-width: 768px) {
     .typing-bar { padding: 10px 0; border-radius: 8px; }

@@ -16,6 +16,12 @@
     isolation: isolate;
     border-top: 2px solid rgba(201, 162, 39, 0.15);
     border-bottom: 2px solid rgba(201, 162, 39, 0.15);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    contain: layout style paint;
+    margin-bottom: 0;
 }
 
 .outcomes-section::before {
@@ -43,6 +49,9 @@
     margin-bottom: 60px;
     padding: 0 20px;
     animation: fadeInDown 0.8s ease-out;
+    will-change: transform, opacity;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 @keyframes fadeInDown {
@@ -671,6 +680,31 @@
     
     .outcome-card:hover {
         transform: none;
+    }
+}
+
+/* ============ MOBILE PERFORMANCE OPTIMIZATION ============ */
+@media (max-width: 480px) and (hover: none) {
+    /* Ensure GPU acceleration is maximized on mobile */
+    .outcomes-section,
+    .outcomes-header,
+    .outcomes-wrapper,
+    .outcomes-track,
+    .outcome-card {
+        -webkit-transform: translateZ(0) !important;
+        transform: translateZ(0) !important;
+        -webkit-backface-visibility: hidden !important;
+        backface-visibility: hidden !important;
+    }
+    
+    /* Reduce carousel animation complexity */
+    .outcomes-track {
+        animation-duration: 120s !important;
+    }
+    
+    /* Prevent hover effects on touch devices */
+    .outcome-card:hover {
+        transform: translateY(0) !important;
     }
 }
 
