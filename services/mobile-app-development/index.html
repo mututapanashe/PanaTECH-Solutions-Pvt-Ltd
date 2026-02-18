@@ -544,7 +544,7 @@
         <div class="container">
             <div class="nav-content">
                 <!-- Logo -->
-                <a href="../../index.html" class="nav-logo">
+                <a href="../../../" class="nav-logo">
                     <img src="../../images/mylogo.webp" alt="panaTECH Logo" class="logo-img">
                 </a>
 
@@ -559,13 +559,13 @@
                             Services <i class="fas fa-chevron-down"></i>
                         </a>
                         <div class="dropdown-menu">
-                            <a href="../web-development/index.html" class="dropdown-item">Web Development & Design</a>
-                            <a href="../web-maintenance/index.html" class="dropdown-item">Web Maintenance</a>
-                            <a href="../custom-software/index.html" class="dropdown-item">Custom Software Development</a>
-                            <a href="index.html" class="dropdown-item active">Mobile App Development</a>
-                            <a href="../ai-automation/" class="dropdown-item">AI & Automation</a>
-                            <a href="../cloud-solutions/" class="dropdown-item">Cloud Solutions</a>
-                            <a href="../cybersecurity/" class="dropdown-item">Cybersecurity</a>
+                            <a href="../../services/web-development" class="dropdown-item">Web Development & Design</a>
+                            <a href="../../services/web-maintenance" class="dropdown-item">Web Maintenance</a>
+                            <a href="../../services/custom-software" class="dropdown-item">Custom Software Development</a>
+                            <a href="../../services/mobile-app-development" class="dropdown-item active">Mobile App Development</a>
+                            <a href="../../services/ai-automation" class="dropdown-item">AI & Automation</a>
+                            <a href="../../services/cloud-solutions" class="dropdown-item">Cloud Solutions</a>
+                            <a href="../../services/cybersecurity" class="dropdown-item">Cybersecurity</a>
                         </div>
                     </li>
                     
@@ -937,13 +937,13 @@
                 <div class="footer-column">
                     <h4>Services</h4>
                     <ul>
-                        <li><a href="../web-development/index.html">Web Development & Design</a></li>
-                        <li><a href="../web-maintenance/index.html">Web Maintenance</a></li>
-                        <li><a href="../custom-software/index.html">Custom Software</a></li>
-                        <li><a href="index.html">Mobile Apps</a></li>
-                        <li><a href="../ai-automation/index.html">AI & Automation</a></li>
-                        <li><a href="../cloud-solutions/index.html">Cloud Solutions</a></li>
-                        <li><a href="../cybersecurity/index.html">Cybersecurity</a></li>
+                        <li><a href="../../services/web-development">Web Development & Design</a></li>
+                        <li><a href="../../services/web-maintenance">Web Maintenance</a></li>
+                        <li><a href="../../services/custom-software">Custom Software</a></li>
+                        <li><a href="../../services/mobile-app-development">Mobile Apps</a></li>
+                        <li><a href="../../services/ai-automation">AI & Automation</a></li>
+                        <li><a href="../../services/cloud-solutions">Cloud Solutions</a></li>
+                        <li><a href="../../services/cybersecurity">Cybersecurity</a></li>
                     </ul>
                 </div>
                 
@@ -1010,7 +1010,8 @@
                 </p>
             </div>
 
-            <form id="demoForm" class="demo-form">
+            <form id="demoForm" class="demo-form" method="POST">
+                <input type="hidden" name="formType" value="Demo Call Booking">
                 <div class="form-row">
                     <div class="form-group">
                         <label for="demoName">Full Name *</label>
@@ -1107,7 +1108,8 @@
                 </p>
             </div>
 
-            <form id="enquiryForm" class="enquiry-form">
+            <form id="enquiryForm" class="enquiry-form" method="POST">
+                <input type="hidden" name="formType" value="Enquiry Form">
                 <div class="form-group">
                     <label for="enquiryType">Type of Enquiry *</label>
                     <select id="enquiryType" name="enquiryType" required>

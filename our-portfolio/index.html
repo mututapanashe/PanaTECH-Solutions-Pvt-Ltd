@@ -306,13 +306,13 @@
         <div class="container">
             <div class="nav-content">
                 <!-- Logo -->
-                <a href="../index.html" class="nav-logo">
+                <a href="../../" class="nav-logo">
                     <img src="../images/mylogo.webp" alt="panaTECH Logo" class="logo-img">
                 </a>
 
                 <!-- Desktop Navigation -->
                 <ul class="nav-menu" id="navMenu">
-                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li><a href="../../" class="nav-link">Home</a></li>
                     <li><a href="../index.html#about" class="nav-link">About</a></li>
                     
                     <!-- Services Dropdown -->
@@ -321,24 +321,24 @@
                             Services <i class="fas fa-chevron-down"></i>
                         </a>
                         <div class="dropdown-menu">
-                            <a href="../services/web-development/" class="dropdown-item">Web Development & Design</a>
-                            <a href="../services/web-maintenance/" class="dropdown-item">Web Maintenance & Support</a>
-                            <a href="../services/custom-software/" class="dropdown-item">Custom Software Development</a>
-                            <a href="../services/mobile-app-development/" class="dropdown-item">Mobile App Development</a>
-                            <a href="../services/ai-automation/" class="dropdown-item">AI & Automation</a>
-                            <a href="../services/cloud-solutions/" class="dropdown-item">Cloud Solutions</a>
-                            <a href="../services/cybersecurity/" class="dropdown-item">Cybersecurity</a>
+                            <a href="../services/web-development" class="dropdown-item">Web Development & Design</a>
+                            <a href="../services/web-maintenance" class="dropdown-item">Web Maintenance & Support</a>
+                            <a href="../services/custom-software" class="dropdown-item">Custom Software Development</a>
+                            <a href="../services/mobile-app-development" class="dropdown-item">Mobile App Development</a>
+                            <a href="../services/ai-automation" class="dropdown-item">AI & Automation</a>
+                            <a href="../services/cloud-solutions" class="dropdown-item">Cloud Solutions</a>
+                            <a href="../services/cybersecurity" class="dropdown-item">Cybersecurity</a>
                         </div>
                     </li>
                     
-                    <li><a href="../tech-products/" class="nav-link">Tech Products</a></li>
-                    <li><a href="./index.html" class="nav-link active">Portfolio</a></li>
+                    <li><a href="../tech-products" class="nav-link">Tech Products</a></li>
+                    <li><a href="./our-portfolio" class="nav-link active">Portfolio</a></li>
                     <li><a href="../#blog" class="nav-link">Blog</a></li>
                     <li><a href="../#why-us" class="nav-link">Why Us</a></li>
                     <li><a href="../#faq" class="nav-link">FAQ</a></li>
-                    <li><a href="../contact-us/" class="nav-link">Contact</a></li>
+                    <li><a href="../contact-us" class="nav-link">Contact</a></li>
                     <li><button class="nav-btn enquiry-btn" id="enquiryBtn">Enquiries</button></li>
-                    <li><a href="../contact-us/" class="nav-link nav-cta">Get Started</a></li>
+                    <li><a href="../contact-us" class="nav-link nav-cta">Get Started</a></li>
                 </ul>
 
                 <!-- Mobile Menu Toggle - FIXED -->
@@ -354,17 +354,17 @@
         <div class="mobile-nav" id="mobileNav">
             <div class="mobile-nav-content">
                 <ul class="mobile-nav-menu">
-                    <li><a href="../index.html" class="mobile-nav-link">Home</a></li>
+                    <li><a href="../../" class="mobile-nav-link">Home</a></li>
                     <li><a href="../index.html#about" class="mobile-nav-link">About</a></li>
                     <li><a href="../index.html#services" class="mobile-nav-link">Services</a></li>
-                    <li><a href="../tech-products/" class="mobile-nav-link">Tech Products</a></li>
+                    <li><a href="../tech-products" class="mobile-nav-link">Tech Products</a></li>
                     <li><a href="./index.html" class="mobile-nav-link active">Portfolio</a></li>
                     <li><a href="../index.html#blog" class="mobile-nav-link">Blog</a></li>
                     <li><a href="../index.html#why-us" class="mobile-nav-link">Why Us</a></li>
                     <li><a href="../index.html#faq" class="mobile-nav-link">FAQ</a></li>
-                    <li><a href="../contact-us/" class="mobile-nav-link">Contact</a></li>
+                    <li><a href="../contact-us" class="mobile-nav-link">Contact</a></li>
                     <li><button class="mobile-nav-btn enquiry-btn">Enquiries</button></li>
-                    <li><a href="../contact-us/" class="mobile-nav-link mobile-cta">Get Started</a></li>
+                    <li><a href="../contact-us" class="mobile-nav-link mobile-cta">Get Started</a></li>
                 </ul>
                 
                 <div class="mobile-contact-info">
@@ -577,7 +577,8 @@
                 <div class="demo-form-intro">
                     <p>Book a quick 15–30 minute call with our team to discuss your idea, see how we work, and explore the best solution for your needs.</p>
                 </div>
-                <form id="demoForm" class="demo-form">
+                <form id="demoForm" class="demo-form" method="POST">
+                    <input type="hidden" name="formType" value="Demo Call Booking">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="demoName">Full Name *</label>
@@ -654,7 +655,8 @@
                 <div class="enquiry-form-intro">
                     <p>Have a question, idea, or need more information? Send us a message and we'll get back to you shortly.</p>
                 </div>
-                <form id="enquiryForm" class="enquiry-form">
+                <form id="enquiryForm" class="enquiry-form" method="POST">
+                    <input type="hidden" name="formType" value="Enquiry Form">
                     <div class="form-group">
                         <label for="enquiryType">Type of Enquiry *</label>
                         <select id="enquiryType" name="enquiryType" required>

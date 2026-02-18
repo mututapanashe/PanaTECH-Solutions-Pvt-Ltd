@@ -1,40 +1,31 @@
-import { Resend } from "resend";
+const { Resend } = require("resend");
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
   try {
-    const { formType, name, email, service, subject, message, phone, company } = req.body;
+    const data = req.body;
 
-    const htmlContent = `
-      <h2>New Website Submission</h2>
-      <p><strong>Form:</strong> ${formType}</p>
-      <hr/>
-      <p><strong>Name:</strong> ${name || "N/A"}</p>
-      <p><strong>Email:</strong> ${email || "N/A"}</p>
-      <p><strong>Phone:</strong> ${phone || "N/A"}</p>
-      <p><strong>Company:</strong> ${company || "N/A"}</p>
-      <p><strong>Service:</strong> ${service || "N/A"}</p>
-      <p><strong>Subject:</strong> ${subject || "N/A"}</p>
-      <p><strong>Message:</strong></p>
-      <p>${message || "N/A"}</p>
-    `;
+    console.log("Incoming data:", data); // for debugging
 
     await resend.emails.send({
       from: "onboarding@resend.dev",
-      to: "info@panatech.co.zw",   // 🔥 YOUR BUSINESS EMAIL HERE
-      subject: `[${formType}] New Submission`,
-      html: htmlContent,
+      to: "panatech.mututa@gmail.com", // temporarily use this to test
+      subject: `[${data.formType}] New Submission`,
+      html: `
+        <h2>New Submission</h2>
+        <pre>${JSON.stringify(data, null, 2)}</pre>
+      `,
     });
 
     return res.status(200).json({ success: true });
 
   } catch (error) {
-    console.error(error);
+    console.error("EMAIL ERROR:", error);
     return res.status(500).json({ error: "Email failed" });
   }
-}
+};

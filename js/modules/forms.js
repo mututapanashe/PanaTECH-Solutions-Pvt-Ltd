@@ -68,104 +68,71 @@ export class Forms {
         const formData = new FormData(form);
         const data = Object.fromEntries(formData);
         
-        // Show loading state
+        // Store original button state
         const submitBtn = form.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerHTML;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-        submitBtn.disabled = true;
+        const originalHTML = submitBtn ? submitBtn.innerHTML : '';
+        
+        // Show loading state
+        if (submitBtn) {
+            submitBtn.classList.add('loading');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Sending...</span>';
+        }
         
         // Handle different form types
-        if (form.id === 'demoForm') {
-            this.handleWhatsAppDemo(data, form);
-        } else {
-            this.sendToBackend(data, form);
-        }
+        this.sendToBackend(data, form, originalHTML);
     }
     
-    async sendToBackend(data, form) {
+    async sendToBackend(data, form, originalHTML) {
+        const submitBtn = form.querySelector('button[type="submit"]');
+
         try {
-            // Replace with your actual backend endpoint
-            const endpoint = form.id === 'contactForm' 
-                ? 'https://your-backend.com/api/contact'
-                : 'https://your-backend.com/api/enquiry';
-            
-            const response = await fetch(endpoint, {
+            const response = await fetch('/api/submit-form', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(data)
             });
-            
+
             if (response.ok) {
-                this.showSuccess(form, 'Message sent successfully! We\'ll get back to you soon.');
+                let successMsg = "Message sent successfully! We'll get back to you soon.";
+                let successTitle = "Success!";
+
+                if (form.id === 'enquiryForm') {
+                    successMsg = "Your enquiry has been sent successfully. We'll revert to you shortly.";
+                    successTitle = "Enquiry Sent!";
+                } else if (form.id === 'demoForm') {
+                    successMsg = "Your demo booking has been confirmed. We'll get back to you shortly.";
+                    successTitle = "Booking Confirmed!";
+                } else if (form.id === 'contactForm') {
+                    successMsg = "Your message has been sent successfully. We'll be in touch soon.";
+                    successTitle = "Message Sent!";
+                }
+
+                this.showSuccess(form, successMsg, successTitle, form.id);
                 form.reset();
-                
-                // Track form submission in analytics
                 this.trackFormSubmission(form.id);
             } else {
                 throw new Error('Server error');
             }
+
         } catch (error) {
             console.error('Form submission error:', error);
-            this.showError(form, 'Failed to send message. Please try again or contact us directly.');
-            
-            // Fallback: Open email client
-            if (form.id === 'contactForm') {
-                this.fallbackToEmail(form);
-            }
+            this.showError(form, 'Failed to send message. Please try again.');
         } finally {
-            // Reset button
-            const submitBtn = form.querySelector('button[type="submit"]');
-            submitBtn.innerHTML = originalText || 'Submit';
-            submitBtn.disabled = false;
-        }
-    }
-    
-    handleWhatsAppDemo(data, form) {
-        // Format WhatsApp message
-        const phoneNumber = '263788596097'; // Your WhatsApp number
-        
-        let message = `*New Demo Request - panaTECH Website*\n\n`;
-        message += `*Name:* ${data.name}\n`;
-        message += `*Email:* ${data.email}\n`;
-        message += `*Phone:* ${data.phone}\n`;
-        message += `*Service:* ${data.service}\n`;
-        
-        if (data.date) {
-            message += `*Preferred Date:* ${data.date}\n`;
-        }
-        
-        message += `\n*Message:*\n${data.message}\n\n`;
-        message += `---\nSubmitted via panaTECH Website`;
-        
-        // Encode message for URL
-        const encodedMessage = encodeURIComponent(message);
-        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-        
-        // Open WhatsApp
-        window.open(whatsappUrl, '_blank');
-        
-        // Show success message
-        this.showSuccess(form, 'WhatsApp opened! Please send the pre-filled message to contact us.');
-        
-        // Reset form
-        setTimeout(() => {
-            form.reset();
-            const submitBtn = form.querySelector('button[type="submit"]');
-            submitBtn.innerHTML = originalText || 'Submit';
-            submitBtn.disabled = false;
-            
-            // Close modal if form is in a modal
-            const modal = form.closest('.modal-overlay');
-            if (modal) {
-                setTimeout(() => {
-                    modal.classList.remove('active');
-                    document.body.style.overflow = '';
-                }, 2000);
+            // Restore button immediately
+            if (submitBtn) {
+                submitBtn.classList.remove('loading');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalHTML;
             }
-        }, 1000);
+        }
     }
+
+
+  
+   
     
     fallbackToEmail(form) {
         const formData = new FormData(form);
@@ -301,7 +268,7 @@ Sent from panaTECH Website
         errorContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
     
-    showSuccess(form, message) {
+    showSuccess(form, message, title = 'Success!', formId) {
         // Remove any existing messages
         this.clearMessages(form);
         
@@ -310,15 +277,35 @@ Sent from panaTECH Website
         successContainer.className = 'form-message form-success';
         successContainer.innerHTML = `
             <div class="message-content success">
-                <i class="fas fa-check-circle"></i> ${message}
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="success-text">
+                    <h3>${title}</h3>
+                    <p>${message}</p>
+                </div>
             </div>
         `;
         
-        form.prepend(successContainer);
+        // Position message ABOVE submit button
+        const submitBtn = form.querySelector('button[type="submit"]');
+        if (submitBtn) {
+            submitBtn.parentElement.insertBefore(successContainer, submitBtn);
+        } else {
+            form.prepend(successContainer);
+        }
+        
+        // Trigger animation
+        setTimeout(() => {
+            successContainer.classList.add('show');
+        }, 10);
         
         // Auto-hide after 5 seconds
         setTimeout(() => {
-            successContainer.remove();
+            successContainer.classList.remove('show');
+            setTimeout(() => {
+                successContainer.remove();
+            }, 300);
         }, 5000);
     }
     

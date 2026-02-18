@@ -599,3 +599,281 @@
 .modal-container::-webkit-scrollbar-thumb:hover {
     background: #d4af37;
 }
+
+/* ===== FORM MESSAGE STYLING ===== */
+.form-message {
+    margin: 16px 0;
+    border-radius: 12px;
+    animation: slideDown 0.4s ease;
+    overflow: hidden;
+    width: 100%;
+}
+
+.form-message.form-success {
+    background: linear-gradient(135deg, rgba(33, 150, 243, 0.08), rgba(33, 150, 243, 0.03));
+    border: 2px solid #2196F3;
+    box-shadow: 0 8px 24px rgba(33, 150, 243, 0.2);
+}
+
+.form-message.form-error {
+    background: linear-gradient(135deg, rgba(244, 67, 54, 0.05), rgba(244, 67, 54, 0.02));
+    border: 2px solid #F44336;
+    box-shadow: 0 8px 24px rgba(244, 67, 54, 0.15);
+}
+
+.form-message.form-info {
+    background: linear-gradient(135deg, rgba(33, 150, 243, 0.05), rgba(33, 150, 243, 0.02));
+    border: 2px solid #2196F3;
+    box-shadow: 0 8px 24px rgba(33, 150, 243, 0.15);
+}
+
+.message-content {
+    padding: 16px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.message-content.success {
+    color: #1565c0;
+}
+
+.message-content.error {
+    color: #c62828;
+}
+
+.message-content.info {
+    color: #1565c0;
+}
+
+.message-content i {
+    font-size: 20px;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+/* Success Message with Icon & Title */
+.message-content.success {
+    flex-direction: row;
+}
+
+.success-icon {
+    min-width: 32px;
+    height: 32px;
+    background: rgba(33, 150, 243, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2196F3;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.success-text {
+    flex: 1;
+}
+
+.success-text h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1565c0;
+    margin-bottom: 4px;
+}
+
+.success-text p {
+    margin: 0;
+    font-size: 14px;
+    color: #1976d2;
+    line-height: 1.4;
+}
+
+/* Error Message */
+.message-content.error {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.message-content.error i {
+    color: #F44336;
+}
+
+/* Info Message */
+.message-content.info {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.message-content.info i {
+    color: #2196F3;
+}
+
+/* Animation for message appearance */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation for message disappearance */
+.form-message.show {
+    animation: slideDown 0.4s ease forwards;
+}
+
+.form-message:not(.show) {
+    animation: slideUp 0.3s ease forwards;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+/* ===== MOBILE RESPONSIVE MESSAGE CARDS ===== */
+@media (max-width: 768px) {
+    .form-message {
+        margin: 12px 0;
+        border-radius: 10px;
+        padding: 0;
+    }
+
+    .message-content {
+        padding: 12px 16px;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .success-icon {
+        min-width: 28px;
+        height: 28px;
+        font-size: 16px;
+    }
+
+    .success-text h3 {
+        font-size: 14px;
+        margin-bottom: 3px;
+    }
+
+    .success-text p {
+        font-size: 12px;
+        line-height: 1.3;
+    }
+
+    .message-content i {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-message {
+        margin: 10px 0;
+        border-radius: 8px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .message-content {
+        padding: 10px 12px;
+        gap: 8px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .success-icon {
+        min-width: 24px;
+        height: 24px;
+        font-size: 14px;
+    }
+
+    .success-text h3 {
+        font-size: 13px;
+        margin-bottom: 2px;
+    }
+
+    .success-text p {
+        font-size: 11px;
+        line-height: 1.3;
+    }
+
+    .message-content i {
+        font-size: 16px;
+    }
+
+    .form-message.form-success,
+    .form-message.form-error,
+    .form-message.form-info {
+        border-width: 1px;
+    }
+}
+
+/* ===== BUTTON LOADING STATE ===== */
+.submit-btn.loading {
+    background: linear-gradient(90deg, var(--gold), #e0a841);
+    opacity: 0.85;
+    cursor: not-allowed;
+}
+
+.submit-btn.loading i {
+    margin-right: 8px;
+}
+
+.submit-btn.loading:hover {
+    background: linear-gradient(90deg, var(--gold), #e0a841);
+    transform: none;
+    box-shadow: 0 8px 24px rgba(201, 162, 39, 0.2);
+}
+
+/* Slow down spinner animation globally */
+.submit-btn.loading i.fa-spinner {
+    animation: spin 3.5s linear infinite;
+}
+
+/* Smooth transition for button state changes */
+.submit-btn {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Modal button sending state */
+.modal .btn-primary.loading {
+    background: linear-gradient(90deg, #C9A227, #e0a841);
+    transform: none;
+    cursor: not-allowed;
+}
+
+.modal .btn-primary.loading i.fa-spinner {
+    animation: spin 3.5s linear infinite;
+}
+
+/* Contact form button */
+.contact-form .submit-btn {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-form .submit-btn.loading {
+    background: linear-gradient(90deg, var(--gold), #e0a841);
+}
+
+.contact-form .submit-btn.loading i.fa-spinner {
+    animation: spin 3.5s linear infinite;
+}

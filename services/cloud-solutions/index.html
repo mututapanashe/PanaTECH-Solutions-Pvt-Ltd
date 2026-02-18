@@ -822,7 +822,8 @@
                 </p>
             </div>
 
-            <form id="demoForm" class="demo-form">
+            <form id="demoForm" class="demo-form" method="POST">
+                <input type="hidden" name="formType" value="Demo Call Booking">
                 <div class="form-row">
                     <div class="form-group">
                         <label for="demoName">Full Name *</label>
@@ -919,7 +920,8 @@
                 </p>
             </div>
 
-            <form id="enquiryForm" class="enquiry-form">
+            <form id="enquiryForm" class="enquiry-form" method="POST">
+                <input type="hidden" name="formType" value="Enquiry Form">
                 <div class="form-group">
                     <label for="enquiryType">Type of Enquiry *</label>
                     <select id="enquiryType" name="enquiryType" required>

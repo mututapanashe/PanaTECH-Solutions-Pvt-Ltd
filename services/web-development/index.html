@@ -456,26 +456,26 @@
                             Services <i class="fas fa-chevron-down"></i>
                         </a>
                         <div class="dropdown-menu">
-                            <a href="./" class="dropdown-item active">Web Development & Design</a>
-                            <a href="../web-maintenance/" class="dropdown-item">Web Maintenance</a>
-                            <a href="../custom-software/" class="dropdown-item">Custom Software Development</a>
-                            <a href="../mobile-app-development/" class="dropdown-item">Mobile App Development</a>
-                            <a href="../ai-automation/" class="dropdown-item">AI & Automation</a>
-                            <a href="../cloud-solutions/" class="dropdown-item">Cloud Solutions</a>
-                            <a href="../cybersecurity/" class="dropdown-item">Cybersecurity</a>
+                            <a href="../../services/web-development" class="dropdown-item active">Web Development & Design</a>
+                            <a href="../../services/web-maintenance" class="dropdown-item">Web Maintenance</a>
+                            <a href="../../services/custom-software" class="dropdown-item">Custom Software Development</a>
+                            <a href="../../services/mobile-app-development" class="dropdown-item">Mobile App Development</a>
+                            <a href="../../services/ai-automation" class="dropdown-item">AI & Automation</a>
+                            <a href="../../services/cloud-solutions" class="dropdown-item">Cloud Solutions</a>
+                            <a href="../../services/cybersecurity" class="dropdown-item">Cybersecurity</a>
                         </div>
                     </li>
                     
                     <!-- Tech Products -->
-                    <li><a href="../../tech-products/" class="nav-link">Tech Products</a></li>
+                    <li><a href="../../tech-products" class="nav-link">Tech Products</a></li>
                     
-                    <li><a href="../../our-portfolio/" class="nav-link">Portfolio</a></li>
+                    <li><a href="../../our-portfolio" class="nav-link">Portfolio</a></li>
                     <li><a href="../../index.html#blog" class="nav-link">Blog</a></li>
                     <li><a href="../../index.html#why-us" class="nav-link">Why Us</a></li>
                     <li><a href="../../index.html#faq" class="nav-link">FAQ</a></li>
-                    <li><a href="../../contact-us/" class="nav-link">Contact</a></li>
+                    <li><a href="../../contact-us" class="nav-link">Contact</a></li>
                     <li><button class="nav-btn enquiry-btn" id="enquiryBtn">Enquiries</button></li>
-                    <li><a href="../../contact-us/" class="nav-link nav-cta">Get Started</a></li>
+                    <li><a href="../../contact-us" class="nav-link nav-cta">Get Started</a></li>
                 </ul>
 
                 <!-- Mobile Menu Toggle -->
@@ -499,9 +499,9 @@
                     <li><a href="../../index.html#blog" class="mobile-nav-link">Blog</a></li>
                     <li><a href="../../index.html#why-us" class="mobile-nav-link">Why Us</a></li>
                     <li><a href="../../index.html#faq" class="mobile-nav-link">FAQ</a></li>
-                    <li><a href="../../contact-us/" class="mobile-nav-link">Contact</a></li>
+                    <li><a href="../../contact-us" class="mobile-nav-link">Contact</a></li>
                     <li><button class="mobile-nav-btn enquiry-btn">Enquiries</button></li>
-                    <li><a href="../../contact-us/" class="mobile-nav-link mobile-cta">Get Started</a></li>
+                    <li><a href="../../contact-us" class="mobile-nav-link mobile-cta">Get Started</a></li>
                 </ul>
                 
                 <div class="mobile-contact-info">
@@ -905,7 +905,8 @@
                 </p>
             </div>
 
-            <form id="demoForm" class="demo-form">
+            <form id="demoForm" class="demo-form" method="POST">
+                <input type="hidden" name="formType" value="Demo Call Booking">
                 <div class="form-row">
                     <div class="form-group">
                         <label for="demoName">Full Name *</label>
@@ -1002,7 +1003,8 @@
                 </p>
             </div>
 
-            <form id="enquiryForm" class="enquiry-form">
+            <form id="enquiryForm" class="enquiry-form" method="POST">
+                <input type="hidden" name="formType" value="Enquiry Form">
                 <div class="form-group">
                     <label for="enquiryType">Type of Enquiry *</label>
                     <select id="enquiryType" name="enquiryType" required>
