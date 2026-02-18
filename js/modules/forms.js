@@ -183,7 +183,7 @@ Message: ${data.message}
 Sent from panaTECH Website
         `);
         
-        const mailtoLink = `mailto:panatech@outlook.com?subject=${subject}&body=${body}`;
+        const mailtoLink = `mailto:info@panatech.co.zw?subject=${subject}&body=${body}`;
         
         // Show fallback option
         this.showInfo(form, 

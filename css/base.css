@@ -61,6 +61,7 @@ html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    scroll-padding-top: 120px; /* Account for fixed navbar height when scrolling to anchors */
 }
 
 body {
@@ -191,6 +192,11 @@ html {
 
 /* Mobile-specific performance fixes */
 @media (max-width: 768px) {
+    /* Reduce scroll padding on mobile for smaller navbar */
+    html {
+        scroll-padding-top: 90px;
+    }
+    
     /* Reduce repaints */
     .emphasis-section,
     .hero-section,
@@ -203,5 +209,12 @@ html {
     img {
         image-rendering: -webkit-optimize-contrast;
         image-rendering: crisp-edges;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Further reduce padding on small mobile */
+    html {
+        scroll-padding-top: 70px;
     }
 }

@@ -547,3 +547,45 @@ initMobileOptimizations() {
 document.addEventListener('DOMContentLoaded', () => {
     window.panaTECH = new panaTECHWebsite();
 });
+
+document.querySelectorAll("form").forEach(form => {
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const data = Object.fromEntries(new FormData(form));
+
+    const button = form.querySelector('button[type="submit"]');
+    const originalText = button.innerHTML;
+
+    button.disabled = true;
+    button.innerHTML = "Sending...";
+
+    try {
+      const response = await fetch("/api/submit-form", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        button.innerHTML = "Sent ✓";
+        form.reset();
+      } else {
+        button.innerHTML = "Error";
+      }
+
+    } catch (err) {
+      console.error(err);
+      button.innerHTML = "Error";
+    }
+
+    setTimeout(() => {
+      button.disabled = false;
+      button.innerHTML = originalText;
+    }, 3000);
+  });
+});
