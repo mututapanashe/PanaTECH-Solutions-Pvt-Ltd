@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Home Page -->
+    <url>
+        <loc>https://panatech.co.zw/</loc>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- Main Pages -->
+    <url>
+        <loc>https://panatech.co.zw/about-us/</loc>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://panatech.co.zw/contact-us/</loc>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://panatech.co.zw/our-portfolio/</loc>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://panatech.co.zw/tech-products/</loc>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://panatech.co.zw/privacy-policy/</loc>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+    <!-- Services Pages -->
+    <url>
+        <loc>https://panatech.co.zw/services/web-development/</loc>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.95</priority>
+    </url>
+
+    <url>
+        <loc>https://panatech.co.zw/services/web-maintenance/</loc>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://panatech.co.zw/services/custom-software/</loc>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://panatech.co.zw/services/mobile-app-development/</loc>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://panatech.co.zw/services/ai-automation/</loc>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+
+    <url>
+        <loc>https://panatech.co.zw/services/cloud-solutions/</loc>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+    </url>
+
+    <url>
+        <loc>https://panatech.co.zw/services/cybersecurity/</loc>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+    </url>
+
+    <!-- Blog Pages -->
+    <url>
+        <loc>https://panatech.co.zw/blog/cybersecurity-practices/</loc>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://panatech.co.zw/blog/top-web-development-trends-2026/</loc>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://panatech.co.zw/blog/ai-transforming-business/</loc>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+</urlset>

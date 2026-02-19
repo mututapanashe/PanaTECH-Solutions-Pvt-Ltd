@@ -39,7 +39,7 @@ export class Navbar {
     
     setupIntersectionObserver() {
         // Look for various hero section classes (for different pages)
-        this.heroSection = document.querySelector('.hero-section, .about-hero, .service-hero, .maintenance-hero, .custom-software-hero, .mobile-hero, .ai-hero, .cloud-hero, .cyber-hero, .portfolio-hero, .article-hero, .contact-hero');
+        this.heroSection = document.querySelector('.hero-section, .about-hero, .service-hero, .maintenance-hero, .custom-software-hero, .mobile-hero, .ai-hero, .cloud-hero, .cyber-hero, .portfolio-hero, .article-hero, .contact-hero, .privacy-hero');
         
         if (!this.heroSection) {
             console.warn('Hero section not found');

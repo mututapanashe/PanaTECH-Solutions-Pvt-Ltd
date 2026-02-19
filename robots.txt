@@ -1,0 +1,29 @@
+# panaTECH Robots.txt
+# Allows search engines to crawl and index the website
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+Crawl-delay: 1
+
+# Specific rules for Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Specific rules for Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Block specific bad bots
+User-agent: MJ12bot
+Allow: /
+
+User-agent: AhrefsBot
+Allow: /
+
+# Sitemap reference
+Sitemap: https://panatech.co.zw/sitemap.xml
