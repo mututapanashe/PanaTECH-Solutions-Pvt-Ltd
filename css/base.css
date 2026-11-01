@@ -75,9 +75,18 @@ body {
 
 .container {
     width: 100%;
+    /* fixed max-width keeps content readable on ultra-wide displays */
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 var(--space-lg);
+    /* responsive horizontal padding to avoid edge collisions on very wide screens */
+    padding: 0 clamp(1rem, 2.5vw, var(--space-lg));
+}
+
+@media (min-width: 1441px) {
+    .container,
+    .hero-slide .container {
+        max-width: min(92vw, 1800px);
+    }
 }
 
 img {
@@ -137,7 +146,7 @@ body {
 .modal-overlay { z-index: 1004; }
 
 /* Critical mobile optimizations */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     * {
         /* Reduce animations for better performance */
         animation-duration: 0.2s !important;
@@ -191,7 +200,7 @@ html {
 }
 
 /* Mobile-specific performance fixes */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     /* Reduce scroll padding on mobile for smaller navbar */
     html {
         scroll-padding-top: 90px;
