@@ -26,15 +26,8 @@ export class Navbar {
         document.addEventListener('click', (e) => {
             if (this.mobileNav?.classList.contains('active') && 
                 !this.mobileNav.contains(e.target) && 
-                !this.mobileToggle?.contains(e.target)) {
+                e.target !== this.mobileToggle) {
                 this.closeMobileMenu();
-            }
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && this.mobileNav?.classList.contains('active')) {
-                this.closeMobileMenu();
-                this.mobileToggle?.focus();
             }
         });
         
